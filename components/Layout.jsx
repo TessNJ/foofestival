@@ -5,23 +5,32 @@ export default function Layout({ children }) {
   return (
     <>
       <header>
-        <div>
-          <Image alt=""></Image>
+        <div className="logoDiv">
+          <Image src={"/street-map-g0abaa0de0_1280.webp"} width={"50"} height={"50"} alt=""></Image>
           <h3>FooFestival</h3>
         </div>
-        <div></div>
+        <nav>
+          <ul>
+            <li>Home</li>
+            <li>Schedule</li>
+            <li>Tickets</li>
+            <li>Contact</li>
+          </ul>
+        </nav>
       </header>
       <main>{children}</main>
+      {/* <>{children}</> */}
       <footer>
         <div>
-          <Image alt=""></Image>
+          <Image src={"/street-map-g0abaa0de0_1280.webp"} width={"50"} height={"50"} alt=""></Image>
           <h5>FooFestival</h5>
         </div>
         <div>
           <ul>
-            <li></li>
-            <li></li>
-            <li></li>
+            <li>Home</li>
+            <li>Schedule</li>
+            <li>Tickets</li>
+            <li>Contact</li>
           </ul>
         </div>
       </footer>

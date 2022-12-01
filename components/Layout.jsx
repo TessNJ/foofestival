@@ -25,7 +25,7 @@ export default function Layout({ children }) {
           <Image src={"/street-map-g0abaa0de0_1280.webp"} width={"50"} height={"50"} alt=""></Image>
           <h5>FooFestival</h5>
         </div>
-        <div>
+        <div className="links">
           <ul>
             <li>Home</li>
             <li>Schedule</li>

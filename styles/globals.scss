@@ -35,19 +35,32 @@ a {
 header {
   display: flex;
   justify-content: space-between;
+  padding: 1vw 6vw;
+  border: blue solid 1px;
   .logoDiv {
     display: flex;
     justify-content: space-between;
-    width: 20%;
+    column-gap: 1vw;
   }
   nav {
-    width: 40%;
+    width: 30%;
     ul {
       display: flex;
-      justify-content: space-evenly;
+      justify-content: space-between;
       li {
         list-style: none;
       }
     }
+  }
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 1vw 6vw;
+  border: 1px red solid;
+
+  li {
+    list-style: none;
   }
 }

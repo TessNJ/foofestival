@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Anchor from "./Anchor";
 
 export default function Layout({ children }) {
   return (
@@ -11,15 +12,19 @@ export default function Layout({ children }) {
         </div>
         <nav>
           <ul>
-            <li>Home</li>
+            <li>
+              <Anchor href={"/"}>Home</Anchor>
+            </li>
             <li>Schedule</li>
-            <li>Tickets</li>
+            <li>
+              <Anchor href={"/tickets"}>Tickets</Anchor>
+            </li>
             <li>Contact</li>
           </ul>
         </nav>
       </header>
-      <main>{children}</main>
-      {/* <>{children}</> */}
+      {/* <main>{children}</main> */}
+      <>{children}</>
       <footer>
         <div>
           <Image src={"/street-map-g0abaa0de0_1280.webp"} width={"50"} height={"50"} alt=""></Image>
@@ -27,9 +32,13 @@ export default function Layout({ children }) {
         </div>
         <div className="links">
           <ul>
-            <li>Home</li>
+            <li>
+              <Anchor href={"/"}>Home</Anchor>
+            </li>
             <li>Schedule</li>
-            <li>Tickets</li>
+            <li>
+              <Anchor href={"/tickets"}>Tickets</Anchor>
+            </li>
             <li>Contact</li>
           </ul>
         </div>

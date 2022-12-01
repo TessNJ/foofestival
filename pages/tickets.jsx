@@ -1,5 +1,13 @@
 import React from "react";
 
 export default function Tickets() {
-  return <div>Tickets</div>;
+  return (
+    <main>
+      <section></section>
+      <section></section>
+      <section></section>
+      <section></section>
+      <section></section>
+    </main>
+  );
 }

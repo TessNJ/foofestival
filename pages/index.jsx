@@ -1,10 +1,12 @@
 import Head from "next/head";
+import Anchor from "../components/Anchor";
 
 export default function Home() {
   return (
-    <div>
-      <h1></h1>
-    </div>
+    <main>
+      <h1>This is index</h1>
+      <Anchor href={"/tickets"}>Take me to tickets</Anchor>
+    </main>
   );
 }
 

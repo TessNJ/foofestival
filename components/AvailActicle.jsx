@@ -3,7 +3,6 @@ import React, { useRef } from "react";
 export default function AvailActicle(props) {
   const inputRef = useRef(null);
   let buttonClass = props.availSpots === 0 ? "disabled" : "";
-  console.log(props.aramInfo);
   function info() {
     props.getAramInfo({
       area: props.title,

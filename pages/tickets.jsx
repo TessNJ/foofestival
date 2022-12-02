@@ -1,11 +1,18 @@
 import React, { useState, useEffect } from "react";
 import AvailActicle from "../components/AvailActicle";
+import InfoForm from "../components/InfoForm";
 
 export default function Tickets({ data }) {
   // const [currentSection, setCurrentSection] = useState("")
   const [aramInfo, setAramInfo] = useState(null);
+  const [formInfo, setFormInfo] = useState(null);
   function getAramInfo(props) {
     setAramInfo(props);
+    console.log("hi");
+  }
+  function getFormInfo(props) {
+    setFormInfo(props);
+    console.log(formInfo);
   }
 
   return (
@@ -23,59 +30,10 @@ export default function Tickets({ data }) {
         </div>
       </section>
       <section>
-        {/* <article>
-          <h2>Select Type, Optionals, and Personal Info</h2>
-          <form action="#" id="form_ticketInfo">
-            <div>
-              <label>
-                <select name="ticket_type" id="ticket_type">
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                </select>
-                Choose Ticket Type
-              </label>
-              <fieldset>
-                <legend>Extras</legend>
-                <label>
-                  <input type="checkbox" name="ticket_op_parking" id="ticket_op_parking" />
-                  meep
-                </label>
-                <label>
-                  <input type="checkbox" name="ticket_op_backstage" id="ticket_op_backstage" />
-                  morp
-                </label>
-              </fieldset>
-            </div>
-          </form>
-          <form action="#" id="form_personInfo">
-            <div>
-              <label>
-                Full Name
-                <input type="text" name="ticket_fullName" id="ticket_fullName" />
-              </label>
-              <label>
-                Email Address
-                <input type="email" name="ticket_email" id="ticket_email" />
-              </label>
-            </div>
-            <div>
-              <label>
-                Street and Number
-                <input type="text" name="ticket_addressStreet" id="ticket_addressStreet" />
-              </label>
-              <label>
-                City
-                <input type="text" name="ticket_addressCity" id="ticket_addressCity" />
-              </label>
-              <label>
-                Country
-                <input type="text" name="ticket_addressCountry" id="ticket_addressCountry" />
-              </label>
-            </div>
-          </form>
-        </article> */}
+        <h2>Select Type, Optionals, and Personal Info</h2>
+        <InfoForm data={data} getFormInfo={getFormInfo} />
+      </section>
+      <section>
         {/* <article>
           <h2>Reservation Conformation</h2>
         </article> */}

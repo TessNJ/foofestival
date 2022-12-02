@@ -1,7 +1,12 @@
 import React from "react";
+import AvailActicle from "../components/AvailActicle";
 import HeadInfo from "../components/Head";
+AvailActicle;
 
-export default function Tickets() {
+export default function Tickets({ data }) {
+  console.log(data);
+  // const availData = getAvailData();
+  // console.log(availData.data);
   return (
     <main>
       <section className="infoGreet">
@@ -9,9 +14,14 @@ export default function Tickets() {
         <p>See availablity, select your perfered area, and buy your tickets here for this years FooFestival!</p>
       </section>
       <section>
-        <article>
-          <h2>Availability</h2>
-        </article>
+        <h2>Availability</h2>
+        <div>
+          {data.map((e) => {
+            return <AvailActicle key={e.area} title={e.area} allSpots={e.spots} availSpots={e.available} />;
+          })}
+        </div>
+      </section>
+      <section>
         {/* <article>
           <h2>Select Area and amount</h2>
           <form action="#">
@@ -92,16 +102,21 @@ export default function Tickets() {
   );
 }
 
-// export async function getAvailData() {
-//   const res = await fetch("http://localhost:8080/available-spots");
-//   const data = await res.json();
+export async function getStaticProps() {
+  const res = await fetch("http://localhost:8080/available-spots");
 
-//   console.log(data);
-//   return;
-// }
+  const data = await res.json();
+
+  // console.log(data);
+  return {
+    props: {
+      data: data,
+    },
+  };
+}
 
 // <>
-{
-  /* <HeadInfo>Tickets</HeadInfo> */
-}
+// {
+/* <HeadInfo>Tickets</HeadInfo> */
+// }
 // </>

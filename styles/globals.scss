@@ -13,6 +13,10 @@ a {
 * {
   box-sizing: border-box;
 }
+.disabled {
+  background-color: gray;
+  pointer-events: none;
+}
 
 // @media (prefers-color-scheme: dark) {
 //   html {

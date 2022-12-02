@@ -8,7 +8,7 @@ export default function Tickets({ data }) {
   const [formInfo, setFormInfo] = useState(null);
   function getAramInfo(props) {
     setAramInfo(props);
-    console.log("hi");
+    console.log(aramInfo);
   }
   function getFormInfo(props) {
     setFormInfo(props);
@@ -31,7 +31,7 @@ export default function Tickets({ data }) {
       </section>
       <section>
         <h2>Select Type, Optionals, and Personal Info</h2>
-        <InfoForm data={data} getFormInfo={getFormInfo} />
+        <InfoForm getFormInfo={getFormInfo} />
       </section>
       <section>
         {/* <article>

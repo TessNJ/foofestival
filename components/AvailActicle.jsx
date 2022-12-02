@@ -3,12 +3,13 @@ import React, { useRef } from "react";
 export default function AvailActicle(props) {
   const inputRef = useRef(null);
   let buttonClass = props.availSpots === 0 ? "disabled" : "";
-  function info() {
+  const info = (event) => {
+    event.preventDefault;
     props.getAramInfo({
       area: props.title,
       amount: inputRef.current.value,
     });
-  }
+  };
   return (
     <article>
       <div>

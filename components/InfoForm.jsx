@@ -5,7 +5,6 @@ export default function InfoForm(props) {
   const inputRef = useRef(null);
   const collectInfo = (event) => {
     event.preventDefault;
-    console.log(inputRef.current[4].value);
     props.getFormInfo([
       {
         type: inputRef.current[0].value,

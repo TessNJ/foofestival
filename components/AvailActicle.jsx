@@ -5,10 +5,11 @@ export default function AvailActicle(props) {
   let buttonClass = props.availSpots === 0 ? "disabled" : "";
   const info = (event) => {
     event.preventDefault;
-    props.getAramInfo({
-      area: props.title,
-      amount: inputRef.current.value,
-    });
+    if (inputRef.current.value != 0 || "")
+      props.getAramInfo({
+        area: props.title,
+        amount: inputRef.current.value,
+      });
   };
   return (
     <article>

@@ -15,11 +15,15 @@ export default function Layout({ children }) {
             <li>
               <Anchor href={"/"}>Home</Anchor>
             </li>
-            <li>Schedule</li>
+            <li>
+              <Anchor href={"/schedule"}>Schedule</Anchor>
+            </li>
             <li>
               <Anchor href={"/tickets"}>Tickets</Anchor>
             </li>
-            <li>Contact</li>
+            <li>
+              <Anchor href={"/contact"}>Contact</Anchor>
+            </li>
           </ul>
         </nav>
       </header>
@@ -35,11 +39,15 @@ export default function Layout({ children }) {
             <li>
               <Anchor href={"/"}>Home</Anchor>
             </li>
-            <li>Schedule</li>
+            <li>
+              <Anchor href={"/schedule"}>Schedule</Anchor>
+            </li>
             <li>
               <Anchor href={"/tickets"}>Tickets</Anchor>
             </li>
-            <li>Contact</li>
+            <li>
+              <Anchor href={"/contact"}>Contact</Anchor>
+            </li>
           </ul>
         </div>
       </footer>

@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import AvailActicle from "../components/AvailActicle";
 
 export default function Tickets({ data }) {
-  const [aramInfo, setAramInfo] = useState({});
-  // useEffect(() => {}, []);
+  // const [currentSection, setCurrentSection] = useState("")
+  const [aramInfo, setAramInfo] = useState(null);
   function getAramInfo(props) {
     setAramInfo(props);
-    // console.log("aram info succesfull");
   }
+
   return (
     <main>
       <section className="infoGreet">

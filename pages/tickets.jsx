@@ -1,45 +1,28 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import AvailActicle from "../components/AvailActicle";
-import HeadInfo from "../components/Head";
-AvailActicle;
 
 export default function Tickets({ data }) {
-  console.log(data);
-  // const availData = getAvailData();
-  // console.log(availData.data);
+  const [aramInfo, setAramInfo] = useState({});
+  // useEffect(() => {}, []);
+  function getAramInfo(props) {
+    setAramInfo(props);
+    // console.log("aram info succesfull");
+  }
   return (
     <main>
       <section className="infoGreet">
         <h1>Tickets</h1>
         <p>See availablity, select your perfered area, and buy your tickets here for this years FooFestival!</p>
       </section>
-      <section>
+      <section className="infoAvail">
         <h2>Availability</h2>
         <div>
           {data.map((e) => {
-            return <AvailActicle key={e.area} title={e.area} allSpots={e.spots} availSpots={e.available} />;
+            return <AvailActicle key={`avail-${e.area}`} title={e.area} allSpots={e.spots} availSpots={e.available} getAramInfo={getAramInfo} />;
           })}
         </div>
       </section>
       <section>
-        {/* <article>
-          <h2>Select Area and amount</h2>
-          <form action="#">
-            <label htmlFor="">
-              Ticket Type
-              <select name="ticket_area" id="ticket_area">
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-              </select>
-            </label>
-            <label>
-              Choose Ticket Amount
-              <input type="number" name="ticket_amount" id="ticket_amount" />
-            </label>
-          </form>
-        </article> */}
         {/* <article>
           <h2>Select Type, Optionals, and Personal Info</h2>
           <form action="#" id="form_ticketInfo">
@@ -114,9 +97,3 @@ export async function getStaticProps() {
     },
   };
 }
-
-// <>
-// {
-/* <HeadInfo>Tickets</HeadInfo> */
-// }
-// </>

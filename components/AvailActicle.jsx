@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useRef } from "react";
 
 export default function AvailActicle(props) {
-  console.log(props.availSpots);
+  const inputRef = useRef(null);
   let buttonClass = props.availSpots === 0 ? "disabled" : "";
+  console.log(props.aramInfo);
+  function info() {
+    props.getAramInfo({
+      area: props.title,
+      amount: inputRef.current.value,
+    });
+  }
   return (
     <article>
       <div>
@@ -10,7 +17,13 @@ export default function AvailActicle(props) {
         <p>All Spots: {props.allSpots}</p>
         <h3>Available Spots: {props.availSpots}</h3>
       </div>
-      <button className={buttonClass}>Select</button>
+      <form action="#">
+        <label htmlFor="ticket_amount">Choose Ticket Amount</label>
+        <input ref={inputRef} type="number" name="ticket_amount" id="ticket_amount" pattern="[0-9]*" inputMode="numeric" />
+      </form>
+      <button onClick={info} className={buttonClass}>
+        Select
+      </button>
     </article>
   );
 }

@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import AvailActicle from "../components/AvailActicle";
 import InfoForm from "../components/InfoForm";
+import Hero from "../components/Hero";
 
 export default function Tickets({ data }) {
-  // const [currentSection, setCurrentSection] = useState("")
+  const [currentSection, setCurrentSection] = useState("infoGreet");
   const [aramInfo, setAramInfo] = useState(null);
   const [formInfo, setFormInfo] = useState(null);
   function getAramInfo(props) {
@@ -14,29 +15,33 @@ export default function Tickets({ data }) {
     setFormInfo(props);
     console.log(formInfo);
   }
+  function getCurrentSection(props) {
+    setCurrentSection(props);
+    console.log(currentSection);
+  }
 
   return (
     <main>
       <section className="infoGreet">
         <h1>Tickets</h1>
-        <p>See availablity, select your perfered area, and buy your tickets here for this years FooFestival!</p>
+        <Hero getCurrentSection={getCurrentSection} />
       </section>
       <section className="infoAvail">
         <h2>Availability</h2>
         <div>
           {data.map((e) => {
-            return <AvailActicle key={`avail-${e.area}`} title={e.area} allSpots={e.spots} availSpots={e.available} getAramInfo={getAramInfo} />;
+            return <AvailActicle key={`avail-${e.area}`} title={e.area} allSpots={e.spots} availSpots={e.available} getAramInfo={getAramInfo} getCurrentSection={getCurrentSection} />;
           })}
         </div>
       </section>
-      <section>
+      <section className="infoSelect">
         <h2>Select Type, Optionals, and Personal Info</h2>
-        <InfoForm getFormInfo={getFormInfo} />
+        <InfoForm getFormInfo={getFormInfo} getCurrentSection={getCurrentSection} />
       </section>
-      <section>
-        {/* <article>
+      <section className="infoConfirm">
+        <article>
           <h2>Reservation Conformation</h2>
-        </article> */}
+        </article>
       </section>
       <section></section>
     </main>

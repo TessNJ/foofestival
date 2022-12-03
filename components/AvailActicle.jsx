@@ -4,12 +4,14 @@ export default function AvailActicle(props) {
   const inputRef = useRef(null);
   let buttonClass = props.availSpots === 0 ? "disabled" : "";
   const info = (event) => {
-    event.preventDefault;
-    if (inputRef.current.value != 0 || "")
+    event.preventDefault();
+    if (inputRef.current.value != 0 || "") {
       props.getAramInfo({
         area: props.title,
         amount: inputRef.current.value,
       });
+      props.getCurrentSection("infoSelect");
+    }
   };
   return (
     <article>

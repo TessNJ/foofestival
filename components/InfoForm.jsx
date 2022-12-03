@@ -4,7 +4,8 @@ import SelectOption from "../components/SelectOption";
 export default function InfoForm(props) {
   const inputRef = useRef(null);
   const collectInfo = (event) => {
-    event.preventDefault;
+    event.preventDefault();
+    console.log(inputRef);
     props.getFormInfo([
       {
         type: inputRef.current[0].value,
@@ -23,6 +24,7 @@ export default function InfoForm(props) {
         },
       },
     ]);
+    props.getCurrentSection("infoConfirm");
   };
   return (
     <>

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import AvailActicle from "../components/AvailActicle";
 import InfoForm from "../components/InfoForm";
 import Hero from "../components/Hero";
+import Confirmation from "../components/Confirmation";
 
 export default function Tickets({ data }) {
   const [currentSection, setCurrentSection] = useState("infoGreet");
@@ -21,7 +22,7 @@ export default function Tickets({ data }) {
   }
 
   return (
-    <main>
+    <main className="ticket_main">
       <section className="infoGreet">
         <h1>Tickets</h1>
         <Hero getCurrentSection={getCurrentSection} />
@@ -39,9 +40,8 @@ export default function Tickets({ data }) {
         <InfoForm getFormInfo={getFormInfo} getCurrentSection={getCurrentSection} />
       </section>
       <section className="infoConfirm">
-        <article>
-          <h2>Reservation Conformation</h2>
-        </article>
+        <h2>Reservation Conformation</h2>
+        <Confirmation />
       </section>
       <section></section>
     </main>

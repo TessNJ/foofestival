@@ -10,8 +10,12 @@ a {
   text-decoration: none;
 }
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
+  margin: 0;
+  // padding: 0;
 }
 .disabled {
   background-color: gray;
@@ -48,10 +52,11 @@ header {
     column-gap: 1vw;
   }
   nav {
-    width: 30%;
+    // width: 30%;
     ul {
       display: flex;
       justify-content: space-between;
+      column-gap: 1vw;
       li {
         list-style: none;
       }
@@ -68,4 +73,70 @@ footer {
   li {
     list-style: none;
   }
+}
+
+.ticket_main {
+  margin: 0 5vw;
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 3vw;
+
+  section {
+    padding: 4vw;
+    h1 {
+      margin: 0;
+    }
+  }
+}
+
+.infoGreet {
+  border: 1px aqua solid;
+}
+
+.infoAvail {
+  border: 1px red solid;
+  div {
+    display: grid;
+    grid-template-columns: 1;
+    row-gap: 3vw;
+    article {
+      border: 1px blue solid;
+      padding: 2vw;
+    }
+    form {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}
+
+.infoSelect {
+  border: 1px green solid;
+  form {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 3vw;
+    div {
+      display: flex;
+      flex-direction: column;
+      background-color: rgb(187, 187, 187);
+      padding: 3vw;
+      row-gap: 3vw;
+      label {
+        display: flex;
+        justify-content: space-between;
+      }
+      fieldset {
+        display: flex;
+        justify-content: space-evenly;
+        label {
+          column-gap: 1vw;
+        }
+      }
+    }
+  }
+}
+
+.infoConfirm {
+  border: 1px purple solid;
 }

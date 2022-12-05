@@ -30,11 +30,12 @@ export default function Layout({ children }) {
       {/* <main>{children}</main> */}
       <>{children}</>
       <footer>
-        <div>
+        <div className="footerLogo">
           <Image src={"/street-map-g0abaa0de0_1280.webp"} width={"50"} height={"50"} alt=""></Image>
           <h5>FooFestival</h5>
         </div>
         <div className="links">
+          <h4>Links</h4>
           <ul>
             <li>
               <Anchor href={"/"}>Home</Anchor>

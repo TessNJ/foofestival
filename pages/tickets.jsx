@@ -10,15 +10,15 @@ export default function Tickets({ data }) {
   const [formInfo, setFormInfo] = useState(null);
   function getAramInfo(props) {
     setAramInfo(props);
-    console.log(aramInfo);
+    console.log(props);
   }
   function getFormInfo(props) {
     setFormInfo(props);
-    console.log(formInfo);
+    console.log(props);
   }
   function getCurrentSection(props) {
     setCurrentSection(props);
-    console.log(currentSection);
+    console.log(props);
   }
 
   return (

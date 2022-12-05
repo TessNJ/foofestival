@@ -10,7 +10,7 @@ export default function AvailActicle(props) {
         area: props.title,
         amount: inputRef.current.value,
       });
-      props.getCurrentSection("infoSelect");
+      props.getCurrentSection("infoReserve");
     }
   };
   return (

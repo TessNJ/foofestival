@@ -4,27 +4,29 @@ import SelectOption from "../components/SelectOption";
 export default function InfoForm(props) {
   const inputRef = useRef(null);
   const collectInfo = (event) => {
-    event.preventDefault();
-    console.log(inputRef);
-    props.getFormInfo([
-      {
-        type: inputRef.current[0].value,
-        extras: {
-          parking: inputRef.current[2].checked,
-          backstage: inputRef.current[3].checked,
+    if (inputRef.current[4].value != "" && inputRef.current[5].value != "" && inputRef.current[6].value != "" && inputRef.current[7].value != "" && inputRef.current[8].value != "") {
+      event.preventDefault();
+      console.log(inputRef);
+      props.getFormInfo([
+        {
+          type: inputRef.current[0].value,
+          extras: {
+            parking: inputRef.current[2].checked,
+            backstage: inputRef.current[3].checked,
+          },
         },
-      },
-      {
-        fullName: inputRef.current[4].value,
-        email: inputRef.current[5].value,
-        address: {
-          street: inputRef.current[6].value,
-          city: inputRef.current[7].value,
-          country: inputRef.current[8].value,
+        {
+          fullName: inputRef.current[4].value,
+          email: inputRef.current[5].value,
+          address: {
+            street: inputRef.current[6].value,
+            city: inputRef.current[7].value,
+            country: inputRef.current[8].value,
+          },
         },
-      },
-    ]);
-    props.getCurrentSection("infoConfirm");
+      ]);
+      props.getCurrentSection("infoConfirm");
+    }
   };
   return (
     <>
@@ -52,29 +54,29 @@ export default function InfoForm(props) {
         <div>
           <label>
             Full Name
-            <input type="text" name="ticket_fullName" id="ticket_fullName" />
+            <input type="text" name="ticket_fullName" id="ticket_fullName" required />
           </label>
           <label>
             Email Address
-            <input type="email" name="ticket_email" id="ticket_email" />
+            <input type="email" name="ticket_email" id="ticket_email" required />
           </label>
         </div>
         <div>
           <label>
             Street and Number
-            <input type="text" name="ticket_addressStreet" id="ticket_addressStreet" />
+            <input type="text" name="ticket_addressStreet" id="ticket_addressStreet" required />
           </label>
           <label>
             City
-            <input type="text" name="ticket_addressCity" id="ticket_addressCity" />
+            <input type="text" name="ticket_addressCity" id="ticket_addressCity" required />
           </label>
           <label>
             Country
-            <input type="text" name="ticket_addressCountry" id="ticket_addressCountry" />
+            <input type="text" name="ticket_addressCountry" id="ticket_addressCountry" required />
           </label>
         </div>
+        <button onClick={collectInfo}>Next</button>
       </form>
-      <button onClick={collectInfo}>Next</button>
     </>
   );
 }

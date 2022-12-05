@@ -21,13 +21,19 @@ export default function Tickets({ data }) {
     console.log(props);
   }
 
+  useEffect(() => {
+    const element = document.querySelector(`#${currentSection}`);
+    element.classList.remove("hidden");
+    element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+  }, [currentSection]);
+
   return (
     <main className="ticket_main">
-      <section className="infoGreet">
+      <section id="infoGreet">
         <h1>Tickets</h1>
         <Hero getCurrentSection={getCurrentSection} />
       </section>
-      <section className="infoAvail">
+      <section id="infoAvail" className="hidden">
         <h2>Availability</h2>
         <div>
           {data.map((e) => {
@@ -35,11 +41,11 @@ export default function Tickets({ data }) {
           })}
         </div>
       </section>
-      <section className="infoSelect">
+      <section id="infoSelect" className="hidden">
         <h2>Select Type, Optionals, and Personal Info</h2>
         <InfoForm getFormInfo={getFormInfo} getCurrentSection={getCurrentSection} />
       </section>
-      <section className="infoConfirm">
+      <section id="infoConfirm" className="hidden">
         <h2>Reservation Conformation</h2>
         <Confirmation />
       </section>

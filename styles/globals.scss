@@ -99,11 +99,11 @@ footer {
   }
 }
 
-.infoGreet {
+#infoGreet {
   border: 1px aqua solid;
 }
 
-.infoAvail {
+#infoAvail {
   border: 1px red solid;
   div {
     display: grid;
@@ -120,7 +120,7 @@ footer {
   }
 }
 
-.infoSelect {
+#infoSelect {
   border: 1px green solid;
   form {
     display: grid;
@@ -148,6 +148,10 @@ footer {
   }
 }
 
-.infoConfirm {
+#infoConfirm {
   border: 1px purple solid;
+}
+
+.hidden {
+  display: none;
 }

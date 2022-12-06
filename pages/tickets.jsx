@@ -5,8 +5,6 @@ import Hero from "../components/Hero";
 import Confirmation from "../components/Confirmation";
 import ReservationInfo from "../components/ReservationInfo";
 import HeadInfo from "../components/Head";
-import Ticket from "../components/Ticket";
-import ReactDOM from "react-dom";
 import Countdown from "react-countdown";
 
 export default function Tickets({ data }) {

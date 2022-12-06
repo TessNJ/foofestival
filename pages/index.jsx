@@ -4,8 +4,8 @@ import HeadInfo from "../components/Head";
 export default function Home() {
   return (
     <>
-      {/* <HeadInfo>Index</HeadInfo> */}
-      <main>
+      <HeadInfo>Index</HeadInfo>
+      <main className="indexMain">
         <h1>This is index</h1>
         <Anchor href={"/tickets"}>Take me to tickets</Anchor>
       </main>

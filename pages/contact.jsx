@@ -5,7 +5,7 @@ import HeadInfo from "../components/Head";
 export default function Contact() {
   return (
     <>
-      {/* <HeadInfo>Contact</HeadInfo> */}
+      <HeadInfo>Contact</HeadInfo>
       <main className="contactMain">
         <article>
           <h1>Lorem Ipsum</h1>

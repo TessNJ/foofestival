@@ -3,6 +3,18 @@ body {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  min-height: 100vh;
+}
+
+#__next {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 a {
@@ -23,22 +35,24 @@ a {
   pointer-events: none;
 }
 
-// @media (prefers-color-scheme: dark) {
-//   html {
-//     color-scheme: dark;
-//   }
-//   body {
-//     color: white;
-//     background: black;
-//   }
-// }
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    color: white;
+    background: black;
+  }
+}
 
 .contactMain {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  margin: 0 5vw;
+  margin: 5vw;
   column-gap: 3vw;
   justify-items: center;
+  align-items: center;
+  height: 100%;
 }
 
 header {
@@ -67,6 +81,7 @@ header {
 }
 
 footer {
+  margin-top: auto;
   display: flex;
   justify-content: space-between;
   padding: 1vw 6vw;
@@ -77,20 +92,23 @@ footer {
     justify-content: center;
     align-items: center;
   }
+  .links {
+    padding: 2vw;
+  }
   ul {
     padding: 0;
+
     li {
       list-style: none;
     }
   }
 }
 
-.ticket_main {
-  margin: 0 5vw;
+.ticketMain {
+  margin: 5vw;
   display: grid;
   grid-template-columns: 1fr;
   row-gap: 3vw;
-
   section {
     padding: 4vw;
     h1 {
@@ -150,6 +168,16 @@ footer {
 
 #infoConfirm {
   border: 1px purple solid;
+}
+
+.indexMain,
+.scheduleMain {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: 5vw;
+  justify-items: center;
+  align-items: center;
+  height: 100%;
 }
 
 .hidden {

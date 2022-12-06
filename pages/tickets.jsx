@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import AvailActicle from "../components/AvailActicle";
 import InfoForm from "../components/InfoForm";
 import Hero from "../components/Hero";
@@ -31,10 +31,10 @@ export default function Tickets({ data }) {
     const element = document.querySelector(`#${currentSection}`);
     element.classList.remove("hidden");
     element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
-    if (currentSection === "infoSelect") {
+    if (currentSection === "infoSelect" && timerInfo != true) {
       setTimerInfo(true);
     }
-  }, [currentSection]);
+  }, [currentSection, timerInfo]);
 
   useEffect(() => {
     if (timerInfo === true) {

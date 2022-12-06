@@ -4,31 +4,30 @@ import SelectOption from "../components/SelectOption";
 export default function InfoForm(props) {
   const inputRef = useRef(null);
   const collectInfo = (event) => {
-    if (inputRef.current[4].value != "" && inputRef.current[5].value != "" && inputRef.current[6].value != "" && inputRef.current[7].value != "" && inputRef.current[8].value != "") {
-      event.preventDefault();
-      console.log(inputRef);
-      props.getFormInfo([
-        {
-          type: inputRef.current[0].value,
-          extras: {
-            parking: inputRef.current[2].checked,
-            backstage: inputRef.current[3].checked,
-          },
+    /*  if (inputRef.current[4].value != "" && inputRef.current[5].value != "" && inputRef.current[6].value != "" && inputRef.current[7].value != "" && inputRef.current[8].value != "") { */
+    event.preventDefault();
+    console.log(inputRef);
+    props.getFormInfo([
+      {
+        type: inputRef.current[0].value,
+        extras: {
+          parking: inputRef.current[2].checked,
+          backstage: inputRef.current[3].checked,
         },
-        {
-          fullName: inputRef.current[4].value,
-          email: inputRef.current[5].value,
-          address: {
-            street: inputRef.current[6].value,
-            city: inputRef.current[7].value,
-            country: inputRef.current[8].value,
-          },
+      },
+      {
+        fullName: inputRef.current[4].value,
+        email: inputRef.current[5].value,
+        address: {
+          street: inputRef.current[6].value,
+          city: inputRef.current[7].value,
+          country: inputRef.current[8].value,
         },
-      ]);
-      props.getCurrentSection("infoConfirm");
-    }
+      },
+    ]);
+    props.getCurrentSection("infoConfirm");
   };
-  return (
+  /*   } */ return (
     <>
       <form action="#" id="form_ticketInfo" ref={inputRef}>
         <div>

@@ -1,12 +1,12 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useMemo } from "react";
 import Countdown from "react-countdown";
 
 export default function Timer(props) {
   const myTimer = useRef(null);
+  //   if (props.timerInfo === false) {
+  //     return;
+  //   }
   const info = props.timerInfo;
-  if (info === true) {
-    console.log(myTimer.current.api.isStarted);
-  }
   useEffect(() => {
     if (info === true) {
       myTimer.current.api.start();
@@ -15,11 +15,16 @@ export default function Timer(props) {
     }
   }, [info]);
 
+  const time = useMemo(() => {
+    return Date.now() + 300000;
+  }, []);
+
   function complete() {
     console.log("done");
   }
-  const renderer = ({ hours, minutes, seconds, completed }) => {
-    if (props.timerInfo === true) {
+  const renderer = ({ minutes, seconds, completed }) => {
+    if (completed) {
+      complete();
     }
     return (
       <span>
@@ -28,5 +33,5 @@ export default function Timer(props) {
     );
   };
 
-  return <Countdown date={Date.now() + 100000} renderer={renderer} onComplete={complete} autoStart={false} ref={myTimer} />;
+  return <Countdown date={time} renderer={renderer} autoStart={false} ref={myTimer} />;
 }

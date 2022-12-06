@@ -5,6 +5,9 @@ import Hero from "../components/Hero";
 import Confirmation from "../components/Confirmation";
 import ReservationInfo from "../components/ReservationInfo";
 import HeadInfo from "../components/Head";
+import Ticket from "../components/Ticket";
+import ReactDOM from "react-dom";
+import Countdown from "react-countdown";
 
 export default function Tickets({ data }) {
   const [currentSection, setCurrentSection] = useState("infoGreet");
@@ -29,10 +32,34 @@ export default function Tickets({ data }) {
     element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
   }, [currentSection]);
 
+  useEffect(() => {
+    if (currentSection === "infoSelect") {
+      document.querySelector("#timer").classList.remove("hidden");
+    }
+    // if(currentSection ==="")
+  });
+
+  const Completionist = () => <span>You are good to go!</span>;
+  const renderer = ({ hours, minutes, seconds, completed }) => {
+    if (completed) {
+      return <Completionist />;
+    } else {
+      return (
+        <span>
+          {minutes}:{seconds}
+        </span>
+      );
+    }
+  };
   return (
     <>
       <HeadInfo>Tickets</HeadInfo>
       <main className="ticketMain">
+        <section id="timer" className="hidden">
+          <h1>Timer</h1>
+          <Countdown date={Date.now() + 300000} renderer={renderer} />
+          <div className="timerHere"></div>
+        </section>
         <section id="infoGreet">
           <h1>Tickets</h1>
           <Hero getCurrentSection={getCurrentSection} />

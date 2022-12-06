@@ -6,7 +6,6 @@ export default function InfoForm(props) {
   const collectInfo = (event) => {
     /*  if (inputRef.current[4].value != "" && inputRef.current[5].value != "" && inputRef.current[6].value != "" && inputRef.current[7].value != "" && inputRef.current[8].value != "") { */
     event.preventDefault();
-    console.log(inputRef);
     props.getFormInfo([
       {
         type: inputRef.current[0].value,
@@ -25,9 +24,14 @@ export default function InfoForm(props) {
         },
       },
     ]);
-    props.getCurrentSection("infoConfirm");
+    if (props.aramInfo.amount <= 1) {
+      console.log(props.aramInfo.amount);
+      props.getCurrentSection("infoConfirm");
+    } else if (props.aramInfo.amount >= 2) {
+      props.getCurrentSection("infoGuest");
+    }
   };
-  /*   } */ return (
+  return (
     <>
       <form action="#" id="form_ticketInfo" ref={inputRef}>
         <div>

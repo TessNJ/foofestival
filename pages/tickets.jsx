@@ -10,26 +10,21 @@ import Timer from "../components/Timer";
 import GuestInfoOverall from "../components/GuestInfoOverall";
 
 export default function Tickets({ data }) {
-  console.log(Countdown.Countdown$1);
   const [currentSection, setCurrentSection] = useState("infoGreet");
   const [aramInfo, setAramInfo] = useState("");
   const [formInfo, setFormInfo] = useState("");
   const [timerInfo, setTimerInfo] = useState(false);
   function getAramInfo(props) {
     setAramInfo(props);
-    console.log(props);
   }
   function getFormInfo(props) {
     setFormInfo(props);
-    console.log(props);
   }
   function getCurrentSection(props) {
     setCurrentSection(props);
-    console.log(props);
   }
 
   function timedOut() {
-    console.log("timed Out");
     document.querySelector("#infoTimedOut").classList.remove("timerHidden");
   }
 
@@ -37,10 +32,15 @@ export default function Tickets({ data }) {
     const element = document.querySelector(`#${currentSection}`);
     element.classList.remove("hidden");
     element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+    // if (currentSection === "infoGuest" && aramInfo.amount < 2) {
+    //   document.querySelector("#infoGuest").classList.add("hidden");
+    // } else if (currentSection === "infoGuest" && aramInfo.amount === 1) {
+    //   setCurrentSection("infoConfirm");
+    // }
     if (currentSection === "infoSelect" && timerInfo != true) {
       setTimerInfo(true);
     }
-  }, [currentSection, timerInfo]);
+  }, [currentSection, timerInfo, aramInfo]);
 
   useEffect(() => {
     if (timerInfo === true) {
@@ -95,13 +95,13 @@ export default function Tickets({ data }) {
         </section>
         <section id="infoSelect" className="hidden">
           <h2>Select Type, Optionals, and Personal Info</h2>
-          <InfoForm getFormInfo={getFormInfo} getCurrentSection={getCurrentSection} />
+          <InfoForm getFormInfo={getFormInfo} getCurrentSection={getCurrentSection} aramInfo={aramInfo} />
         </section>
-        <section id="infoGuestInfo">
+        <section id="infoGuest" className="hidden">
           <h2>Guest Information</h2>
           <p>It appears there is multiple people attached to this order.</p>
           <p>Please add at least 1 additional guests name and email</p>
-          <GuestInfoOverall />
+          <GuestInfoOverall getCurrentSection={getCurrentSection} />
         </section>
         <section id="infoConfirm" className="hidden">
           <h2>Reservation Conformation</h2>

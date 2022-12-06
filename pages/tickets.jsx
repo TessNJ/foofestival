@@ -7,6 +7,7 @@ import ReservationInfo from "../components/ReservationInfo";
 import HeadInfo from "../components/Head";
 import Countdown from "react-countdown";
 import Timer from "../components/Timer";
+import GuestInfoOverall from "../components/GuestInfoOverall";
 
 export default function Tickets({ data }) {
   console.log(Countdown.Countdown$1);
@@ -95,6 +96,12 @@ export default function Tickets({ data }) {
         <section id="infoSelect" className="hidden">
           <h2>Select Type, Optionals, and Personal Info</h2>
           <InfoForm getFormInfo={getFormInfo} getCurrentSection={getCurrentSection} />
+        </section>
+        <section id="infoGuestInfo">
+          <h2>Guest Information</h2>
+          <p>It appears there is multiple people attached to this order.</p>
+          <p>Please add at least 1 additional guests name and email</p>
+          <GuestInfoOverall />
         </section>
         <section id="infoConfirm" className="hidden">
           <h2>Reservation Conformation</h2>

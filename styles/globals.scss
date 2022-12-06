@@ -148,8 +148,7 @@ footer {
     div {
       display: flex;
       flex-direction: column;
-      // background-color: rgb(187, 187, 187);
-      border: 1px solid grey;
+      border: 1px solid rgb(255, 25, 236);
       padding: 3vw;
       row-gap: 3vw;
       label {
@@ -171,6 +170,10 @@ footer {
   border: 1px purple solid;
 }
 
+#infoReserve {
+  border: 1px orange solid;
+}
+
 .indexMain,
 .scheduleMain {
   display: grid;
@@ -187,7 +190,7 @@ footer {
   border: yellow 1px solid;
   padding: 2vw 5vw;
   .timerHere {
-    background-color: beige;
+    background-color: rgb(123, 123, 123);
   }
 }
 

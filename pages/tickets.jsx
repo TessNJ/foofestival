@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import AvailActicle from "../components/AvailActicle";
 import InfoForm from "../components/InfoForm";
 import Hero from "../components/Hero";
@@ -6,11 +6,14 @@ import Confirmation from "../components/Confirmation";
 import ReservationInfo from "../components/ReservationInfo";
 import HeadInfo from "../components/Head";
 import Countdown from "react-countdown";
+import Timer from "../components/Timer";
 
 export default function Tickets({ data }) {
+  console.log(Countdown.Countdown$1);
   const [currentSection, setCurrentSection] = useState("infoGreet");
   const [aramInfo, setAramInfo] = useState("");
   const [formInfo, setFormInfo] = useState("");
+  const [timerInfo, setTimerInfo] = useState(false);
   function getAramInfo(props) {
     setAramInfo(props);
     console.log(props);
@@ -28,36 +31,31 @@ export default function Tickets({ data }) {
     const element = document.querySelector(`#${currentSection}`);
     element.classList.remove("hidden");
     element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+    if (currentSection === "infoSelect") {
+      setTimerInfo(true);
+    }
   }, [currentSection]);
 
   useEffect(() => {
-    if (currentSection === "infoSelect") {
-      document.querySelector("#timer").classList.remove("hidden");
+    if (timerInfo === true) {
+      document.querySelector("#timer").classList.remove("timerHidden");
     }
-    // if(currentSection ==="")
   });
 
-  const Completionist = () => <span>You are good to go!</span>;
-  const renderer = ({ hours, minutes, seconds, completed }) => {
-    if (completed) {
-      return <Completionist />;
-    } else {
-      return (
-        <span>
-          {minutes}:{seconds}
-        </span>
-      );
-    }
-  };
   return (
     <>
       <HeadInfo>Tickets</HeadInfo>
       <main className="ticketMain">
-        <section id="timer" className="hidden">
-          <h1>Timer</h1>
-          <Countdown date={Date.now() + 300000} renderer={renderer} />
-          <div className="timerHere"></div>
-        </section>
+        <aside id="timer" className="timerHidden ">
+          <div className="timerHere">
+            <p>
+              Timer:&nbsp;&nbsp;
+              <span>
+                <Timer timerInfo={timerInfo} />
+              </span>
+            </p>
+          </div>
+        </aside>
         <section id="infoGreet">
           <h1>Tickets</h1>
           <Hero getCurrentSection={getCurrentSection} />
@@ -93,7 +91,6 @@ export async function getStaticProps() {
 
   const data = await res.json();
 
-  // console.log(data);
   return {
     props: {
       data: data,

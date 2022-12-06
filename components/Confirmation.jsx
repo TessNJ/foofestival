@@ -3,8 +3,8 @@ import React from "react";
 export default function Confirmation(props) {
   const close = (event) => {
     event.preventDefault();
-    // location.reload();
-    props.getCurrentSection("infoGreet");
+    location.reload();
+    // props.getCurrentSection("infoGreet");
   };
   return (
     <div>

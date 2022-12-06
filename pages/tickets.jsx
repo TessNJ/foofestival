@@ -27,6 +27,11 @@ export default function Tickets({ data }) {
     console.log(props);
   }
 
+  function timedOut() {
+    console.log("timed Out");
+    document.querySelector("#infoTimedOut").classList.remove("timerHidden");
+  }
+
   useEffect(() => {
     const element = document.querySelector(`#${currentSection}`);
     element.classList.remove("hidden");
@@ -51,9 +56,23 @@ export default function Tickets({ data }) {
             <p>
               Timer:&nbsp;&nbsp;
               <span>
-                <Timer timerInfo={timerInfo} />
+                <Timer timedOut={timedOut} timerInfo={timerInfo} />
               </span>
             </p>
+          </div>
+        </aside>
+        <aside id="infoTimedOut" className="timerHidden">
+          <div>
+            <h1>Timed Out</h1>
+            <p>The current sesstion have timed out.</p>
+            <p>To proceed, please close this window.</p>
+            <button
+              onClick={() => {
+                location.reload();
+              }}
+            >
+              Close
+            </button>
           </div>
         </aside>
         <section id="infoGreet">

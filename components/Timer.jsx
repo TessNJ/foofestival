@@ -20,7 +20,7 @@ export default function Timer(props) {
   }, []);
 
   function complete() {
-    console.log("done");
+    props.timedOut();
   }
   const renderer = ({ minutes, seconds, completed }) => {
     if (completed) {

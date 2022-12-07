@@ -1,7 +1,8 @@
 import Anchor from "../components/Anchor";
 import HeadInfo from "../components/Head";
 
-export default function Home() {
+export default function Home(props) {
+  console.log(props.allData);
   return (
     <>
       <HeadInfo>Index</HeadInfo>

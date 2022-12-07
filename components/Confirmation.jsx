@@ -1,10 +1,16 @@
 import React from "react";
 
-export default function Confirmation(props) {
+export default function Confirmation({ recieveData, allData }) {
   const close = (event) => {
     event.preventDefault();
-    location.reload();
+    // location.reload();
     // props.getCurrentSection("infoGreet");
+    // props.moveToPurchase();
+    console.log("move");
+    recieveData({
+      aramInfo: aramInfo,
+      formInfo: formInfo,
+    });
   };
   return (
     <div>

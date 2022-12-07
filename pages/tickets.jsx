@@ -10,7 +10,8 @@ import Timer from "../components/Timer";
 import GuestInfoOverall from "../components/GuestInfoOverall";
 import Anchor from "../components/Anchor";
 
-export default function Tickets({ data }) {
+export default function Tickets({ data, recieveData, allData }) {
+  console.log(allData);
   const [currentSection, setCurrentSection] = useState("infoGreet");
   const [aramInfo, setAramInfo] = useState("");
   const [formInfo, setFormInfo] = useState("");
@@ -33,11 +34,7 @@ export default function Tickets({ data }) {
     const element = document.querySelector(`#${currentSection}`);
     element.classList.remove("hidden");
     element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
-    // if (currentSection === "infoGuest" && aramInfo.amount < 2) {
-    //   document.querySelector("#infoGuest").classList.add("hidden");
-    // } else if (currentSection === "infoGuest" && aramInfo.amount === 1) {
-    //   setCurrentSection("infoConfirm");
-    // }
+
     if (currentSection === "infoSelect" && timerInfo != true) {
       setTimerInfo(true);
     }
@@ -48,6 +45,16 @@ export default function Tickets({ data }) {
       document.querySelector("#timer").classList.remove("timerHidden");
     }
   });
+
+  function moveToPurchase() {
+    console.log("move");
+    recieveData({
+      aramInfo: aramInfo,
+      formInfo: formInfo,
+    });
+    // setTimeout((window.location.href = "/finalizePurchase"), 10000);
+    // setTimeout(console.log(allData), 10000);
+  }
 
   return (
     <>
@@ -106,9 +113,17 @@ export default function Tickets({ data }) {
         </section>
         <section id="infoConfirm" className="hidden">
           <h2>Reservation Conformation</h2>
-          <Confirmation />
+          {/* <Confirmation recieveData={recieveData} allData={allData} /> */}
+          <div>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit voluptatibus totam amet perferendis incidunt illum debitis in qui rerum officia, mollitia eos necessitatibus temporibus facere libero blanditiis distinctio culpa.
+              Deleniti!
+            </p>
+            <Anchor href={"/finalizePurchase"}>
+              <button onClick={moveToPurchase}>Confirm</button>
+            </Anchor>
+          </div>
         </section>
-        <Anchor href={"/finalizePurchase"}>Take my to purchase</Anchor>
       </main>
     </>
   );

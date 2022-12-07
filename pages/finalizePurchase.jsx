@@ -1,7 +1,9 @@
 import React from "react";
 import HeadInfo from "../components/Head";
 
-export default function finalizePurchase() {
+export default function finalizePurchase({ allData }) {
+  console.log(allData.aramInfo);
+  console.log(allData.formInfo);
   return (
     <>
       <HeadInfo>Purchase</HeadInfo>
@@ -10,16 +12,17 @@ export default function finalizePurchase() {
           <h1>Finalize Purchase</h1>
           <article>
             <h5>Basic Details:</h5>
-            <p>Area</p>
-            <p>Amount</p>
+            <p>{allData.aramInfo.area}</p>
+            <p>{allData.aramInfo.amount}</p>
             <p>
-              Ticket types <span>x amount</span>
+              Ticket {allData.formInfo[0].type} x {allData.aramInfo.amount}
             </p>
           </article>
           <div>
             <article>
               <h5>Extras:</h5>
-              <p>None</p>
+              <p>{allData.formInfo[0].extras.parking}</p>
+              <p>{allData.formInfo[0].extras.backstage}</p>
             </article>
           </div>
           <div>

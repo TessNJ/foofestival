@@ -2,7 +2,6 @@ import React from "react";
 
 export default function ReservationInfo(props) {
   function nextSec() {
-    console.log("hi");
     props.getCurrentSection("infoSelect");
   }
   if (props.aramInfo.amount === "1") {

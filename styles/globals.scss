@@ -4,6 +4,7 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   min-height: 100vh;
+  font-size: 16px;
 }
 
 #__next {
@@ -104,7 +105,8 @@ footer {
   }
 }
 
-.ticketMain {
+.ticketMain,
+.purchaseMain {
   position: relative;
   margin: 5vw;
   display: grid;
@@ -229,4 +231,29 @@ button {
   padding: 0.5vw 1vw;
   border: none;
   background-color: rgb(145, 182, 255);
+}
+
+//* Buy section *//
+.buyInfo {
+  border: blue 1px solid;
+}
+.buyMethod {
+  border: solid red 1px;
+}
+.buyDetails {
+  border: green 1px solid;
+}
+
+.buyConfirm {
+  border: purple 1px solid;
+}
+
+.buyBought {
+  border: orange 1px solid;
+}
+
+.textItalic {
+  font-style: italic;
+  color: grey;
+  font-size: 1rem;
 }

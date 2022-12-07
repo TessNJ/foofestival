@@ -8,6 +8,7 @@ import HeadInfo from "../components/Head";
 import Countdown from "react-countdown";
 import Timer from "../components/Timer";
 import GuestInfoOverall from "../components/GuestInfoOverall";
+import Anchor from "../components/Anchor";
 
 export default function Tickets({ data }) {
   const [currentSection, setCurrentSection] = useState("infoGreet");
@@ -107,6 +108,7 @@ export default function Tickets({ data }) {
           <h2>Reservation Conformation</h2>
           <Confirmation />
         </section>
+        <Anchor href={"/finalizePurchase"}>Take my to purchase</Anchor>
       </main>
     </>
   );

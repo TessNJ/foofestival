@@ -53,11 +53,7 @@ export default function Tickets({ data, recieveData, allData }) {
 
   function moveToPurchase() {
     console.log("move");
-    recieveData({
-      aramInfo: aramInfo,
-      formInfo: formInfo,
-      guestInfo: guestInfo,
-    });
+    recieveData([aramInfo, formInfo, guestInfo]);
   }
 
   return (

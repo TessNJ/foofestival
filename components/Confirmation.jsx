@@ -6,7 +6,6 @@ export default function Confirmation({ recieveData, allData }) {
     // location.reload();
     // props.getCurrentSection("infoGreet");
     // props.moveToPurchase();
-    console.log("move");
     recieveData({
       aramInfo: aramInfo,
       formInfo: formInfo,

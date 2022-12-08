@@ -26,7 +26,8 @@ export default function FinalizePurchase({ allData }) {
         <main className="purchaseMain">
           <section className="buyInfo">
             <h1>Finalize Purchase</h1>
-            <Details data={allData} />
+            <h4>Basic Details:</h4>
+            <Details data={allData} title="basic" />
             <Extras data={allData} title="basicDetails" />
             <div>
               <p className="textItalic">
@@ -44,7 +45,7 @@ export default function FinalizePurchase({ allData }) {
           <section className="buyConfirm">
             <h2>Please Confirm details and purchase</h2>
             <h4>Full Details:</h4>
-            <Details data={allData} />
+            <Details data={allData} title="full" />
             <Extras data={allData} title="allDetails" />
             <GuestDisplay data={allData} />
             <CardDisplay data={allData} cardDetails={cardDetails} />

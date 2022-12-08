@@ -15,12 +15,17 @@ export default function Tickets({ data, recieveData, allData }) {
   const [currentSection, setCurrentSection] = useState("infoGreet");
   const [aramInfo, setAramInfo] = useState("");
   const [formInfo, setFormInfo] = useState("");
+  const [guestInfo, setGuestInfo] = useState();
   const [timerInfo, setTimerInfo] = useState(false);
   function getAramInfo(props) {
     setAramInfo(props);
   }
   function getFormInfo(props) {
     setFormInfo(props);
+  }
+  function getGuestInfo(props) {
+    setGuestInfo(props);
+    console.log(guestInfo);
   }
   function getCurrentSection(props) {
     setCurrentSection(props);
@@ -51,9 +56,8 @@ export default function Tickets({ data, recieveData, allData }) {
     recieveData({
       aramInfo: aramInfo,
       formInfo: formInfo,
+      guestInfo: guestInfo,
     });
-    // setTimeout((window.location.href = "/finalizePurchase"), 10000);
-    // setTimeout(console.log(allData), 10000);
   }
 
   return (
@@ -109,7 +113,7 @@ export default function Tickets({ data, recieveData, allData }) {
           <h2>Guest Information</h2>
           <p>It appears there is multiple people attached to this order.</p>
           <p>Please add at least 1 additional guests name and email</p>
-          <GuestInfoOverall getCurrentSection={getCurrentSection} />
+          <GuestInfoOverall getCurrentSection={getCurrentSection} getGuestInfo={getGuestInfo} />
         </section>
         <section id="infoConfirm" className="hidden">
           <h2>Reservation Conformation</h2>

@@ -2,7 +2,7 @@ import React from "react";
 
 export default function GuestInfo() {
   return (
-    <div>
+    <fieldset>
       <label>
         Full Name
         <input type="text" name="" id="" required />
@@ -11,6 +11,6 @@ export default function GuestInfo() {
         Email
         <input type="email" name="" id="" required />
       </label>
-    </div>
+    </fieldset>
   );
 }

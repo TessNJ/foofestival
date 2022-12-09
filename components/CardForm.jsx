@@ -1,114 +1,87 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
+import Payment from "payment";
 
 export default function CardForm(props) {
-  const cardForm = useRef("");
-  // const cardForm = useRef(null);
-  // const cardForm = useRef(null);
-  // console.log(numberInput.current.value);
+  const [cardType, setCardType] = useState(null);
+  const cardForm = useRef(null);
+  if (typeof document === "undefined") {
+    console.log("hi");
+  }
+  // if (typeof document === "undefined" || typeof window === "undefined") {
+  //   console.log("window undefined");
+  // } else {
+  //   // console.log(document.querySelector("input#cardNo"));
+  // Payment.formatCardExpiry(document.querySelector("input#expDate"));
+  //   // Payment.formatCardCVC(document.querySelector("input#CVC"));
+
+  function checkCardType(event) {
+    console.log(Payment.fns.cardType(event.target.value));
+    setCardType(Payment.fns.cardType(event.target.value));
+  }
+  const chechValidate = (event) => {
+    Payment.formatCardNumber(event.target);
+  };
   const sendCard = (event) => {
     event.preventDefault;
-    /*     props.getCardDetail({
-      cardNo: cardForm.current[0].value,
-      cardDate: cardForm.current[1].value,
-      cardSecu: cardForm.current[2].value,
-    }); */
+    if (cardForm.current[0].value.length >= 19 && Payment.fns.validateCardExpiry(cardForm.current[1].value) && Payment.fns.validateCardCVC(cardForm.current[2].value)) {
+      console.log("allowed");
+      props.getCardDetail({
+        cardNo: cardForm.current[0].value,
+        cardDate: cardForm.current[1].value,
+        cardSecu: cardForm.current[2].value,
+      });
+    } else {
+      console.log("denied");
+      console.log(cardForm.current[0].value.length);
+    }
+    console.log(cardForm.current[1].value.length, Payment.fns.validateCardExpiry(cardForm.current[1].value), Payment.fns.validateCardCVC(cardForm.current[2].value));
   };
-
-  function numberCheck(e) {
-    console.log(e.target.value);
-    if (e.target.value.length === 4 || e.target.value.length === 9 || e.target.value.length === 14) {
-      e.target.value += " ";
-    }
-    if (e.target.value.length >= 20) {
-      // e.target.value.replace(-1, "");
-    }
-  }
-
-  function monthCheck(e) {
-    if (e.target.value.length) {
-      console.log("success!!");
-    }
-  }
-  function yearCheck(e) {}
-  function securityCheck(e) {}
-
-  // cardForm.current.addEventListener("input", (e) => {
-  // });
-  /*     if (form.elements.cardnumber.value.length === 19) {
-      form.elements.month.focus();
-    }
-  }); */
-
-  /*  form.elements.month.addEventListener("input", (e) => {
-    if (form.elements.month.value.length === 2) {
-      form.elements.year.focus();
-    }
-  });
-  form.elements.year.addEventListener("input", (e) => {
-    if (form.elements.year.value.length === 2) {
-      form.elements.security.focus();
-    }
-  });
-  form.elements.security.addEventListener("input", (e) => {
-    console.log(form.elements.security.value);
-    if (form.elements.security.value.length === 3) {
-      form.elements.submit.focus();
-    }
-  }); */
   return (
     <>
-      <form action="#" /* ref={cardForm} */>
+      <div>
+        <p>Type: {cardType}</p>
+      </div>
+      <form action="#" ref={cardForm}>
         <div className="form-group">
-          <label htmlFor="cardnumber">Card number</label>
+          <label htmlFor="cardNo">Card number</label>
           <input
             type="text"
-            autoComplete="off"
-            name="cardnumber"
+            name="cardNo"
             inputMode="numeric"
-            id="cardnumber"
+            id="cardNo"
+            required
             onChange={(e) => {
-              numberCheck(e);
+              checkCardType(e);
+              // chechValidate(e);
+              Payment.formatCardNumber(e.target);
             }}
           />
         </div>
         <div className="form-group">
-          <div className="date-info">
-            <label htmlFor="month">month</label>
-            <input
-              type="text"
-              autoComplete="off"
-              inputMode="numeric"
-              name="month"
-              id="month"
-              onChange={(e) => {
-                monthCheck(e);
-              }}
-            />
-          </div>
-          <div className="date-info">
-            <label htmlFor="year">year</label>
-            <input
-              type="text"
-              autoComplete="off"
-              inputMode="numeric"
-              name="year"
-              id="year"
-              onChange={(e) => {
-                yearCheck(e);
-              }}
-            />
-          </div>
-        </div>
-        <div className="form-group">
-          <label htmlFor="security">security</label>
+          <label htmlFor="expDate">Experation Date</label>
           <input
             type="text"
             autoComplete="off"
             inputMode="numeric"
-            name="security"
-            id="security"
+            name="expDate"
+            id="expDate"
+            required
             onChange={(e) => {
-              securityCheck(e);
+              Payment.formatCardExpiry(e.target);
+            }}
+          />
+        </div>
+        <div className="form-group" id="divCVC">
+          <label htmlFor="CVC">CVC</label>
+          <input
+            type="text"
+            autoComplete="off"
+            inputMode="numeric"
+            name="CVC"
+            id="CVC"
+            required
+            onChange={(e) => {
+              Payment.formatCardCVC(e.target);
             }}
           />
         </div>
@@ -116,4 +89,5 @@ export default function CardForm(props) {
       <button onClick={sendCard}>Submit</button>
     </>
   );
+  // }
 }

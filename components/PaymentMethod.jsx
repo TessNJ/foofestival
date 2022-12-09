@@ -9,6 +9,7 @@ export default function PaymentMethod() {
         <button className="disabled">Paypal</button>
         <button className="disabled">Mobile-Pay</button>
       </div>
+      <p className="textItalic">Supports American CVC formatting (4-digts)</p>
     </article>
   );
 }

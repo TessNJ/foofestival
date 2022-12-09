@@ -5,34 +5,35 @@ export default function InfoForm(props) {
   const inputRef = useRef(null);
 
   const CollectInfo = (event) => {
-    /*  if (inputRef.current[4].value != "" && inputRef.current[5].value != "" && inputRef.current[6].value != "" && inputRef.current[7].value != "" && inputRef.current[8].value != "") { */
-    event.preventDefault();
-    let typeName = "Standard Ticket";
-    let typePrice = 1499;
+    if (inputRef.current[4].value != "" && inputRef.current[5].value != "" && inputRef.current[6].value != "" && inputRef.current[7].value != "" && inputRef.current[8].value != "") {
+      event.preventDefault();
+      let typeName = "Standard Ticket";
+      let typePrice = 1499;
 
-    if (inputRef.current[0].value === "extraSpace") {
-      typeName = "Extra Space Ticket";
-      typePrice = 1999;
-    }
-    props.getFormInfo({
-      type: { typeName: typeName, typePrice: typePrice },
-      extras: {
-        parking: inputRef.current[2].checked,
-        backstage: inputRef.current[3].checked,
-      },
-      fullName: inputRef.current[4].value,
-      email: inputRef.current[5].value,
-      address: {
-        street: inputRef.current[6].value,
-        city: inputRef.current[7].value,
-        country: inputRef.current[8].value,
-      },
-    });
-    if (props.aramInfo.amount <= 1) {
-      console.log(props.aramInfo.amount);
-      props.getCurrentSection("infoConfirm");
-    } else if (props.aramInfo.amount >= 2) {
-      props.getCurrentSection("infoGuest");
+      if (inputRef.current[0].value === "extraSpace") {
+        typeName = "Extra Space Ticket";
+        typePrice = 1999;
+      }
+      props.getFormInfo({
+        type: { typeName: typeName, typePrice: typePrice },
+        extras: {
+          parking: inputRef.current[2].checked,
+          backstage: inputRef.current[3].checked,
+        },
+        fullName: inputRef.current[4].value,
+        email: inputRef.current[5].value,
+        address: {
+          street: inputRef.current[6].value,
+          city: inputRef.current[7].value,
+          country: inputRef.current[8].value,
+        },
+      });
+      if (props.aramInfo.amount <= 1) {
+        console.log(props.aramInfo.amount);
+        props.getCurrentSection("infoConfirm");
+      } else if (props.aramInfo.amount >= 2) {
+        props.getCurrentSection("infoGuest");
+      }
     }
   };
   return (

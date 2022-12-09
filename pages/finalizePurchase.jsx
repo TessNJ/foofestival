@@ -9,8 +9,8 @@ import PaymentMethod from "../components/PaymentMethod";
 
 export default function FinalizePurchase({ allData }) {
   console.log(allData);
-
   const [cardDetails, setCardDetails] = useState(null);
+  const [buyComplete, setBuyComplete] = useState(false);
   if (!allData[0] || !allData[1] || !allData[2]) {
     if (typeof window !== "undefined") {
       console.log("window undefined");
@@ -19,13 +19,17 @@ export default function FinalizePurchase({ allData }) {
   } else {
     function getCardDetail(props) {
       setCardDetails(props);
+      setBuyComplete(true);
+    }
+    if (buyComplete === true) {
+      document.querySelector("#confirmButton").classList.remove("disabled");
     }
     return (
       <>
         <HeadInfo>Purchase</HeadInfo>
         <main className="purchaseMain">
           <section className="buyMethod">
-            <PaymentMethod />
+            <h4>Payment span</h4>
             <CardForm getCardDetail={getCardDetail} />
           </section>
           <section className="buyDetails">
@@ -40,11 +44,26 @@ export default function FinalizePurchase({ allData }) {
                 <GuestDisplay data={allData} />
               </article>
             </div>
+            <button
+              id="confirmButton"
+              className="disabled"
+              onClick={(e) => {
+                document.querySelector("#buyBought").classList.remove("hidden");
+              }}
+            >
+              Confirm Purchase
+            </button>
           </section>
-          <section className="buyBought hidden">
+          <section id="buyBought" className="hidden">
             <h1>Thank you!</h1>
             <p>Your order has been received and you will get an order confirmation send to your provided email</p>
-            <button onClick={(e) => {}}>Home</button>
+            <button
+              onClick={(e) => {
+                location.replace("/");
+              }}
+            >
+              Home
+            </button>
           </section>
         </main>
       </>

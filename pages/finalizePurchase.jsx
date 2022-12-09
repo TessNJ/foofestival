@@ -14,7 +14,7 @@ export default function FinalizePurchase({ allData }) {
   if (!allData[0] || !allData[1] || !allData[2]) {
     if (typeof window !== "undefined") {
       console.log("window undefined");
-      // window.location.replace("/tickets");
+      window.location.replace("/tickets");
     }
   } else {
     function getCardDetail(props) {
@@ -48,22 +48,24 @@ export default function FinalizePurchase({ allData }) {
               id="confirmButton"
               className="disabled"
               onClick={(e) => {
-                document.querySelector("#buyBought").classList.remove("hidden");
+                document.querySelector("#buyBought").classList.remove("timerHidden");
               }}
             >
               Confirm Purchase
             </button>
           </section>
-          <section id="buyBought" className="hidden">
-            <h1>Thank you!</h1>
-            <p>Your order has been received and you will get an order confirmation send to your provided email</p>
-            <button
-              onClick={(e) => {
-                location.replace("/");
-              }}
-            >
-              Home
-            </button>
+          <section id="buyBought" className="timerHidden">
+            <div>
+              <h1>Thank you!</h1>
+              <p>Your order has been received and you will get an order confirmation send to your provided email</p>
+              <button
+                onClick={(e) => {
+                  location.replace("/");
+                }}
+              >
+                Home
+              </button>
+            </div>
           </section>
         </main>
       </>

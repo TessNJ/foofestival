@@ -7,34 +7,36 @@ export default function CardForm(props) {
   if (typeof document === "undefined") {
     console.log("hi");
   }
-  // if (typeof document === "undefined" || typeof window === "undefined") {
-  //   console.log("window undefined");
-  // } else {
-  //   // console.log(document.querySelector("input#cardNo"));
-  // Payment.formatCardExpiry(document.querySelector("input#expDate"));
-  //   // Payment.formatCardCVC(document.querySelector("input#CVC"));
 
   function checkCardType(event) {
     console.log(Payment.fns.cardType(event.target.value));
     setCardType(Payment.fns.cardType(event.target.value));
   }
-  const chechValidate = (event) => {
-    Payment.formatCardNumber(event.target);
-  };
+
   const sendCard = (event) => {
     event.preventDefault;
     if (cardForm.current[0].value.length >= 19 && Payment.fns.validateCardExpiry(cardForm.current[1].value) && Payment.fns.validateCardCVC(cardForm.current[2].value)) {
-      console.log("allowed");
       props.getCardDetail({
         cardNo: cardForm.current[0].value,
         cardDate: cardForm.current[1].value,
         cardSecu: cardForm.current[2].value,
       });
     } else {
+      console.log(cardForm.current[0].nextElementSibling);
+      if (cardForm.current[0].value.length < 19) {
+        cardForm.current[0].nextElementSibling.classList.remove("hidden");
+      }
+      if (!Payment.fns.validateCardExpiry(cardForm.current[1].value)) {
+        console.log("hi");
+        cardForm.current[1].nextElementSibling.classList.remove("hidden");
+      }
+      if (!Payment.fns.validateCardCVC(cardForm.current[2].value)) {
+        console.log("hi");
+        cardForm.current[2].nextElementSibling.classList.remove("hidden");
+      }
+
       console.log("denied");
-      console.log(cardForm.current[0].value.length);
     }
-    console.log(cardForm.current[1].value.length, Payment.fns.validateCardExpiry(cardForm.current[1].value), Payment.fns.validateCardCVC(cardForm.current[2].value));
   };
   return (
     <>
@@ -52,10 +54,17 @@ export default function CardForm(props) {
             required
             onChange={(e) => {
               checkCardType(e);
-              // chechValidate(e);
               Payment.formatCardNumber(e.target);
             }}
+            onBlur={(e) => {
+              if (cardForm.current[0].value.length >= 19) {
+                e.target.nextElementSibling.classList.add("hidden");
+              } else {
+                e.target.nextElementSibling.classList.remove("hidden");
+              }
+            }}
           />
+          <p className="hidden">Invalid</p>
         </div>
         <div className="form-group">
           <label htmlFor="expDate">Experation Date</label>
@@ -69,7 +78,15 @@ export default function CardForm(props) {
             onChange={(e) => {
               Payment.formatCardExpiry(e.target);
             }}
+            onBlur={(e) => {
+              if (Payment.fns.validateCardExpiry(e.target.value)) {
+                e.target.nextElementSibling.classList.add("hidden");
+              } else {
+                e.target.nextElementSibling.classList.remove("hidden");
+              }
+            }}
           />
+          <p className="hidden">Invalid</p>
         </div>
         <div className="form-group" id="divCVC">
           <label htmlFor="CVC">CVC</label>
@@ -83,7 +100,15 @@ export default function CardForm(props) {
             onChange={(e) => {
               Payment.formatCardCVC(e.target);
             }}
+            onBlur={(e) => {
+              if (Payment.fns.validateCardCVC(e.target.value)) {
+                e.target.nextElementSibling.classList.add("hidden");
+              } else {
+                e.target.nextElementSibling.classList.remove("hidden");
+              }
+            }}
           />
+          <p className="hidden">Invalid</p>
         </div>
       </form>
       <button onClick={sendCard}>Submit</button>

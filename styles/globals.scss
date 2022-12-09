@@ -227,7 +227,8 @@ footer {
   }
 }
 
-#infoTimedOut {
+#infoTimedOut,
+#buyBought {
   position: fixed;
   top: 0;
   left: 0;
@@ -265,10 +266,6 @@ button {
 }
 .buyDetails {
   border: green 1px solid;
-}
-
-.buyBought {
-  border: orange 1px solid;
 }
 
 .purchaseMain {

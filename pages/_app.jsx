@@ -4,8 +4,8 @@ import React from "react";
 import react from "react";
 
 function MyApp({ Component, pageProps }) {
-  // const [allData, setAllData] = react.useState({});
-  const [allData, setAllData] = react.useState([
+  const [allData, setAllData] = react.useState({});
+  /* const [allData, setAllData] = react.useState([
     {
       area: "area",
       amount: 10,
@@ -34,7 +34,7 @@ function MyApp({ Component, pageProps }) {
         email: "email2",
       },
     ],
-  ]);
+  ]); */
   function recieveData(props) {
     console.log(props);
     setAllData(props);

@@ -46,6 +46,17 @@ a {
 .timerHidden {
   visibility: hidden;
 }
+// .invalid {
+//   position: relative;
+// }
+// .invalid:after {
+//   position: absolute;
+//   right: 0;
+//   top: 100%;
+//   font-size: 0.7rem;
+//   color: red;
+//   content: "^ Invalid";
+// }
 
 // @media (prefers-color-scheme: dark) {
 //   html {
@@ -163,14 +174,23 @@ footer {
       border: 1px solid rgb(255, 25, 236);
       padding: 3vw;
       row-gap: 3vw;
-      label {
+      .form-group {
         display: flex;
+        flex-direction: row;
         justify-content: space-between;
+        flex-wrap: wrap;
+        row-gap: 0;
+        p {
+          width: 100%;
+          text-align: end;
+          color: red;
+        }
       }
       fieldset {
         display: flex;
+        flex-direction: row;
         justify-content: space-evenly;
-        label {
+        .label {
           column-gap: 1vw;
         }
       }
@@ -197,6 +217,7 @@ footer {
 }
 #timer {
   position: fixed;
+  z-index: 100;
   right: 2.5vw;
   top: 7.5vw;
   border: yellow 1px solid;

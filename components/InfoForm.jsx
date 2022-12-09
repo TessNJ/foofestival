@@ -1,11 +1,40 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useState } from "react";
 import SelectOption from "../components/SelectOption";
 
 export default function InfoForm(props) {
+  var validator = require("email-validator");
   const inputRef = useRef(null);
+  function checkIfValid(props) {
+    if (props.length >= 3) {
+      console.log(props);
+      return true;
+    }
+    return false;
+  }
+  function focusOut(event) {
+    if (checkIfValid(event.target.value)) {
+      event.target.nextElementSibling.classList.add("hidden");
+    } else {
+      event.target.nextElementSibling.classList.remove("hidden");
+    }
+  }
+  function emailFocusOut(event) {
+    if (validator.validate(event.target.value)) {
+      event.target.nextElementSibling.classList.add("hidden");
+    } else {
+      event.target.nextElementSibling.classList.remove("hidden");
+    }
+  }
 
   const CollectInfo = (event) => {
-    if (inputRef.current[4].value != "" && inputRef.current[5].value != "" && inputRef.current[6].value != "" && inputRef.current[7].value != "" && inputRef.current[8].value != "") {
+    if (
+      validator.validate(inputRef.current[6].value) &&
+      checkIfValid(inputRef.current[4].value) &&
+      checkIfValid(inputRef.current[5].value) &&
+      checkIfValid(inputRef.current[7].value) &&
+      checkIfValid(inputRef.current[8].value) &&
+      checkIfValid(inputRef.current[9].value)
+    ) {
       event.preventDefault();
       let typeName = "Standard Ticket";
       let typePrice = 1499;
@@ -14,26 +43,32 @@ export default function InfoForm(props) {
         typeName = "Extra Space Ticket";
         typePrice = 1999;
       }
-      props.getFormInfo({
-        type: { typeName: typeName, typePrice: typePrice },
-        extras: {
-          parking: inputRef.current[2].checked,
-          backstage: inputRef.current[3].checked,
-        },
-        fullName: inputRef.current[4].value,
-        email: inputRef.current[5].value,
-        address: {
-          street: inputRef.current[6].value,
-          city: inputRef.current[7].value,
-          country: inputRef.current[8].value,
-        },
-      });
-      if (props.aramInfo.amount <= 1) {
-        console.log(props.aramInfo.amount);
-        props.getCurrentSection("infoConfirm");
-      } else if (props.aramInfo.amount >= 2) {
-        props.getCurrentSection("infoGuest");
-      }
+      /* props.getFormInfo({
+      type: { typeName: typeName, typePrice: typePrice },
+      extras: {
+        parking: inputRef.current[2].checked,
+        backstage: inputRef.current[3].checked,
+      },
+      fullName: [inputRef.current[4].value,inputRef.current[5].value],
+      email: inputRef.current[6].value,
+      address: {
+        street: inputRef.current[7].value,
+        city: inputRef.current[8].value,
+        country: inputRef.current[9].value,
+      },
+    }); */
+      /* if (props.aramInfo.amount <= 1) {
+      console.log(props.aramInfo.amount);
+      props.getCurrentSection("infoConfirm");
+    } else if (props.aramInfo.amount >= 2) {
+      props.getCurrentSection("infoGuest");
+    } */
+      console.log("allowed");
+      console.log(inputRef.current[6].value);
+      console.log(validator.validate("test@email.com"), checkIfValid(inputRef.current[4].value));
+    } else {
+      console.log(validator.validate(inputRef.current[6]), checkIfValid(inputRef.current[4].value));
+      console.log("denied");
     }
   };
   return (
@@ -59,32 +94,84 @@ export default function InfoForm(props) {
             </label>
           </fieldset>
         </div>
-        <div>
-          <label>
-            Full Name
-            <input type="text" name="ticket_fullName" id="ticket_fullName" required />
-          </label>
-          <label>
-            Email Address
-            <input type="email" name="ticket_email" id="ticket_email" required />
-          </label>
+        <div className="form-group">
+          <div className="form-group">
+            <label htmlFor="ticket_firstName">First Name</label>
+            <input
+              type="text"
+              name="ticket_firstName"
+              id="ticket_firstName"
+              onBlur={(e) => {
+                focusOut(e);
+              }}
+            />
+            <p className="hidden">Invalid</p>
+          </div>
+          <div className="form-group">
+            <label htmlFor="ticket_lastName">Last Name</label>
+            <input
+              type="text"
+              name="ticket_lastName"
+              id="ticket_lastName"
+              onBlur={(e) => {
+                focusOut(e);
+              }}
+            />
+            <p className="hidden">Invalid</p>
+          </div>
+          <div className="form-group">
+            <label htmlFor="ticket_email">Email Address</label>
+            <input
+              type="email"
+              name="ticket_email"
+              id="ticket_email"
+              onBlur={(e) => {
+                emailFocusOut(e);
+              }}
+            />
+            <p className="hidden">Invalid</p>
+          </div>
         </div>
         <div>
-          <label>
-            Street and Number
-            <input type="text" name="ticket_addressStreet" id="ticket_addressStreet" required />
-          </label>
-          <label>
-            City
-            <input type="text" name="ticket_addressCity" id="ticket_addressCity" required />
-          </label>
-          <label>
-            Country
-            <input type="text" name="ticket_addressCountry" id="ticket_addressCountry" required />
-          </label>
+          <div className="form-group">
+            <label htmlFor="ticket_addressStreet">Street and Number</label>
+            <input
+              type="text"
+              name="ticket_addressStreet"
+              id="ticket_addressStreet"
+              onBlur={(e) => {
+                focusOut(e);
+              }}
+            />
+            <p className="hidden">Invalid</p>
+          </div>
+          <div className="form-group">
+            <label htmlFor="ticket_addressCity">City</label>
+            <input
+              type="text"
+              name="ticket_addressCity"
+              id="ticket_addressCity"
+              onBlur={(e) => {
+                focusOut(e);
+              }}
+            />
+            <p className="hidden">Invalid</p>
+          </div>
+          <div className="form-group">
+            <label htmlFor="ticket_addressCountry">Country</label>
+            <input
+              type="text"
+              name="ticket_addressCountry"
+              id="ticket_addressCountry"
+              onBlur={(e) => {
+                focusOut(e);
+              }}
+            />
+            <p className="hidden">Invalid</p>
+          </div>
         </div>
-        <button onClick={CollectInfo}>Next</button>
       </form>
+      <button onClick={CollectInfo}>Next</button>
     </>
   );
 }

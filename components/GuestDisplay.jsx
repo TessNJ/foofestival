@@ -4,7 +4,7 @@ export default function GuestDisplay({ data }) {
   //   console.log(data[2].map());
 
   return (
-    <article>
+    <div>
       <h5>Guest info</h5>
       <ul>
         {data[2].map((e, index) => {
@@ -15,6 +15,6 @@ export default function GuestDisplay({ data }) {
           );
         })}
       </ul>
-    </article>
+    </div>
   );
 }

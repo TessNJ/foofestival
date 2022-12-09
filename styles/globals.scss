@@ -35,6 +35,17 @@ a {
   color: white;
   pointer-events: none;
 }
+.textItalic {
+  font-style: italic;
+  color: grey;
+  font-size: 1rem;
+}
+.hidden {
+  display: none;
+}
+.timerHidden {
+  visibility: hidden;
+}
 
 // @media (prefers-color-scheme: dark) {
 //   html {
@@ -105,8 +116,7 @@ footer {
   }
 }
 
-.ticketMain,
-.purchaseMain {
+.ticketMain {
   position: relative;
   margin: 5vw;
   display: grid;
@@ -196,12 +206,6 @@ footer {
   }
 }
 
-.hidden {
-  display: none;
-}
-.timerHidden {
-  visibility: hidden;
-}
 #infoTimedOut {
   position: fixed;
   top: 0;
@@ -234,9 +238,7 @@ button {
 }
 
 //* Buy section *//
-.buyInfo {
-  border: blue 1px solid;
-}
+
 .buyMethod {
   border: solid red 1px;
 }
@@ -244,16 +246,40 @@ button {
   border: green 1px solid;
 }
 
-.buyConfirm {
-  border: purple 1px solid;
-}
-
 .buyBought {
   border: orange 1px solid;
 }
 
-.textItalic {
-  font-style: italic;
-  color: grey;
-  font-size: 1rem;
+.purchaseMain {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: 7vw;
+  height: 100%;
+  column-gap: 7vw;
+  position: relative;
+  section {
+    height: 100%;
+  }
+  .buyDetails {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2vw;
+    padding: 2vw;
+  }
+  .buyDetailsSmall {
+    display: flex;
+    column-gap: 2vw;
+  }
+}
+
+.buyBought {
+  position: absolute;
+}
+
+@media screen and (min-width: 768px) {
+  .purchaseMain {
+    grid-template-columns: 1fr 30vw;
+  }
+  @media screen and (min-width: 1101px) {
+  }
 }

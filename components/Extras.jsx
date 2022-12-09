@@ -13,13 +13,13 @@ export default function Extras({ data, title }) {
     }
   }, [data, title]);
   return (
-    <article id={title}>
+    <div id={title}>
       <h5>Extras:</h5>
       <ul>
         <li className="parking hidden">Parking</li>
         <li className="backstage hidden">Backstage</li>
         <li className="none textItalic hidden">None selected</li>
       </ul>
-    </article>
+    </div>
   );
 }

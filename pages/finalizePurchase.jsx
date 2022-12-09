@@ -24,36 +24,27 @@ export default function FinalizePurchase({ allData }) {
       <>
         <HeadInfo>Purchase</HeadInfo>
         <main className="purchaseMain">
-          <section className="buyInfo">
-            <h1>Finalize Purchase</h1>
-            <h4>Basic Details:</h4>
-            <Details data={allData} title="basic" />
-            <Extras data={allData} title="basicDetails" />
-            <div>
-              <p className="textItalic">
-                <strong>Disclaimer:</strong> This information is not saved or shared
-              </p>
-            </div>
-          </section>
           <section className="buyMethod">
-            <h4>Please choose payment method:</h4>
             <PaymentMethod />
-          </section>
-          <section className="buyDetails">
             <CardForm getCardDetail={getCardDetail} />
           </section>
-          <section className="buyConfirm">
-            <h2>Please Confirm details and purchase</h2>
-            <h4>Full Details:</h4>
-            <Details data={allData} title="full" />
-            <Extras data={allData} title="allDetails" />
-            <GuestDisplay data={allData} />
-            <CardDisplay data={allData} cardDetails={cardDetails} />
+          <section className="buyDetails">
+            <h3>Order Details of Purchase</h3>
+            <div className="buyDetailsSmall">
+              <Details data={allData} title="full" />
+              <article>
+                <div>
+                  <CardDisplay data={allData} cardDetails={cardDetails} />
+                  <Extras data={allData} title="allDetails" />
+                </div>
+                <GuestDisplay data={allData} />
+              </article>
+            </div>
           </section>
-          <section className="buyBought">
+          <section className="buyBought hidden">
             <h1>Thank you!</h1>
             <p>Your order has been received and you will get an order confirmation send to your provided email</p>
-            <button>Home</button>
+            <button onClick={(e) => {}}>Home</button>
           </section>
         </main>
       </>

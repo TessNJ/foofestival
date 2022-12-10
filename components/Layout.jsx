@@ -7,8 +7,10 @@ export default function Layout({ children }) {
     <>
       <header>
         <div className="logoDiv">
-          <Image src={"/street-map-g0abaa0de0_1280.webp"} width={"50"} height={"50"} alt=""></Image>
-          <h3>FooFestival</h3>
+          <Image className="logo" src={"/street-map-g0abaa0de0_1280.webp"} width={"50"} height={"50"} alt=""></Image>
+          <h3>
+            <Anchor href={"/"}>FooFestival</Anchor>
+          </h3>
         </div>
         <nav>
           <ul>
@@ -31,9 +33,13 @@ export default function Layout({ children }) {
       <>{children}</>
       <footer>
         <div className="footerLogo">
-          <Image src={"/street-map-g0abaa0de0_1280.webp"} width={"50"} height={"50"} alt=""></Image>
-          <h5>FooFestival</h5>
+          <Image className="logo" src={"/street-map-g0abaa0de0_1280.webp"} width={"50"} height={"50"} alt=""></Image>
+          <h5>
+            {" "}
+            <Anchor href={"/"}>FooFestival</Anchor>
+          </h5>
         </div>
+        {/* <hr /> */}
         <div className="links">
           <h4>Links</h4>
           <ul>

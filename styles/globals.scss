@@ -1,3 +1,18 @@
+$base-colour: #1f1f1f;
+$base-colour-darker: #141313;
+$secondary-colour: #ffead6;
+$secondary-colour-lighter: #fff3e8;
+$accent-colour: #b81b0a;
+$accent-colour-darker: #b81b0a;
+
+//default reset
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  // padding: 0;
+}
 html,
 body {
   padding: 0;
@@ -5,10 +20,9 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   min-height: 100vh;
   font-size: 16px;
+  background-color: $base-colour;
+  color: $secondary-colour;
 }
-$base-colour: #c6538c;
-$secondary-colour: red;
-$accent-colour: green;
 
 #__next {
   display: flex;
@@ -21,21 +35,17 @@ $accent-colour: green;
   min-height: 100vh;
 }
 
+//General Use
 a {
   color: inherit;
   text-decoration: none;
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  // padding: 0;
-}
 .disabled {
-  background-color: gray;
-  color: white;
+  background-color: $base-colour;
+  border: 1px solid $secondary-colour;
+  color: $secondary-colour-lighter;
+  opacity: 50%;
   pointer-events: none;
 }
 .textItalic {
@@ -49,43 +59,38 @@ a {
 .timerHidden {
   visibility: hidden;
 }
-// .invalid {
-//   position: relative;
-// }
-// .invalid:after {
-//   position: absolute;
-//   right: 0;
-//   top: 100%;
-//   font-size: 0.7rem;
-//   color: red;
-//   content: "^ Invalid";
-// }
 
-// @media (prefers-color-scheme: dark) {
-//   html {
-//     color-scheme: dark;
-//   }
-//   body {
-//     color: white;
-//     background: black;
-//   }
-// }
-
-.contactMain {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  margin: 5vw;
-  column-gap: 3vw;
-  justify-items: center;
-  align-items: center;
-  height: 100%;
+hr {
+  border: 0;
+  border-top: 1px solid $accent-colour-darker;
+  width: 40%;
+  align-self: center;
 }
 
+.logo {
+  border-radius: 100%;
+}
+button {
+  align-self: flex-end;
+  width: 40%;
+  padding: 0.5vw;
+  border: none;
+  padding: 0.5vw 1vw;
+  background-color: $accent-colour;
+  color: $secondary-colour-lighter;
+}
+.form-group p {
+  color: $accent-colour;
+  width: 100%;
+  text-align: end;
+}
+
+//header and footer
 header {
+  background-color: $base-colour-darker;
   display: flex;
   justify-content: space-between;
   padding: 1vw 6vw;
-  border: blue solid 1px;
   .logoDiv {
     display: flex;
     justify-content: space-between;
@@ -107,11 +112,11 @@ header {
 }
 
 footer {
+  background-color: $base-colour-darker;
   margin-top: auto;
   display: flex;
   justify-content: space-between;
   padding: 1vw 6vw;
-  border: 1px red solid;
   .footerLogo {
     display: flex;
     flex-direction: column;
@@ -126,10 +131,33 @@ footer {
 
     li {
       list-style: none;
+      color: $secondary-colour-lighter;
     }
   }
 }
+//Contact
+.contactMain {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 5vw;
+  column-gap: 3vw;
+  justify-items: center;
+  align-items: center;
+  height: 100%;
+}
 
+// index and schedule
+.indexMain,
+.scheduleMain {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: 5vw;
+  justify-items: center;
+  align-items: center;
+  height: 100%;
+}
+
+//Ticket General
 .ticketMain {
   position: relative;
   margin: 5vw;
@@ -143,19 +171,23 @@ footer {
     }
   }
 }
+//ticket - sections
 
 #infoGreet {
-  border: 1px aqua solid;
+  // border: 1px aqua solid;
+  background-color: $base-colour-darker;
 }
 
 #infoAvail {
-  border: 1px red solid;
+  background-color: $base-colour-darker;
+  // border: 1px red solid;
   div {
     display: grid;
     grid-template-columns: 1;
     row-gap: 3vw;
     article {
-      border: 1px blue solid;
+      background-color: $base-colour;
+      // border: 1px blue solid;
       padding: 2vw;
     }
     form {
@@ -166,7 +198,8 @@ footer {
 }
 
 #infoSelect {
-  border: 1px green solid;
+  background-color: $base-colour-darker;
+  // border: 1px green solid;
   form {
     display: grid;
     grid-template-columns: 1fr;
@@ -183,11 +216,6 @@ footer {
         justify-content: space-between;
         flex-wrap: wrap;
         row-gap: 0;
-        p {
-          width: 100%;
-          text-align: end;
-          color: red;
-        }
       }
       fieldset {
         display: flex;
@@ -202,22 +230,15 @@ footer {
 }
 
 #infoConfirm {
-  border: 1px purple solid;
+  background-color: $base-colour-darker;
+  // border: 1px purple solid;
 }
 
 #infoReserve {
-  border: 1px orange solid;
+  background-color: $base-colour-darker;
+  // border: 1px orange solid;
 }
 
-.indexMain,
-.scheduleMain {
-  display: grid;
-  grid-template-columns: 1fr;
-  margin: 5vw;
-  justify-items: center;
-  align-items: center;
-  height: 100%;
-}
 #timer {
   position: fixed;
   z-index: 100;
@@ -229,6 +250,8 @@ footer {
     background-color: rgb(123, 123, 123);
   }
 }
+
+//multipages
 
 #infoTimedOut,
 #buyBought {
@@ -246,20 +269,7 @@ footer {
     padding: 5vw 10vw;
     display: flex;
     flex-direction: column;
-    button {
-      align-self: flex-end;
-      width: 40%;
-      padding: 0.5vw;
-      border: none;
-      background-color: rgb(145, 182, 255);
-    }
   }
-}
-
-button {
-  padding: 0.5vw 1vw;
-  border: none;
-  background-color: rgb(145, 182, 255);
 }
 
 //* Buy section *//
@@ -298,9 +308,25 @@ button {
 }
 
 @media screen and (min-width: 768px) {
+  //General Use
+  //header and footer
+  //Contact
+  // index and schedule
+  //Ticket General
+  //ticket - sections
+  //multipages
+  //* Buy section *//
   .purchaseMain {
     grid-template-columns: 1fr 30vw;
   }
   @media screen and (min-width: 1101px) {
+    //General Use
+    //header and footer
+    //Contact
+    // index and schedule
+    //Ticket General
+    //ticket - sections
+    //multipages
+    //* Buy section *//
   }
 }

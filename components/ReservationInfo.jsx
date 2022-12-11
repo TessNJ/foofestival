@@ -10,9 +10,9 @@ export default function ReservationInfo(props) {
   }
   return (
     <>
-      <h5>
-        For <span>{props.aramInfo.amount}</span> {verb}, at <span>{props.aramInfo.area}</span>
-      </h5>
+      <p>
+        <span className="textImportant">{props.aramInfo.amount}</span> {verb}, at <span className="textImportant">{props.aramInfo.area}</span>
+      </p>
       <button onClick={nextSec}>Correct</button>
     </>
   );

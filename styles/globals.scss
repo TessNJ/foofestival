@@ -81,6 +81,10 @@ a {
 .timerHidden {
   visibility: hidden;
 }
+.textImportant {
+  font-weight: bold;
+  color: $secondary-colour-lighter;
+}
 
 hr {
   border: 0;
@@ -194,11 +198,6 @@ footer {
 }
 //ticket - sections
 
-#infoConfirm,
-#infoReserve {
-  background-color: $base-colour-darker;
-  // border: 1px orange solid;
-}
 #infoGreet {
   background-color: $base-colour-darker;
   div {
@@ -213,11 +212,9 @@ footer {
 
 #infoAvail {
   background-color: $base-colour-darker;
-  // border: 1px red solid;
-
-  div {
+  .availDiv {
     display: grid;
-    grid-template-columns: 1;
+    grid-template-columns: 1fr;
     row-gap: 3vw;
     article {
       background-color: $base-colour;
@@ -226,12 +223,28 @@ footer {
       display: flex;
       flex-direction: column;
       row-gap: 2vw;
+      div {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
     }
     form {
       display: flex;
       justify-content: space-between;
+      flex-wrap: wrap;
+      input {
+        width: 100%;
+      }
     }
   }
+}
+
+#infoReserve {
+  background-color: $base-colour-darker;
+  display: flex;
+  flex-direction: column;
+  row-gap: 2vw;
 }
 
 #infoSelect {
@@ -264,6 +277,10 @@ footer {
       }
     }
   }
+}
+
+#infoConfirm {
+  background-color: $base-colour-darker;
 }
 
 #timer {
@@ -301,13 +318,6 @@ footer {
 }
 
 //* Buy section *//
-
-// .buyMethod {
-//   border: solid red 1px;
-// }
-// .buyDetails {
-//   border: green 1px solid;
-// }
 
 .purchaseMain {
   display: grid;
@@ -359,7 +369,6 @@ footer {
     }
   }
 }
-
 .buyBought {
   position: absolute;
 }
@@ -384,11 +393,36 @@ footer {
   #infoGreet {
     div {
       display: flex;
+      flex-direction: row;
+      justify-content: space-between;
       button {
         align-self: center;
+        width: 30%;
       }
     }
   }
+  #infoAvail {
+    .availDiv {
+      grid-template-columns: 1fr 1fr;
+      column-gap: 3vw;
+      row-gap: 3vw;
+      article {
+        row-gap: 1vw;
+        div {
+          p {
+            width: 100%;
+          }
+        }
+      }
+      form {
+        flex-wrap: nowrap;
+        input {
+          width: 50%;
+        }
+      }
+    }
+  }
+
   //multipages
   #infoTimedOut,
   #buyBought {

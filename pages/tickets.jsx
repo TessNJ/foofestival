@@ -90,7 +90,7 @@ export default function Tickets({ data, recieveData, allData }) {
         </section>
         <section id="infoAvail" className="hidden">
           <h1>Availability</h1>
-          <div>
+          <div className="availDiv">
             {data.map((e) => {
               return <AvailActicle key={`avail-${e.area}`} title={e.area} allSpots={e.spots} availSpots={e.available} getAramInfo={getAramInfo} getCurrentSection={getCurrentSection} />;
             })}
@@ -98,7 +98,7 @@ export default function Tickets({ data, recieveData, allData }) {
         </section>
         <section id="infoReserve" className="hidden">
           <h1>Current Reservation?</h1>
-          <p>Please confirm the following information is correct. Afterwards you will have 5 minuts to complete the reservation</p>
+          <p>Please confirm the following information is correct. Afterwards you will have 5 minuts to complete the reservation:</p>
           <ReservationInfo aramInfo={aramInfo} getCurrentSection={getCurrentSection} />
         </section>
         <section id="infoSelect" className="hidden">

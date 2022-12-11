@@ -40,15 +40,15 @@ export default function Tickets({ data, recieveData, allData }) {
     element.classList.remove("hidden");
     element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
 
-    if (currentSection === "infoSelect" && timerInfo != true) {
-      setTimerInfo(true);
-    }
+    // if (currentSection === "infoSelect" && timerInfo != true) {
+    //   setTimerInfo(true);
+    // }
   }, [currentSection, timerInfo, aramInfo]);
 
   useEffect(() => {
-    if (timerInfo === true) {
-      document.querySelector("#timer").classList.remove("timerHidden");
-    }
+    // if (timerInfo === true) {
+    //   document.querySelector("#timer").classList.remove("timerHidden");
+    // }
   });
 
   function moveToPurchase() {
@@ -97,30 +97,28 @@ export default function Tickets({ data, recieveData, allData }) {
           </div>
         </section>
         <section id="infoReserve" className="hidden">
-          <h1>Current Reservation?</h1>
-          <p>Please confirm the following information is correct. Afterwards you will have 5 minuts to complete the reservation:</p>
-          <ReservationInfo aramInfo={aramInfo} getCurrentSection={getCurrentSection} />
+          <article>
+            <h1>Current Reservation?</h1>
+            <ReservationInfo aramInfo={aramInfo} getCurrentSection={getCurrentSection} />
+          </article>
         </section>
         <section id="infoSelect" className="hidden">
           <h2>Select Type, Optionals, and Personal Info</h2>
           <InfoForm getFormInfo={getFormInfo} getCurrentSection={getCurrentSection} aramInfo={aramInfo} />
         </section>
         <section id="infoGuest" className="hidden">
-          <h2>Guest Information</h2>
-          <p>It appears there is multiple people attached to this order.</p>
-          <p>Please add at least 1 additional guests name and email</p>
+          <div className="guestCopy">
+            <h2>Guest Information</h2>
+            <p>It appears there is multiple people attached to this order. Please add at least 1 additional guests name and email</p>
+          </div>
           <GuestInfoOverall getCurrentSection={getCurrentSection} getGuestInfo={getGuestInfo} />
         </section>
         <section id="infoConfirm" className="hidden">
           <h1>Reservation Conformation</h1>
-          {/* <Confirmation recieveData={recieveData} allData={allData} /> */}
           <div>
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit voluptatibus totam amet perferendis incidunt illum debitis in qui rerum officia, mollitia eos necessitatibus temporibus facere libero blanditiis distinctio culpa.
-              Deleniti!
-            </p>
+            <p> Your order has been reserved. To Claim the spot, please continue to payment, to finish the transaction.</p>
             <Anchor href={"/finalizePurchase"}>
-              <button onClick={moveToPurchase}>Confirm</button>
+              <button onClick={moveToPurchase}>Go To Payment</button>
             </Anchor>
           </div>
         </section>

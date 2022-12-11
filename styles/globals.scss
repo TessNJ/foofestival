@@ -109,6 +109,11 @@ button {
   width: 100%;
   text-align: end;
 }
+input,
+select {
+  background-color: $secondary-colour-lighter;
+  color: $base-colour-darker;
+}
 
 //header and footer
 header {
@@ -242,45 +247,109 @@ footer {
 
 #infoReserve {
   background-color: $base-colour-darker;
-  display: flex;
-  flex-direction: column;
-  row-gap: 2vw;
+  article {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1vw;
+    div {
+      display: flex;
+      flex-direction: column;
+      row-gap: 2vw;
+    }
+  }
 }
 
 #infoSelect {
   background-color: $base-colour-darker;
-  // border: 1px green solid;
   form {
+    margin: 4vw 0;
     display: grid;
     grid-template-columns: 1fr;
     row-gap: 3vw;
-    div {
+    .form-group-small {
+      background-color: $base-colour;
+      background-color: $base-colour;
       display: flex;
       flex-direction: column;
-      border: 1px solid rgb(255, 25, 236);
       padding: 3vw;
       row-gap: 3vw;
-      .form-group {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        row-gap: 0;
+    }
+    .form-group-big {
+      background-color: $base-colour;
+      display: flex;
+      flex-direction: column;
+      padding: 3vw;
+      row-gap: 3vw;
+    }
+    .form-group {
+      background-color: $base-colour-darker;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      row-gap: 0;
+      padding: 3vw;
+    }
+    fieldset {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      background-color: $base-colour-darker;
+      border: none;
+    }
+    label {
+      column-gap: 1vw;
+      display: flex;
+      justify-content: space-between;
+      select {
+        width: 50%;
       }
+    }
+  }
+}
+
+#infoGuest {
+  background-color: $base-colour-darker;
+  .guestCopy {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2vw;
+    margin: 2vw 0;
+  }
+  article {
+    display: flex;
+    flex-direction: column;
+    row-gap: 3vw;
+    form {
+      padding: 3vw 0;
+      display: flex;
+      flex-direction: column;
+      row-gap: 3vw;
       fieldset {
+        border: none;
+        background-color: $base-colour;
         display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
-        .label {
-          column-gap: 1vw;
-        }
+        flex-direction: column;
+        row-gap: 3vw;
       }
+    }
+    div {
+      display: flex;
+      row-gap: 2vw;
+      flex-direction: column;
+      justify-content: space-between;
     }
   }
 }
 
 #infoConfirm {
   background-color: $base-colour-darker;
+  div {
+    display: flex;
+    flex-direction: column;
+    row-gap: 3vw;
+    margin: 2vw 0 0 0;
+  }
 }
 
 #timer {
@@ -335,15 +404,17 @@ footer {
 .buyMethod {
   display: flex;
   flex-direction: column;
-  row-gap: 2vw;
+  row-gap: 3vw;
   padding: 2vw;
   background-color: $base-colour-darker;
   form {
+    background-color: $base-colour;
+    padding: 2vw;
     display: flex;
     flex-direction: column;
-    row-gap: 2vw;
+    row-gap: 3vw;
     input {
-      width: 70%;
+      width: 65%;
     }
     .form-group {
       display: flex;
@@ -392,7 +463,7 @@ footer {
   //ticket - sections
   #infoGreet {
     div {
-      display: flex;
+      // display: flex;
       flex-direction: row;
       justify-content: space-between;
       button {
@@ -419,6 +490,95 @@ footer {
         input {
           width: 50%;
         }
+      }
+    }
+  }
+  #infoReserve {
+    article {
+      .reserveDiv {
+        flex-direction: row;
+        column-gap: 2vw;
+      }
+      button {
+        align-self: center;
+      }
+    }
+  }
+  #infoSelect {
+    div {
+      display: flex;
+      flex-direction: column;
+      button {
+        align-self: flex-end;
+      }
+    }
+    form {
+      .form-group-small {
+        padding: 2vw;
+        row-gap: 1vw;
+      }
+      .form-group-big {
+        padding: 2vw;
+        row-gap: 1vw;
+        // column-gap: 1vw;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+      .form-group {
+        padding: 1vw;
+        width: 49%;
+        input {
+          width: 60%;
+        }
+      }
+      fieldset {
+        padding: 1vw;
+      }
+    }
+  }
+  #infoGuest {
+    .guestCopy {
+      row-gap: 1vw;
+      h2 {
+        width: 100%;
+      }
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+    article {
+      form {
+        padding: 0;
+        row-gap: 1vw;
+        fieldset {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          column-gap: 3vw;
+          padding: 1vw;
+          .form-group {
+            width: 50%;
+            input {
+              width: 50%;
+            }
+          }
+        }
+      }
+      div {
+        flex-direction: row;
+      }
+    }
+  }
+  #infoConfirm {
+    div {
+      width: 100%;
+      flex-direction: row;
+      justify-content: space-between;
+      a {
+        width: 50%;
+      }
+      button {
+        width: 100%;
       }
     }
   }

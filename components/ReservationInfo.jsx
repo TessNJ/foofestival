@@ -9,11 +9,15 @@ export default function ReservationInfo(props) {
     verb = "person";
   }
   return (
-    <>
-      <p>
-        <span className="textImportant">{props.aramInfo.amount}</span> {verb}, at <span className="textImportant">{props.aramInfo.area}</span>
-      </p>
+    <div className="reserveDiv">
+      <div>
+        <p>Please confirm the following information is correct. Afterwards you will have 5 minuts to complete the reservation:</p>
+        <p>
+          <span className="textImportant">{props.aramInfo.amount}</span> {verb}, at <span className="textImportant">{props.aramInfo.area}</span>
+        </p>
+      </div>
+
       <button onClick={nextSec}>Correct</button>
-    </>
+    </div>
   );
 }

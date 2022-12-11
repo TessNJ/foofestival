@@ -74,9 +74,9 @@ export default function InfoForm(props) {
     }
   };
   return (
-    <>
+    <div>
       <form action="#" id="form_ticketInfo" ref={inputRef}>
-        <div>
+        <div className="form-group-small">
           <label>
             Choose Ticket Type
             <select name="ticket_type" id="ticket_type">
@@ -96,7 +96,7 @@ export default function InfoForm(props) {
             </label>
           </fieldset>
         </div>
-        <div className="form-group">
+        <div className="form-group-big">
           <div className="form-group">
             <label htmlFor="ticket_firstName">First Name</label>
             <input
@@ -134,7 +134,7 @@ export default function InfoForm(props) {
             <p className="hidden">Invalid</p>
           </div>
         </div>
-        <div>
+        <div className="form-group-big">
           <div className="form-group">
             <label htmlFor="ticket_addressStreet">Street and Number</label>
             <input
@@ -174,6 +174,6 @@ export default function InfoForm(props) {
         </div>
       </form>
       <button onClick={CollectInfo}>Next</button>
-    </>
+    </div>
   );
 }

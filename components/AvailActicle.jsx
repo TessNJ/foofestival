@@ -16,9 +16,10 @@ export default function AvailActicle(props) {
   return (
     <article>
       <div>
-        <h1>{props.title}</h1>
-        <p>All Spots: {props.allSpots}</p>
+        <h2>{props.title}</h2>
         <h3>Available Spots: {props.availSpots}</h3>
+
+        <p>All Spots: {props.allSpots}</p>
       </div>
       <form action="#">
         <label htmlFor="ticket_amount">Choose Ticket Amount</label>

@@ -18,8 +18,9 @@ export default function Details({ data, title }) {
       <h5>
         {data[0].area} for {data[0].amount} {verb}
       </h5>
+      <p>{data[1].type.typeName}</p>
       <p>
-        {data[1].type.typeName} - {data[1].type.typePrice},- x {data[0].amount}
+        {data[1].type.typePrice},- x {data[0].amount}
       </p>
     </article>
   );

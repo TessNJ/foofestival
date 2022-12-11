@@ -34,13 +34,35 @@ body {
   flex-direction: column;
   min-height: 100vh;
 }
+h1 {
+  font-size: 1.8rem;
+  color: $secondary-colour-lighter;
+}
+h2 {
+  font-size: 1.6rem;
+  color: $secondary-colour-lighter;
+}
+h3 {
+  font-size: 1.42rem;
+  color: $secondary-colour-lighter;
+}
+h4 {
+  font-size: 1.27rem;
+  color: $secondary-colour-lighter;
+}
+h5 {
+  font-size: 1.125rem;
+  color: $secondary-colour-lighter;
+}
+p {
+  font-size: 1rem;
+}
 
 //General Use
 a {
   color: inherit;
   text-decoration: none;
 }
-
 .disabled {
   background-color: $base-colour;
   border: 1px solid $secondary-colour;
@@ -72,10 +94,9 @@ hr {
 }
 button {
   align-self: flex-end;
-  width: 40%;
-  padding: 0.5vw;
+  width: 100%;
   border: none;
-  padding: 0.5vw 1vw;
+  padding: 2vw 0vw;
   background-color: $accent-colour;
   color: $secondary-colour-lighter;
 }
@@ -173,14 +194,27 @@ footer {
 }
 //ticket - sections
 
-#infoGreet {
-  // border: 1px aqua solid;
+#infoConfirm,
+#infoReserve {
   background-color: $base-colour-darker;
+  // border: 1px orange solid;
+}
+#infoGreet {
+  background-color: $base-colour-darker;
+  div {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2vw;
+  }
+  button {
+    width: 100%;
+  }
 }
 
 #infoAvail {
   background-color: $base-colour-darker;
   // border: 1px red solid;
+
   div {
     display: grid;
     grid-template-columns: 1;
@@ -189,6 +223,9 @@ footer {
       background-color: $base-colour;
       // border: 1px blue solid;
       padding: 2vw;
+      display: flex;
+      flex-direction: column;
+      row-gap: 2vw;
     }
     form {
       display: flex;
@@ -229,16 +266,6 @@ footer {
   }
 }
 
-#infoConfirm {
-  background-color: $base-colour-darker;
-  // border: 1px purple solid;
-}
-
-#infoReserve {
-  background-color: $base-colour-darker;
-  // border: 1px orange solid;
-}
-
 #timer {
   position: fixed;
   z-index: 100;
@@ -263,43 +290,73 @@ footer {
   background-color: rgba(240, 248, 255, 0.719);
   display: flex;
   div {
-    background-color: white;
+    background-color: $base-colour;
     align-self: center;
     margin: 0 auto;
     padding: 5vw 10vw;
     display: flex;
     flex-direction: column;
+    row-gap: 1vw;
   }
 }
 
 //* Buy section *//
 
-.buyMethod {
-  border: solid red 1px;
-}
-.buyDetails {
-  border: green 1px solid;
-}
+// .buyMethod {
+//   border: solid red 1px;
+// }
+// .buyDetails {
+//   border: green 1px solid;
+// }
 
 .purchaseMain {
   display: grid;
   grid-template-columns: 1fr;
-  margin: 7vw;
+  margin: 5vw;
   height: 100%;
   column-gap: 7vw;
   position: relative;
+  row-gap: 3vw;
   section {
     height: 100%;
+    padding: 4vw;
   }
-  .buyDetails {
+}
+.buyMethod {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2vw;
+  padding: 2vw;
+  background-color: $base-colour-darker;
+  form {
     display: flex;
     flex-direction: column;
     row-gap: 2vw;
-    padding: 2vw;
+    input {
+      width: 70%;
+    }
+    .form-group {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      p {
+        width: 100%;
+      }
+    }
   }
+}
+.buyDetails {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2vw;
+  padding: 2vw;
+  background-color: $base-colour-darker;
   .buyDetailsSmall {
     display: flex;
-    column-gap: 2vw;
+    column-gap: 5vw;
+    article {
+      width: 100%;
+    }
   }
 }
 
@@ -309,16 +366,58 @@ footer {
 
 @media screen and (min-width: 768px) {
   //General Use
+  button {
+    width: 40%;
+    padding: 0.7vw 0;
+  }
   //header and footer
   //Contact
   // index and schedule
   //Ticket General
+  .ticketMain {
+    margin: 3vw 10vw;
+    section {
+      padding: 3vw;
+    }
+  }
   //ticket - sections
+  #infoGreet {
+    div {
+      display: flex;
+      button {
+        align-self: center;
+      }
+    }
+  }
   //multipages
+  #infoTimedOut,
+  #buyBought {
+    div {
+      padding: 3vw 7vw;
+    }
+  }
   //* Buy section *//
   .purchaseMain {
+    margin: 3vw 10vw;
     grid-template-columns: 1fr 30vw;
+    section {
+      padding: 3vw;
+    }
   }
+  .buyMethod {
+    justify-content: center;
+    row-gap: 1vw;
+    form {
+      row-gap: 1vw;
+    }
+  }
+  .buyDetails {
+    row-gap: 1vw;
+    .buyDetailsSmall {
+      column-gap: 1vw;
+    }
+  }
+
   @media screen and (min-width: 1101px) {
     //General Use
     //header and footer

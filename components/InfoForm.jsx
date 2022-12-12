@@ -40,12 +40,12 @@ export default function InfoForm(props) {
       let typePrice = 799;
 
       if (inputRef.current[0].value === "extraSpace") {
-        typeName = "Extra Space Ticket";
+        typeName = "VIP Ticket";
         typePrice = 1299;
       }
       props.getFormInfo({
         type: { typeName: typeName, typePrice: typePrice },
-        tent: inputRef.current[2].checked,
+        tent: inputRef.current[1].checked,
         extras: {
           parking: inputRef.current[3].checked,
           backstage: inputRef.current[4].checked,
@@ -97,15 +97,15 @@ export default function InfoForm(props) {
             <legend>Extras</legend>
             <label>
               <input type="checkbox" name="ticket_op_parking" id="ticket_op_parking" value="parking" />
-              Assign Parking Space
+              Assign Parking Space +199,-
             </label>
             <label>
               <input type="checkbox" name="ticket_op_backstage" id="ticket_op_backstage" value="backStage" />
-              Backstage Pass&apos;s
+              Backstage Pass&apos;s +299,-
             </label>
             <label>
               <input type="checkbox" name="ticket_op_green" id="ticket_op_green" value="green" />
-              Green Camping option
+              Green Camping option +249,-
             </label>
           </fieldset>
         </div>

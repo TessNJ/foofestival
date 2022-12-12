@@ -1,9 +1,13 @@
 import React from "react";
 
-export default function Details({ data, title }) {
+export default function Details({ data, cardDetails }) {
+  let lastDigits = "****";
   let verb = "people";
   if (data[0].amount === "1") {
     verb = "person";
+  }
+  if (cardDetails) {
+    lastDigits = cardDetails.cardNo.slice(-5);
   }
 
   return (
@@ -19,10 +23,10 @@ export default function Details({ data, title }) {
         {data[0].area} for {data[0].amount} {verb}
       </h5>
       <p>{data[1].type.typeName}</p>
-
       <p>
         {data[1].type.typePrice},- x {data[0].amount}
       </p>
+      <p>Card ending with {lastDigits}</p>
     </article>
   );
 }

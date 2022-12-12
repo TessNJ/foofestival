@@ -96,6 +96,7 @@ hr {
 .logo {
   border-radius: 100%;
 }
+.buttonLook,
 button {
   align-self: flex-end;
   width: 100%;
@@ -473,27 +474,27 @@ footer {
       }
     }
   }
-  // #infoAvail {
-  //   .availDiv {
-  //     grid-template-columns: 1fr 1fr;
-  //     column-gap: 3vw;
-  //     row-gap: 3vw;
-  //     article {
-  //       row-gap: 1vw;
-  //       div {
-  //         p {
-  //           width: 100%;
-  //         }
-  //       }
-  //     }
-  //     form {
-  //       flex-wrap: nowrap;
-  //       input {
-  //         width: 50%;
-  //       }
-  //     }
-  //   }
-  // }
+  #infoAvail {
+    .availDiv {
+      grid-template-columns: 1fr 1fr;
+      column-gap: 3vw;
+      row-gap: 3vw;
+      article {
+        row-gap: 1vw;
+        div {
+          p {
+            width: 100%;
+          }
+        }
+      }
+      form {
+        flex-wrap: nowrap;
+        input {
+          width: 50%;
+        }
+      }
+    }
+  }
   #infoReserve {
     article {
       .reserveDiv {

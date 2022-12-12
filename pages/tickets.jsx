@@ -7,9 +7,9 @@ import HeadInfo from "../components/Head";
 import Timer from "../components/Timer";
 import GuestInfoOverall from "../components/GuestInfoOverall";
 import Anchor from "../components/Anchor";
+import { insertOrder } from "../modules/db";
 
 export default function Tickets({ data, recieveData, allData }) {
-  console.log(allData);
   const [currentSection, setCurrentSection] = useState("infoGreet");
   const [aramInfo, setAramInfo] = useState("");
   const [formInfo, setFormInfo] = useState("");
@@ -23,7 +23,6 @@ export default function Tickets({ data, recieveData, allData }) {
   }
   function getGuestInfo(props) {
     setGuestInfo(props);
-    console.log(guestInfo);
   }
   function getCurrentSection(props) {
     setCurrentSection(props);
@@ -49,9 +48,25 @@ export default function Tickets({ data, recieveData, allData }) {
     }
   });
 
-  function moveToPurchase() {
-    console.log("move");
-    recieveData([aramInfo, formInfo, guestInfo]);
+  async function moveToPurchase(e) {
+    e.preventDefault();
+    const response = await insertOrder({
+      area: "try",
+      amount: 13,
+      type: "try",
+      extras: {
+        parking: true,
+      },
+      primary_email: "something@now.hi",
+      primary_name: "tess",
+      address: "something, place, space",
+      guests: [
+        { name: "hi", email: "somethin@somethin.meh" },
+        { name: "hi", email: "somethin@somethin.meh" },
+      ],
+    });
+    console.log(response);
+    // recieveData([aramInfo, formInfo, guestInfo]);
   }
 
   return (
@@ -111,13 +126,13 @@ export default function Tickets({ data, recieveData, allData }) {
           </div>
           <GuestInfoOverall getCurrentSection={getCurrentSection} aramInfo={aramInfo} getGuestInfo={getGuestInfo} />
         </section>
-        <section id="infoConfirm" className="hidden">
+        <section id="infoConfirm" /* className="hidden" */>
           <h1>Reservation Conformation</h1>
           <div>
             <p> Your order has been reserved. To Claim the spot, please continue to payment, to finish the transaction.</p>
-            <Anchor href={"/finalizePurchase"}>
-              <button onClick={moveToPurchase}>Go To Payment</button>
-            </Anchor>
+            {/*             <Anchor href={"/finalizePurchase"}> */}
+            <button onClick={moveToPurchase}>Go To Payment</button>
+            {/* </Anchor> */}
           </div>
         </section>
       </main>

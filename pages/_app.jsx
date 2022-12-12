@@ -36,7 +36,6 @@ function MyApp({ Component, pageProps }) {
     ],
   ]); */
   function recieveData(props) {
-    console.log(props);
     setAllData(props);
   }
   return (

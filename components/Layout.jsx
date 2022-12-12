@@ -7,7 +7,7 @@ export default function Layout({ children }) {
     <>
       <header>
         <div className="logoDiv">
-          <Image className="logo" src={"/street-map-g0abaa0de0_1280.webp"} width={"50"} height={"50"} alt=""></Image>
+          {/* <Image className="logo" src={"/street-map-g0abaa0de0_1280.webp"} width={"50"} height={"50"} alt=""></Image> */}
           <h3>
             <Anchor href={"/"}>FooFestival</Anchor>
           </h3>
@@ -21,19 +21,19 @@ export default function Layout({ children }) {
               <Anchor href={"/schedule"}>Schedule</Anchor>
             </li>
             <li>
-              <Anchor href={"/tickets"}>Tickets</Anchor>
-            </li>
-            <li>
               <Anchor href={"/contact"}>Contact</Anchor>
             </li>
           </ul>
+          <Anchor className="buttonLook" href={"/tickets"}>
+            Tickets
+          </Anchor>
         </nav>
       </header>
       {/* <main>{children}</main> */}
       <>{children}</>
       <footer>
         <div className="footerLogo">
-          <Image className="logo" src="/street-map-g0abaa0de0_1280.webp" width={"50"} height={"50"} alt=""></Image>
+          {/* <Image className="logo" src="/street-map-g0abaa0de0_1280.webp" width={"50"} height={"50"} alt=""></Image> */}
           <h5>
             {" "}
             <Anchor href={"/"}>FooFestival</Anchor>

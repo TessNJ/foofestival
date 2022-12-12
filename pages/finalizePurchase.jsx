@@ -5,15 +5,12 @@ import Details from "../components/Details";
 import GuestDisplay from "../components/GuestDisplay";
 import CardDisplay from "../components/CardDisplay";
 import CardForm from "../components/CardForm";
-import PaymentMethod from "../components/PaymentMethod";
 
 export default function FinalizePurchase({ allData }) {
-  console.log(allData);
   const [cardDetails, setCardDetails] = useState(null);
   const [buyComplete, setBuyComplete] = useState(false);
   if (!allData[0] || !allData[1] || !allData[2]) {
     if (typeof window !== "undefined") {
-      console.log("window undefined");
       window.location.replace("/tickets");
     }
   } else {
@@ -35,14 +32,12 @@ export default function FinalizePurchase({ allData }) {
           <section className="buyDetails">
             <h3>Order Details of Purchase</h3>
             <div className="buyDetailsSmall">
-              <Details data={allData} title="full" />
+              <Details data={allData} cardDetails={cardDetails} />
               <article>
-                <div>
-                  <CardDisplay data={allData} cardDetails={cardDetails} />
-                  <Extras data={allData} title="allDetails" />
-                </div>
+                <Extras data={allData} title="allDetails" />
                 <GuestDisplay data={allData} />
               </article>
+              <CardDisplay data={allData} cardDetails={cardDetails} />
             </div>
             <button
               id="confirmButton"

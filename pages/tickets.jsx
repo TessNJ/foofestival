@@ -40,15 +40,15 @@ export default function Tickets({ data, recieveData, allData }) {
     element.classList.remove("hidden");
     element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
 
-    // if (currentSection === "infoSelect" && timerInfo != true) {
-    //   setTimerInfo(true);
-    // }
+    if (currentSection === "infoSelect" && timerInfo != true) {
+      setTimerInfo(true);
+    }
   }, [currentSection, timerInfo, aramInfo]);
 
   useEffect(() => {
-    // if (timerInfo === true) {
-    //   document.querySelector("#timer").classList.remove("timerHidden");
-    // }
+    if (timerInfo === true) {
+      document.querySelector("#timer").classList.remove("timerHidden");
+    }
   });
 
   function moveToPurchase() {

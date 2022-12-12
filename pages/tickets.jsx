@@ -2,10 +2,8 @@ import React, { useState, useEffect } from "react";
 import AvailActicle from "../components/AvailActicle";
 import InfoForm from "../components/InfoForm";
 import Hero from "../components/Hero";
-import Confirmation from "../components/Confirmation";
 import ReservationInfo from "../components/ReservationInfo";
 import HeadInfo from "../components/Head";
-import Countdown from "react-countdown";
 import Timer from "../components/Timer";
 import GuestInfoOverall from "../components/GuestInfoOverall";
 import Anchor from "../components/Anchor";
@@ -109,9 +107,9 @@ export default function Tickets({ data, recieveData, allData }) {
         <section id="infoGuest" className="hidden">
           <div className="guestCopy">
             <h2>Guest Information</h2>
-            <p>It appears there is multiple people attached to this order. Please add at least 1 additional guests name and email</p>
+            <p>It appears there is multiple people attached to this order. Please add name and email for each guest in this order</p>
           </div>
-          <GuestInfoOverall getCurrentSection={getCurrentSection} getGuestInfo={getGuestInfo} />
+          <GuestInfoOverall getCurrentSection={getCurrentSection} aramInfo={aramInfo} getGuestInfo={getGuestInfo} />
         </section>
         <section id="infoConfirm" className="hidden">
           <h1>Reservation Conformation</h1>
@@ -128,8 +126,8 @@ export default function Tickets({ data, recieveData, allData }) {
 }
 
 export async function getStaticProps() {
-  // const res = await fetch("http://localhost:8080/available-spots");
-  const res = await fetch("https://fooapi.fly.dev/available-spots");
+  const res = await fetch("http://localhost:8080/available-spots");
+  // const res = await fetch("https://fooapi.fly.dev/available-spots");
 
   const data = await res.json();
 

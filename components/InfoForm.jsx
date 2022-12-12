@@ -28,62 +28,71 @@ export default function InfoForm(props) {
 
   const CollectInfo = (event) => {
     if (
-      validator.validate(inputRef.current[6].value) &&
-      checkIfValid(inputRef.current[4].value) &&
-      checkIfValid(inputRef.current[5].value) &&
+      validator.validate(inputRef.current[8].value) &&
+      checkIfValid(inputRef.current[6].value) &&
       checkIfValid(inputRef.current[7].value) &&
-      checkIfValid(inputRef.current[8].value) &&
-      checkIfValid(inputRef.current[9].value)
+      checkIfValid(inputRef.current[9].value) &&
+      checkIfValid(inputRef.current[10].value) &&
+      checkIfValid(inputRef.current[11].value)
     ) {
       event.preventDefault();
       let typeName = "Standard Ticket";
-      let typePrice = 1499;
+      let typePrice = 799;
 
       if (inputRef.current[0].value === "extraSpace") {
         typeName = "Extra Space Ticket";
-        typePrice = 1999;
+        typePrice = 1299;
       }
       props.getFormInfo({
         type: { typeName: typeName, typePrice: typePrice },
+        tent: inputRef.current[2].checked,
         extras: {
-          parking: inputRef.current[2].checked,
-          backstage: inputRef.current[3].checked,
+          parking: inputRef.current[3].checked,
+          backstage: inputRef.current[4].checked,
+          green: inputRef.current[5].checked,
         },
-        fullName: [inputRef.current[4].value, inputRef.current[5].value],
-        email: inputRef.current[6].value,
+        fullName: [inputRef.current[6].value, inputRef.current[7].value],
+        email: inputRef.current[8].value,
         address: {
-          street: inputRef.current[7].value,
-          city: inputRef.current[8].value,
-          country: inputRef.current[9].value,
+          street: inputRef.current[9].value,
+          city: inputRef.current[10].value,
+          country: inputRef.current[11].value,
         },
       });
       if (props.aramInfo.amount <= 1) {
-        console.log(props.aramInfo.amount);
         props.getCurrentSection("infoConfirm");
       } else if (props.aramInfo.amount >= 2) {
         props.getCurrentSection("infoGuest");
       }
-      console.log("victory!!");
     } else {
-      focusOut(inputRef.current[4]);
-      focusOut(inputRef.current[5]);
-      emailFocusOut(inputRef.current[6]);
+      focusOut(inputRef.current[6]);
       focusOut(inputRef.current[7]);
-      focusOut(inputRef.current[8]);
+      emailFocusOut(inputRef.current[8]);
       focusOut(inputRef.current[9]);
+      focusOut(inputRef.current[10]);
+      focusOut(inputRef.current[11]);
     }
   };
   return (
     <div>
       <form action="#" id="form_ticketInfo" ref={inputRef}>
         <div className="form-group-small">
-          <label>
-            Choose Ticket Type
-            <select name="ticket_type" id="ticket_type">
-              <SelectOption value="standard" title="Standard - 1499,-" />
-              <SelectOption value="extraSpace" title="Extra Space 1999,-" />
-            </select>
-          </label>
+          <div className="formType">
+            <label>
+              Choose Ticket Type
+              <select name="ticket_type" id="ticket_type">
+                <SelectOption value="standard" title="Standard - 799,-" />
+                <SelectOption value="extraSpace" title="VIP 1299,-" />
+              </select>
+            </label>
+          </div>
+          <div className="formTent">
+            <label>
+              <input type="checkbox" name="ticket_tent" id="ticket_tent" value="tent" />
+              Have crew set up tents
+            </label>
+            <p>* Crew setup starts at 299 for 2-person tent and increases by 100,- per additional guest</p>
+          </div>
           <fieldset>
             <legend>Extras</legend>
             <label>
@@ -93,6 +102,10 @@ export default function InfoForm(props) {
             <label>
               <input type="checkbox" name="ticket_op_backstage" id="ticket_op_backstage" value="backStage" />
               Backstage Pass&apos;s
+            </label>
+            <label>
+              <input type="checkbox" name="ticket_op_green" id="ticket_op_green" value="green" />
+              Green Camping option
             </label>
           </fieldset>
         </div>

@@ -1,10 +1,9 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect, useCallback } from "react";
 import GuestInfo from "./GuestInfo";
 
 export default function GuestInfoOverall(props) {
   var validator = require("email-validator");
   const formEl = useRef(null);
-  const [guestList, setGuestList] = useState([]);
   function checkIfValid(props) {
     if (props.length >= 3) {
       return true;
@@ -25,10 +24,14 @@ export default function GuestInfoOverall(props) {
       event.nextElementSibling.classList.remove("hidden");
     }
   }
+  const getGuests = (guests) => {
+    let content = [];
 
-  const add = (event) => {
-    setGuestList(guestList.concat(<GuestInfo key={guestList.length} />));
-    event.target.nextElementSibling.classList.remove("disabled");
+    for (let i = 0; i < guests; i++) {
+      content.push(<GuestInfo key={`guest-${i}`} />);
+    }
+
+    return content;
   };
   const nextSection = (event) => {
     let guestConcat = [];
@@ -51,25 +54,14 @@ export default function GuestInfoOverall(props) {
       props.getGuestInfo(guestConcat);
       setTimeout(props.getCurrentSection("infoConfirm"), 1000);
     }
-
-    // console.log(formEl.current.children[0].children[0].children[1].value);
   };
   return (
     <article>
       <form action="#" className="guestDiv" ref={formEl}>
-        {guestList}
+        {getGuests(props.aramInfo.amount)}
       </form>
       <div>
-        <button
-          onClick={(e) => {
-            add(e);
-          }}
-        >
-          Add Additional Guest
-        </button>
-        <button className="disabled" onClick={nextSection}>
-          Go to Confirmation
-        </button>
+        <button /* className="disabled" */ onClick={nextSection}>Go to Confirmation</button>
       </div>
     </article>
   );

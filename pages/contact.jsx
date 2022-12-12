@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import HeadInfo from "../components/Head";
-import mapPic from "./street-map-g0abaa0de0_1280.webp";
+import mapPic from "../public/street-map-g0abaa0de0_1280.webp";
 
 export default function Contact(props) {
   console.log(props.allData);

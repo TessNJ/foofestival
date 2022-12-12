@@ -357,10 +357,11 @@ footer {
   z-index: 100;
   right: 2.5vw;
   top: 7.5vw;
-  border: yellow 1px solid;
-  padding: 2vw 5vw;
+  // border: yellow 1px solid;
   .timerHere {
-    background-color: rgb(123, 123, 123);
+    padding: 2vw 5vw;
+    background-color: $secondary-colour;
+    color: $base-colour;
   }
 }
 
@@ -472,27 +473,27 @@ footer {
       }
     }
   }
-  #infoAvail {
-    .availDiv {
-      grid-template-columns: 1fr 1fr;
-      column-gap: 3vw;
-      row-gap: 3vw;
-      article {
-        row-gap: 1vw;
-        div {
-          p {
-            width: 100%;
-          }
-        }
-      }
-      form {
-        flex-wrap: nowrap;
-        input {
-          width: 50%;
-        }
-      }
-    }
-  }
+  // #infoAvail {
+  //   .availDiv {
+  //     grid-template-columns: 1fr 1fr;
+  //     column-gap: 3vw;
+  //     row-gap: 3vw;
+  //     article {
+  //       row-gap: 1vw;
+  //       div {
+  //         p {
+  //           width: 100%;
+  //         }
+  //       }
+  //     }
+  //     form {
+  //       flex-wrap: nowrap;
+  //       input {
+  //         width: 50%;
+  //       }
+  //     }
+  //   }
+  // }
   #infoReserve {
     article {
       .reserveDiv {
@@ -582,7 +583,8 @@ footer {
       }
     }
   }
-
+  #timer {
+  }
   //multipages
   #infoTimedOut,
   #buyBought {
@@ -619,6 +621,27 @@ footer {
     // index and schedule
     //Ticket General
     //ticket - sections
+    #infoAvail {
+      .availDiv {
+        grid-template-columns: 1fr 1fr;
+        column-gap: 3vw;
+        row-gap: 3vw;
+        article {
+          row-gap: 1vw;
+          div {
+            p {
+              width: 100%;
+            }
+          }
+        }
+        form {
+          flex-wrap: nowrap;
+          input {
+            width: 50%;
+          }
+        }
+      }
+    }
     //multipages
     //* Buy section *//
   }

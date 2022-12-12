@@ -17,7 +17,7 @@ export default function Contact(props) {
           <p>lorem@ipsum.dol</p>
         </article>
         <article>
-          <Image src={mapPic} width={"400"} height={"400"} alt=""></Image>
+          <Image src="/street-map-g0abaa0de0_1280.webp" width={"400"} height={"400"} alt=""></Image>
         </article>
       </main>
     </>

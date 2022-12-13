@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "next/image";
 import HeadInfo from "../components/Head";
-import mapPic from "../public/street-map-g0abaa0de0_1280.webp";
 
 export default function Contact(props) {
   console.log(props.allData);
@@ -16,9 +15,7 @@ export default function Contact(props) {
           <p>quo veniam earum 11231231</p>
           <p>lorem@ipsum.dol</p>
         </article>
-        <article>
-          <Image src="/street-map-g0abaa0de0_1280.webp" width={"400"} height={"400"} alt="" priority></Image>
-        </article>
+        <article>{/* <Image src="" width={"400"} height={"400"} alt="" priority></Image> */}</article>
       </main>
     </>
   );

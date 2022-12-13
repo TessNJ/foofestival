@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import Image from "next/image";
 
 export default function AvailActicle(props) {
   const inputRef = useRef(null);
@@ -16,7 +17,10 @@ export default function AvailActicle(props) {
   return (
     <article>
       <div>
-        <h2>{props.title}</h2>
+        <div className="areaImage">
+          <Image src={`/${props.title}.svg`} width={"25"} height={"25"} alt=""></Image>
+          <h2>{props.title}</h2>
+        </div>
         <h3>Available Spots: {props.availSpots}</h3>
 
         <p>All Spots: {props.allSpots}</p>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" width="435.75" height="548.57" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 435.75 548.57">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #666;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        stroke: #fff;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-4 {
+        fill: #890c0c;
+      }
+
+      .cls-2 {
+        stroke-width: 3px;
+      }
+
+      .cls-2, .cls-3 {
+        fill: none;
+      }
+
+      .cls-3 {
+        stroke-width: 2.66px;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g>
+      <g>
+        <path class="cls-1" d="M392.6,548.07H43.15c-23.55,0-42.65-19.09-42.65-42.65V237.14c0-120.05,141.35-236.64,261.4-236.64h0c120.05,0,173.35,116.58,173.35,236.64V505.42c0,23.55-19.09,42.65-42.65,42.65Z"/>
+        <path class="cls-2" d="M366.42,530.18H67.89c-20.12,0-36.43-16.31-36.43-36.43v-229.18c0-102.56,87.25-202.15,189.81-202.15h0c102.56,0,181.58,99.59,181.58,202.15v229.18c0,20.12-16.31,36.43-36.43,36.43Z"/>
+        <path class="cls-3" d="M349.65,509.54H84.49c-17.87,0-32.36-14.49-32.36-32.36v-203.57c0-91.1,77.5-179.56,168.6-179.56h0c91.1,0,161.29,88.46,161.29,179.56v203.57c0,17.87-14.49,32.36-32.36,32.36Z"/>
+      </g>
+      <g>
+        <g>
+          <rect class="cls-4" x="84.17" y="318.12" width="1.66" height="50.7"/>
+          <rect class="cls-4" x="82.31" y="332.88" width="19.57" height="1.66" transform="translate(-205.33 156.56) rotate(-43.79)"/>
+          <rect class="cls-4" x="81.87" y="347.13" width="21.85" height="1.66" transform="translate(-217.8 165.71) rotate(-44.66)"/>
+        </g>
+        <path class="cls-4" d="M124.45,368.81l-7-13-8.42,12.56-1.38-.93,8.91-13.29-9.31-17.29,12.39-20.54,10.63,20.37-11.77,17.56,7.42,13.78-1.46,.79Zm-15.29-31.9l8.44,15.68,10.73-16.01-8.8-16.87-10.37,17.2Z"/>
+        <path class="cls-4" d="M153.57,368.81l-7-13-8.42,12.56-1.38-.93,8.91-13.29-9.31-17.29,12.39-20.54,10.63,20.37-11.77,17.56,7.42,13.78-1.46,.79Zm-15.28-31.9l8.44,15.68,10.73-16.01-8.8-16.87-10.37,17.2Z"/>
+        <g>
+          <rect class="cls-4" x="165.49" y="318.12" width="1.66" height="50.7"/>
+          <rect class="cls-4" x="163.65" y="331.21" width="20.03" height="1.66" transform="translate(-184.12 220.67) rotate(-45.1)"/>
+          <rect class="cls-4" x="163.18" y="346.14" width="22.38" height="1.66" transform="translate(-196.37 231.44) rotate(-46.01)"/>
+        </g>
+        <image width="27" height="54" transform="translate(188.59 315.07)" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAA2CAYAAAA25uK9AAAACXBIWXMAAAsSAAALEgHS3X78AAABJElEQVRYhe2YTRKDIAyFiVu9r1do76trOlhhwo8QImA7kyw6HQW+vAdEVL2XRasBYTiTwbzmuSvQjj+NUGXDwXqpw+M6GBhfOwAB/e9qY5j8AQMA85Ns0ArkYFqf1wHiXg0jthHgtrqjfyJxB1u3DaIOXBCKdd/duJ4yB2xkJwZFMC8YdpbaRzDPzkqFmBROSxIWBrVQ40oR2peFRYulADT3zV7F+5UMSwGpketHLldX6mqeh1lYSV0IKrX/1kZiZjkVFNuLNl4tFs5xgjRnpaypi4n1POMeksiwq+wpquDce1XKwoFr9+IzpytqWDWcCsNSxi1lv23jn8E6H+F8mB7y1iQLRGACE9hd2JhiJXPWGtb7Y5mSORMYCWbfMobAhoRS6gNaGWuIvmxutwAAAABJRU5ErkJggg=="/>
+        <polygon class="cls-4" points="223.35 368.81 222.27 367.56 240.94 351.45 221.54 336.26 241.68 317.1 242.82 318.3 224.08 336.14 243.56 351.38 223.35 368.81"/>
+        <g>
+          <rect class="cls-4" x="260.48" y="318.12" width="1.66" height="50.7"/>
+          <polygon class="cls-4" points="250.93 331.96 249.66 330.89 261.32 316.97 271.92 330.73 270.6 331.74 261.27 319.62 250.93 331.96"/>
+        </g>
+        <rect class="cls-4" x="281.02" y="318.12" width="1.66" height="50.7"/>
+        <path class="cls-4" d="M298.44,368.81h-1.66v-52.69l15.62,17.5-13.96,11.38v23.82Zm0-48.34v22.37l11.56-9.42-11.56-12.95Z"/>
+        <g>
+          <rect class="cls-4" x="318.5" y="318.12" width="1.66" height="50.7"/>
+          <rect class="cls-4" x="326.38" y="314.29" width="1.66" height="20.73" transform="translate(-129.87 384.15) rotate(-52.19)"/>
+          <rect class="cls-4" x="324.38" y="329.21" width="1.66" height="15.54" transform="translate(-139.85 392.04) rotate(-52.77)"/>
+        </g>
+        <g>
+          <rect class="cls-4" x="342" y="318.12" width="1.66" height="50.7"/>
+          <rect class="cls-4" x="350.18" y="314.29" width="1.66" height="20.73" transform="translate(-120.66 402.95) rotate(-52.19)"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

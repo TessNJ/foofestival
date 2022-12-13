@@ -33,7 +33,7 @@ export default function Layout({ children }) {
       <>{children}</>
       <footer>
         <div className="footerLogo">
-          {/* <Image className="logo" src="" width={"50"} height={"50"} alt=""></Image> */}
+          <Image className="logo" src={"/Yggdrasil-logo.svg"} width={"50"} height={"50"} alt=""></Image>
           <h5>
             {" "}
             <Anchor href={"/"}>FooFestival</Anchor>

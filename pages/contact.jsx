@@ -15,7 +15,9 @@ export default function Contact(props) {
           <p>quo veniam earum 11231231</p>
           <p>lorem@ipsum.dol</p>
         </article>
-        <article>{/* <Image src="" width={"400"} height={"400"} alt="" priority></Image> */}</article>
+        <article>
+          <Image src={"/RuneStone-FooFestival.svg"} width={"500"} height={"500"} alt=""></Image>
+        </article>
       </main>
     </>
   );

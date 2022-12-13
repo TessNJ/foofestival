@@ -105,6 +105,10 @@ button {
   background-color: $accent-colour;
   color: $secondary-colour-lighter;
 }
+.buttonLook {
+  padding: 0.7vw 2vw;
+  align-self: center;
+}
 .form-group p {
   color: $accent-colour;
   width: 100%;
@@ -131,10 +135,14 @@ header {
   nav {
     display: flex;
     align-items: center;
+    justify-content: space-evenly;
+    column-gap: 1vw;
     ul {
       display: flex;
       justify-content: space-between;
       column-gap: 1vw;
+      margin: 0;
+      padding: 0;
       li {
         list-style: none;
       }
@@ -229,6 +237,10 @@ footer {
       display: flex;
       flex-direction: column;
       row-gap: 2vw;
+      .areaImage {
+        display: flex;
+        align-items: center;
+      }
       div {
         display: flex;
         flex-wrap: wrap;

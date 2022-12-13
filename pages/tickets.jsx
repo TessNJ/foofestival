@@ -23,6 +23,7 @@ export default function Tickets({ data, recieveData, allData }) {
   }
   function getGuestInfo(props) {
     setGuestInfo(props);
+    console.log(props);
   }
   function getCurrentSection(props) {
     setCurrentSection(props);
@@ -51,22 +52,24 @@ export default function Tickets({ data, recieveData, allData }) {
   async function moveToPurchase(e) {
     e.preventDefault();
     const response = await insertOrder({
-      area: "try",
-      amount: 13,
-      type: "try",
+      area: aramInfo.area,
+      amount: aramInfo.amount,
+      type: formInfo.type.typeName,
+      tentSetup: formInfo.tents,
       extras: {
-        parking: true,
+        parking: formInfo.extras.parking,
+        backStage: formInfo.extras.backstage,
+        green: formInfo.extras.green,
       },
-      primary_email: "something@now.hi",
-      primary_name: "tess",
-      address: "something, place, space",
-      guests: [
-        { name: "hi", email: "somethin@somethin.meh" },
-        { name: "hi", email: "somethin@somethin.meh" },
-      ],
+      primary_email: formInfo.email,
+      primary_name: `${formInfo.fullName[0]} ${formInfo.fullName[1]}`,
+      address: `${formInfo.address.street}, ${formInfo.address.city}, ${formInfo.address.country}`,
+      guests: guestInfo != null || undefined ? guestInfo : [],
     });
-    console.log(response);
-    // recieveData([aramInfo, formInfo, guestInfo]);
+    if (response && response.length) {
+      recieveData([aramInfo, formInfo, guestInfo != null || undefined ? guestInfo : []]);
+      e.target.nextElementSibling.classList.remove("disabled");
+    }
   }
 
   return (
@@ -126,13 +129,20 @@ export default function Tickets({ data, recieveData, allData }) {
           </div>
           <GuestInfoOverall getCurrentSection={getCurrentSection} aramInfo={aramInfo} getGuestInfo={getGuestInfo} />
         </section>
-        <section id="infoConfirm" /* className="hidden" */>
+        <section id="infoConfirm" className="hidden">
           <h1>Reservation Conformation</h1>
           <div>
-            <p> Your order has been reserved. To Claim the spot, please continue to payment, to finish the transaction.</p>
-            {/*             <Anchor href={"/finalizePurchase"}> */}
-            <button onClick={moveToPurchase}>Go To Payment</button>
-            {/* </Anchor> */}
+            <p> Your order has been reserved. To Claim the spot, please confirm information, the proceed to payment, to finish the transaction.</p>
+            <button
+              onClick={(e) => {
+                moveToPurchase(e);
+              }}
+            >
+              Infomrationa is Correct
+            </button>
+            <Anchor id="linkPayment" className="disabled" href="/finalizePurchase">
+              Payment
+            </Anchor>
           </div>
         </section>
       </main>

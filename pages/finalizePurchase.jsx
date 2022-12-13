@@ -11,7 +11,8 @@ export default function FinalizePurchase({ allData }) {
   const [buyComplete, setBuyComplete] = useState(false);
   if (!allData[0] || !allData[1] || !allData[2]) {
     if (typeof window !== "undefined") {
-      window.location.replace("/tickets");
+      console.log(allData);
+      // window.location.replace("/tickets");
     }
   } else {
     function getCardDetail(props) {

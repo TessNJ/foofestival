@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 
-export default function Anchor({ children, href, className }) {
+export default function Anchor({ children, href, className, id }) {
   const router = useRouter();
 
   function handleClick(e) {
@@ -9,7 +9,7 @@ export default function Anchor({ children, href, className }) {
   }
 
   return (
-    <a className={className} href={href} onClick={handleClick}>
+    <a id={id} className={className} href={href} onClick={handleClick}>
       {children}
     </a>
   );

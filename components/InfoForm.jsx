@@ -45,7 +45,7 @@ export default function InfoForm(props) {
       }
       props.getFormInfo({
         type: { typeName: typeName, typePrice: typePrice },
-        tent: inputRef.current[1].checked,
+        tents: inputRef.current[1].checked,
         extras: {
           parking: inputRef.current[3].checked,
           backstage: inputRef.current[4].checked,

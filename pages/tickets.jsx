@@ -82,7 +82,7 @@ export default function Tickets({ data, recieveData, allData, recieveTime, recie
           <div className="timerHere">
             <p>
               Timer:&nbsp;&nbsp;
-              <Timer timedOut={timedOut} timerInfo={timerInfo} />
+              <Timer timedOut={timedOut} timerInfo={timerInfo} page="ticket" />
             </p>
           </div>
         </aside>

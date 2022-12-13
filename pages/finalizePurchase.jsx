@@ -11,19 +11,15 @@ import { fillReservation } from "../modules/fullfill";
 export default function FinalizePurchase({ allData, timeLeft, orderStatus }) {
   const [cardDetails, setCardDetails] = useState(null);
   const [buyComplete, setBuyComplete] = useState(false);
-  const [timerInfo, setTimerInfo] = useState(false);
-  useEffect(() => {
-    if (timerInfo != true) {
-      setTimerInfo(true);
-    }
-  }, [timerInfo]);
+  const [timerInfo, setTimerInfo] = useState(true);
+
   if (!allData[0] || !allData[1] || !allData[2]) {
     if (typeof window !== "undefined") {
       console.log(allData);
       // window.location.replace("/tickets");
     }
   } else {
-    const newTimeLeft = timeLeft.split(":");
+    let newTimeLeft = timeLeft.split(":");
     function timedOut() {
       document.querySelector("#infoTimedOut").classList.remove("timerHidden");
     }
@@ -49,7 +45,7 @@ export default function FinalizePurchase({ allData, timeLeft, orderStatus }) {
           <div className="timerHere">
             <p>
               Timer:&nbsp;&nbsp;
-              <Timer newTimeLeft={newTimeLeft} timedOut={timedOut} timerInfo={timerInfo} />
+              <Timer newTimeLeft={newTimeLeft} timedOut={timedOut} timerInfo={timerInfo} page="buy" />
             </p>
           </div>
         </aside>

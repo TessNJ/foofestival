@@ -13,8 +13,8 @@ export default function CardForm(props) {
     setCardType(Payment.fns.cardType(event.target.value));
   }
 
-  const sendCard = (event) => {
-    event.preventDefault;
+  function sendCard(event) {
+    event.preventDefault();
     if (cardForm.current[0].value.length >= 19 && Payment.fns.validateCardExpiry(cardForm.current[1].value) && Payment.fns.validateCardCVC(cardForm.current[2].value)) {
       props.getCardDetail({
         cardNo: cardForm.current[0].value,
@@ -37,7 +37,7 @@ export default function CardForm(props) {
 
       console.log("denied");
     }
-  };
+  }
   return (
     <>
       <div>

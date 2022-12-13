@@ -10,7 +10,7 @@ import GuestInfoOverall from "../components/GuestInfoOverall";
 import Anchor from "../components/Anchor";
 import { insertOrder } from "../modules/db";
 
-export default function Tickets({ data, recieveData, allData }) {
+export default function Tickets({ data, recieveData, allData, recieveTime, recieveStatus }) {
   const router = useRouter();
   const [currentSection, setCurrentSection] = useState("infoGreet");
   const [aramInfo, setAramInfo] = useState("");
@@ -25,7 +25,6 @@ export default function Tickets({ data, recieveData, allData }) {
   }
   function getGuestInfo(props) {
     setGuestInfo(props);
-    console.log(props);
   }
   function getCurrentSection(props) {
     setCurrentSection(props);
@@ -70,6 +69,7 @@ export default function Tickets({ data, recieveData, allData }) {
     });
     if (response && response.length) {
       recieveData([aramInfo, formInfo, guestInfo != null || undefined ? guestInfo : []]);
+      recieveTime(document.querySelector("#timerTime").textContent);
       router.push("/finalizePurchase");
     }
   }
@@ -82,9 +82,7 @@ export default function Tickets({ data, recieveData, allData }) {
           <div className="timerHere">
             <p>
               Timer:&nbsp;&nbsp;
-              <span>
-                <Timer timedOut={timedOut} timerInfo={timerInfo} />
-              </span>
+              <Timer timedOut={timedOut} timerInfo={timerInfo} />
             </p>
           </div>
         </aside>
@@ -117,7 +115,7 @@ export default function Tickets({ data, recieveData, allData }) {
         <section id="infoReserve" className="hidden">
           <article>
             <h1>Current Reservation?</h1>
-            <ReservationInfo aramInfo={aramInfo} getCurrentSection={getCurrentSection} />
+            <ReservationInfo recieveStatus={recieveStatus} aramInfo={aramInfo} getCurrentSection={getCurrentSection} />
           </article>
         </section>
         <section id="infoSelect" className="hidden">
@@ -151,8 +149,8 @@ export default function Tickets({ data, recieveData, allData }) {
 }
 
 export async function getStaticProps() {
-  // const res = await fetch("http://localhost:8080/available-spots");
-  const res = await fetch("https://fooapi.fly.dev/available-spots");
+  const res = await fetch("http://localhost:8080/available-spots");
+  // const res = await fetch("https://fooapi.fly.dev/available-spots");
 
   const data = await res.json();
 

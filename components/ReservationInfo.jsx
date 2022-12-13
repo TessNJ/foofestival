@@ -1,9 +1,19 @@
 import React from "react";
+import { putReservation } from "../modules/reserve";
 
 export default function ReservationInfo(props) {
   let verb = "people";
-  function nextSec() {
-    props.getCurrentSection("infoSelect");
+  async function nextSec() {
+    const response = await putReservation({
+      area: props.aramInfo.area,
+      amount: props.aramInfo.amount,
+    });
+    console.log(response.length);
+    if (response) {
+      props.recieveStatus({ id: response.id });
+      console.log(response.id);
+      props.getCurrentSection("infoSelect");
+    }
   }
   if (props.aramInfo.amount === "1") {
     verb = "person";

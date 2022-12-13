@@ -2,10 +2,15 @@ import React, { useRef, useEffect, useMemo } from "react";
 import Countdown from "react-countdown";
 
 export default function Timer(props) {
+  const toMilliseconds = (min, sec) => min * 60000 + sec * 1000;
+  const time = useMemo(() => {
+    if (!props.newTimeLeft) {
+      return Date.now() + 300000;
+    } else {
+      return Date.now() + toMilliseconds(props.newTimeLeft[0], props.newTimeLeft[1]);
+    }
+  }, [props.newTimeLeft]);
   const myTimer = useRef(null);
-  //   if (props.timerInfo === false) {
-  //     return;
-  //   }
   const info = props.timerInfo;
   useEffect(() => {
     if (info === true) {
@@ -13,11 +18,7 @@ export default function Timer(props) {
     } else if (info === false) {
       myTimer.current.api.stop();
     }
-  }, [info]);
-
-  const time = useMemo(() => {
-    return Date.now() + 300000;
-  }, []);
+  }, [info, props]);
 
   function complete() {
     props.timedOut();
@@ -27,7 +28,7 @@ export default function Timer(props) {
       complete();
     }
     return (
-      <span>
+      <span id="timerTime">
         {minutes}:{seconds}
       </span>
     );

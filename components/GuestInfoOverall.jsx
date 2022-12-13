@@ -27,7 +27,7 @@ export default function GuestInfoOverall(props) {
   const getGuests = (guests) => {
     let content = [];
 
-    for (let i = 0; i < guests; i++) {
+    for (let i = 0; i < guests - 1; i++) {
       content.push(<GuestInfo key={`guest-${i}`} />);
     }
 

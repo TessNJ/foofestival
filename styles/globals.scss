@@ -109,6 +109,9 @@ button {
   padding: 0.7vw 2vw;
   align-self: center;
 }
+.form-group {
+  flex-wrap: wrap;
+}
 .form-group p {
   color: $accent-colour;
   width: 100%;
@@ -116,8 +119,10 @@ button {
 }
 input,
 select {
+  height: 1.7rem;
   background-color: $secondary-colour-lighter;
   color: $base-colour-darker;
+  border: none;
 }
 
 //header and footer

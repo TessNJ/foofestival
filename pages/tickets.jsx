@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 import AvailActicle from "../components/AvailActicle";
 import InfoForm from "../components/InfoForm";
 import Hero from "../components/Hero";
@@ -10,6 +11,7 @@ import Anchor from "../components/Anchor";
 import { insertOrder } from "../modules/db";
 
 export default function Tickets({ data, recieveData, allData }) {
+  const router = useRouter();
   const [currentSection, setCurrentSection] = useState("infoGreet");
   const [aramInfo, setAramInfo] = useState("");
   const [formInfo, setFormInfo] = useState("");
@@ -68,7 +70,7 @@ export default function Tickets({ data, recieveData, allData }) {
     });
     if (response && response.length) {
       recieveData([aramInfo, formInfo, guestInfo != null || undefined ? guestInfo : []]);
-      e.target.nextElementSibling.classList.remove("disabled");
+      router.push("/finalizePurchase");
     }
   }
 
@@ -133,16 +135,14 @@ export default function Tickets({ data, recieveData, allData }) {
           <h1>Reservation Conformation</h1>
           <div>
             <p> Your order has been reserved. To Claim the spot, please confirm information, the proceed to payment, to finish the transaction.</p>
-            <button
+            <a
+              className="buttonLook"
               onClick={(e) => {
                 moveToPurchase(e);
               }}
             >
-              Infomrationa is Correct
-            </button>
-            <Anchor id="linkPayment" className="disabled" href="/finalizePurchase">
               Payment
-            </Anchor>
+            </a>
           </div>
         </section>
       </main>

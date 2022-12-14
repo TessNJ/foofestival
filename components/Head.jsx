@@ -6,6 +6,7 @@ export default function HeadInfo(props) {
       <Head>
         <title>{props.title}</title>
         <meta name="description" content={props.children} />
+        <link rel="shortcut icon" href="/Yggdrasil-logo.svg" />
       </Head>
     </>
   );

@@ -134,6 +134,7 @@ export default function Tickets({ data, recieveData, allData, recieveTime, recie
           <div>
             <p> Your order has been reserved. To Claim the spot, please confirm information, the proceed to payment, to finish the transaction.</p>
             <a
+              href=""
               className="buttonLook"
               onClick={(e) => {
                 moveToPurchase(e);

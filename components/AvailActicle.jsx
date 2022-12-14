@@ -19,9 +19,9 @@ export default function AvailActicle(props) {
       <div>
         <div className="areaImage">
           <Image src={`/${props.title}.svg`} width={"25"} height={"25"} alt=""></Image>
-          <h2>{props.title}</h2>
+          <h3>{props.title}</h3>
         </div>
-        <h3>Available Spots: {props.availSpots}</h3>
+        <h5>Available Spots: {props.availSpots}</h5>
 
         <p>All Spots: {props.allSpots}</p>
       </div>

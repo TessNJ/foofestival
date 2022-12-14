@@ -11,18 +11,18 @@ import { fillReservation } from "../modules/fullfill";
 export default function FinalizePurchase({ allData, timeLeft, orderStatus }) {
   const [cardDetails, setCardDetails] = useState(null);
   const [buyComplete, setBuyComplete] = useState(false);
-  const [timerInfo, setTimerInfo] = useState(true);
+  // const [timerInfo, setTimerInfo] = useState(true);
 
   if (!allData[0] || !allData[1] || !allData[2]) {
     if (typeof window !== "undefined") {
       console.log(allData);
-      // window.location.replace("/tickets");
+      window.location.replace("/tickets");
     }
   } else {
-    let newTimeLeft = timeLeft.split(":");
-    function timedOut() {
-      document.querySelector("#infoTimedOut").classList.remove("timerHidden");
-    }
+    // let newTimeLeft = timeLeft.split(":");
+    // function timedOut() {
+    //   document.querySelector("#infoTimedOut").classList.remove("timerHidden");
+    // }
     function getCardDetail(props) {
       setCardDetails(props);
       setBuyComplete(true);
@@ -41,14 +41,14 @@ export default function FinalizePurchase({ allData, timeLeft, orderStatus }) {
     return (
       <>
         <HeadInfo>Purchase</HeadInfo>
-        <aside id="timer">
+        {/* <aside id="timer">
           <div className="timerHere">
             <p>
               Timer:&nbsp;&nbsp;
               <Timer newTimeLeft={newTimeLeft} timedOut={timedOut} timerInfo={timerInfo} page="buy" />
             </p>
           </div>
-        </aside>
+        </aside> */}
         <aside id="infoTimedOut" className="timerHidden">
           <div>
             <h1>Timed Out</h1>
@@ -72,11 +72,11 @@ export default function FinalizePurchase({ allData, timeLeft, orderStatus }) {
             <h3>Order Details of Purchase</h3>
             <div className="buyDetailsSmall">
               <Details data={allData} cardDetails={cardDetails} />
+              <CardDisplay data={allData} cardDetails={cardDetails} />
               <article>
                 <Extras data={allData} title="allDetails" />
-                <GuestDisplay data={allData} />
+                <GuestDisplay data={allData} className="hidden" />
               </article>
-              <CardDisplay data={allData} cardDetails={cardDetails} />
             </div>
             <button id="confirmButton" className="disabled" onClick={orderConfirmed}>
               Confirm Purchase

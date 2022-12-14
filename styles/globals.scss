@@ -284,8 +284,11 @@ footer {
     display: grid;
     grid-template-columns: 1fr;
     row-gap: 3vw;
+    .formType {
+      background-color: $base-colour-darker;
+      padding: 3vw;
+    }
     .form-group-small {
-      background-color: $base-colour;
       background-color: $base-colour;
       display: flex;
       flex-direction: column;
@@ -308,10 +311,19 @@ footer {
       row-gap: 0;
       padding: 3vw;
     }
+    .formTent {
+      padding: 3vw;
+      background-color: $base-colour-darker;
+      label {
+        justify-content: flex-start;
+      }
+    }
     fieldset {
+      width: 100%;
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
       justify-content: space-evenly;
+      align-items: flex-start;
       background-color: $base-colour-darker;
       border: none;
     }
@@ -373,13 +385,16 @@ footer {
 #timer {
   position: fixed;
   z-index: 100;
-  right: 2.5vw;
+  right: 2vw;
   top: 7.5vw;
   // border: yellow 1px solid;
+  width: 21vw;
   .timerHere {
-    padding: 2vw 5vw;
+    padding: 1vw 2vw;
     background-color: $secondary-colour;
-    color: $base-colour;
+    background-color: $base-colour;
+    border: 2px $accent-colour solid;
+    color: $secondary-colour;
   }
 }
 
@@ -392,6 +407,7 @@ footer {
   left: 0;
   width: 100%;
   height: 100%;
+  z-index: 100;
   background-color: rgba(240, 248, 255, 0.719);
   display: flex;
   div {
@@ -452,7 +468,9 @@ footer {
   padding: 2vw;
   background-color: $base-colour-darker;
   .buyDetailsSmall {
-    display: flex;
+    // display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     column-gap: 5vw;
     article {
       width: 100%;
@@ -493,7 +511,7 @@ footer {
   }
   #infoAvail {
     .availDiv {
-      grid-template-columns: 1fr 1fr;
+      // grid-template-columns: 1fr 1fr;
       column-gap: 3vw;
       row-gap: 3vw;
       article {
@@ -507,7 +525,7 @@ footer {
       form {
         flex-wrap: nowrap;
         input {
-          width: 50%;
+          width: 10%;
         }
       }
     }
@@ -532,27 +550,15 @@ footer {
       }
     }
     form {
-      .form-group-small {
-        padding: 2vw;
-        row-gap: 1vw;
-      }
-      .form-group-big {
-        padding: 2vw;
-        row-gap: 1vw;
-        // column-gap: 1vw;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-between;
-      }
       .form-group {
         padding: 1vw;
-        width: 49%;
         input {
           width: 60%;
         }
       }
       fieldset {
         padding: 1vw;
+        flex-direction: row;
       }
     }
   }
@@ -601,8 +607,8 @@ footer {
       }
     }
   }
-  #timer {
-  }
+  // #timer {
+  // }
   //multipages
   #infoTimedOut,
   #buyBought {
@@ -613,7 +619,7 @@ footer {
   //* Buy section *//
   .purchaseMain {
     margin: 3vw 10vw;
-    grid-template-columns: 1fr 30vw;
+    // grid-template-columns: 1fr 30vw;
     section {
       padding: 3vw;
     }
@@ -655,12 +661,40 @@ footer {
         form {
           flex-wrap: nowrap;
           input {
-            width: 50%;
+            width: 10%;
           }
+        }
+      }
+    }
+    #infoSelect {
+      form {
+        .form-group {
+          width: 49%;
+        }
+        .formType,
+        .formTent {
+          width: 49%;
+        }
+        .form-group-small {
+          padding: 2vw;
+          row-gap: 1vw;
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: space-between;
+        }
+        .form-group-big {
+          padding: 2vw;
+          row-gap: 1vw;
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: space-between;
         }
       }
     }
     //multipages
     //* Buy section *//
+    .purchaseMain {
+      grid-template-columns: 1fr 30vw;
+    }
   }
 }

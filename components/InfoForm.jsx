@@ -11,7 +11,6 @@ export default function InfoForm(props) {
     return false;
   }
   function focusOut(event) {
-    // if (checkIfValid(event.target.value)) {
     if (checkIfValid(event.value)) {
       event.nextElementSibling.classList.add("hidden");
     } else {
@@ -91,7 +90,7 @@ export default function InfoForm(props) {
               <input type="checkbox" name="ticket_tent" id="ticket_tent" value="tent" />
               Have crew set up tents
             </label>
-            <p>* Crew setup starts at 299 for 2-person tent and increases by 100,- per additional guest</p>
+            <p className="textItalic">* Crew setup starts at 299 for 2-person tent and increases by 100,- per additional guest</p>
           </div>
           <fieldset>
             <legend>Extras</legend>

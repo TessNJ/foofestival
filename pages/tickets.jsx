@@ -133,15 +133,15 @@ export default function Tickets({ data, recieveData, allData, recieveTime, recie
           <h1>Reservation Conformation</h1>
           <div>
             <p> Your order has been reserved. To Claim the spot, please confirm information, the proceed to payment, to finish the transaction.</p>
-            <a
-              href=""
-              className="buttonLook"
+            <button
+              // href=""
+              // className="buttonLook"
               onClick={(e) => {
                 moveToPurchase(e);
               }}
             >
               Payment
-            </a>
+            </button>
           </div>
         </section>
       </main>

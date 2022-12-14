@@ -34,12 +34,12 @@ export default function Layout({ children }) {
       <footer>
         <div className="footerLogo">
           <Image className="logo" src={"/Yggdrasil-logo.svg"} width={"50"} height={"50"} alt=""></Image>
-          <h1>
-            <Anchor href={"/"}>FooFestival</Anchor>
-          </h1>
+          <Anchor className="textImportant" href={"/"}>
+            FooFestival
+          </Anchor>
         </div>
         <div className="links">
-          <h4>Links</h4>
+          <p className="textImportant">Links</p>
           <ul>
             <li>
               <Anchor href={"/"}>Home</Anchor>

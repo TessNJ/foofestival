@@ -34,10 +34,10 @@ export default function Layout({ children }) {
       <footer>
         <div className="footerLogo">
           <Image className="logo" src={"/Yggdrasil-logo.svg"} width={"50"} height={"50"} alt=""></Image>
-          <h5>
+          <h4>
             {" "}
             <Anchor href={"/"}>FooFestival</Anchor>
-          </h5>
+          </h4>
         </div>
         {/* <hr /> */}
         <div className="links">

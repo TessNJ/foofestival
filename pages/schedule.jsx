@@ -4,7 +4,7 @@ import HeadInfo from "../components/Head";
 export default function Schedule() {
   return (
     <>
-      <HeadInfo>Schedule</HeadInfo>
+      <HeadInfo title="Schedule">This is currently unavailable</HeadInfo>
       <main className="scheduleMain">
         <div>
           <h1>404 Page Not Found</h1>

@@ -39,7 +39,7 @@ export default function FinalizePurchase({ allData, timeLeft, orderStatus }) {
     }
     return (
       <>
-        <HeadInfo>Purchase</HeadInfo>
+        <HeadInfo title="Purchase">Pay for your FooFestival order here to claim your camping spot. Can only be reached with valid order</HeadInfo>
         <aside id="timer">
           <div className="timerHere">
             <p>

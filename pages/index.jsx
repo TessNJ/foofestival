@@ -4,7 +4,7 @@ import HeadInfo from "../components/Head";
 export default function Home(props) {
   return (
     <>
-      <HeadInfo>Index</HeadInfo>
+      <HeadInfo title="Index">This is the Home Page of FooFestival, a rock Festival. Here you can find links to tickets</HeadInfo>
       <main className="indexMain">
         <h1>This is index</h1>
         <Anchor href={"/tickets"}>Take me to tickets</Anchor>

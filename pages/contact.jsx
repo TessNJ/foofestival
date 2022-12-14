@@ -5,7 +5,7 @@ import HeadInfo from "../components/Head";
 export default function Contact(props) {
   return (
     <>
-      <HeadInfo>Contact</HeadInfo>
+      <HeadInfo title="Contact">Find information on how to reach FooFestival here. Provided is email and phone number</HeadInfo>
       <main className="contactMain">
         <article>
           <h1>Lorem Ipsum</h1>

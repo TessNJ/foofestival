@@ -76,7 +76,7 @@ export default function Tickets({ data, recieveData, allData, recieveTime, recie
 
   return (
     <>
-      <HeadInfo>Tickets</HeadInfo>
+      <HeadInfo title="Tickets">Buy your tickets here for the years FooFestival. Grab your ticket while they are available</HeadInfo>
       <main className="ticketMain">
         <aside id="timer" className="timerHidden ">
           <div className="timerHere">

@@ -8,9 +8,9 @@ export default function Layout({ children }) {
       <header>
         <div className="logoDiv">
           <Image className="logo" src={"/Yggdrasil-logo.svg"} width={"50"} height={"50"} alt=""></Image>
-          <h3>
+          <h1>
             <Anchor href={"/"}>FooFestival</Anchor>
-          </h3>
+          </h1>
         </div>
         <nav>
           <ul>

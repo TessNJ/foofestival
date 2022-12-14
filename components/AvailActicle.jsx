@@ -31,7 +31,7 @@ export default function AvailActicle(props) {
       </div>
       <form action="#" className="form-group">
         <label htmlFor="ticket_amount">Choose Ticket Amount</label>
-        <input ref={inputRef} type="number" name="ticket_amount" id="ticket_amount" pattern="[0-9]*" inputMode="numeric" />
+        <input ref={inputRef} type="number" name="ticket_amount" id={`ticket_amount-${props.title}`} pattern="[0-9]*" inputMode="numeric" />
         <p ref={pRef} className="hidden">
           Invalid
         </p>

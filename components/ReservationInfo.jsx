@@ -8,10 +8,8 @@ export default function ReservationInfo(props) {
       area: props.aramInfo.area,
       amount: props.aramInfo.amount,
     });
-    console.log(response.length);
     if (response) {
       props.recieveStatus({ id: response.id });
-      console.log(response.id);
       props.getCurrentSection("infoSelect");
     }
   }

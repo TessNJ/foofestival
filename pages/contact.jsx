@@ -3,7 +3,6 @@ import Image from "next/image";
 import HeadInfo from "../components/Head";
 
 export default function Contact(props) {
-  console.log(props.allData);
   return (
     <>
       <HeadInfo>Contact</HeadInfo>

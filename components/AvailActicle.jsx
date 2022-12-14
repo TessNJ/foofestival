@@ -3,15 +3,19 @@ import Image from "next/image";
 
 export default function AvailActicle(props) {
   const inputRef = useRef(null);
+  const pRef = useRef(null);
   let buttonClass = props.availSpots === 0 ? "disabled" : "";
   const info = (event) => {
     event.preventDefault();
-    if (inputRef.current.value != 0 || "") {
+    if ((inputRef.current.value >= 1 || "") && inputRef.current.value <= props.availSpots) {
       props.getAramInfo({
         area: props.title,
         amount: inputRef.current.value,
       });
       props.getCurrentSection("infoReserve");
+      pRef.current.classList.add("hidden");
+    } else {
+      pRef.current.classList.remove("hidden");
     }
   };
   return (
@@ -25,9 +29,12 @@ export default function AvailActicle(props) {
 
         <p>All Spots: {props.allSpots}</p>
       </div>
-      <form action="#">
+      <form action="#" className="form-group">
         <label htmlFor="ticket_amount">Choose Ticket Amount</label>
         <input ref={inputRef} type="number" name="ticket_amount" id="ticket_amount" pattern="[0-9]*" inputMode="numeric" />
+        <p ref={pRef} className="hidden">
+          Invalid
+        </p>
       </form>
       <button onClick={info} className={buttonClass}>
         Select

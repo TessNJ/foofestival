@@ -4,12 +4,8 @@ import Payment from "payment";
 export default function CardForm(props) {
   const [cardType, setCardType] = useState(null);
   const cardForm = useRef(null);
-  if (typeof document === "undefined") {
-    console.log("hi");
-  }
 
   function checkCardType(event) {
-    console.log(Payment.fns.cardType(event.target.value));
     setCardType(Payment.fns.cardType(event.target.value));
   }
 
@@ -22,20 +18,15 @@ export default function CardForm(props) {
         cardSecu: cardForm.current[2].value,
       });
     } else {
-      console.log(cardForm.current[0].nextElementSibling);
       if (cardForm.current[0].value.length < 19) {
         cardForm.current[0].nextElementSibling.classList.remove("hidden");
       }
       if (!Payment.fns.validateCardExpiry(cardForm.current[1].value)) {
-        console.log("hi");
         cardForm.current[1].nextElementSibling.classList.remove("hidden");
       }
       if (!Payment.fns.validateCardCVC(cardForm.current[2].value)) {
-        console.log("hi");
         cardForm.current[2].nextElementSibling.classList.remove("hidden");
       }
-
-      console.log("denied");
     }
   }
   return (

@@ -15,7 +15,6 @@ export default function FinalizePurchase({ allData, timeLeft, orderStatus }) {
 
   if (!allData[0] || !allData[1] || !allData[2]) {
     if (typeof window !== "undefined") {
-      console.log(allData);
       window.location.replace("/tickets");
     }
   } else {

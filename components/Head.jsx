@@ -5,8 +5,8 @@ export default function HeadInfo(props) {
     <>
       <Head>
         <title>{props.title}</title>
+        <meta name="description" content={props.children} />
       </Head>
-      <meta name="description" content={props.children} />
     </>
   );
 }

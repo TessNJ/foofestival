@@ -129,6 +129,7 @@ select {
 header {
   background-color: $base-colour-darker;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   padding: 1vw 6vw;
   .logoDiv {
@@ -488,6 +489,9 @@ footer {
     padding: 0.7vw 0;
   }
   //header and footer
+  header {
+    flex-direction: row;
+  }
   //Contact
   // index and schedule
   //Ticket General

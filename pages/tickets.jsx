@@ -149,8 +149,8 @@ export default function Tickets({ data, recieveData, allData, recieveTime, recie
 }
 
 export async function getStaticProps() {
-  const res = await fetch("http://localhost:8080/available-spots");
-  // const res = await fetch("https://fooapi.fly.dev/available-spots");
+  // const res = await fetch("http://localhost:8080/available-spots");
+  const res = await fetch("https://fooapi.fly.dev/available-spots");
 
   const data = await res.json();
 

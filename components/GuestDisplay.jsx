@@ -1,7 +1,6 @@
 import React from "react";
 
 export default function GuestDisplay({ data }) {
-  console.log(data[0].amount >= 2);
   let showNoShow = "hidden";
   if (data[0].amount >= 2) {
     showNoShow = "";

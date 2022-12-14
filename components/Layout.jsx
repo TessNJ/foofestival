@@ -38,7 +38,6 @@ export default function Layout({ children }) {
             <Anchor href={"/"}>FooFestival</Anchor>
           </h4>
         </div>
-        {/* <hr /> */}
         <div className="links">
           <h4>Links</h4>
           <ul>

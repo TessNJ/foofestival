@@ -155,7 +155,7 @@ header {
       }
     }
     .buttonLook {
-      width: 16%;
+      width: fit-content;
     }
   }
 }
@@ -319,6 +319,9 @@ footer {
       flex-wrap: wrap;
       row-gap: 0;
       padding: 3vw;
+      input {
+        width: 45%;
+      }
     }
     .formTent {
       padding: 3vw;
@@ -395,11 +398,13 @@ footer {
   position: fixed;
   z-index: 100;
   right: 2vw;
-  top: 7.5vw;
-  // border: yellow 1px solid;
+  top: 14vw;
+  p {
+    font-size: 0.7rem;
+  }
   .timerHere {
     width: 100%;
-    padding: 1vw 2vw;
+    padding: 0.5vw 1vw;
     background-color: $secondary-colour;
     background-color: $base-colour;
     border: 2px $accent-colour solid;
@@ -503,9 +508,6 @@ footer {
       margin: 0;
       ul {
         column-gap: 2vw;
-      }
-      .buttonLook {
-        width: 32%;
       }
     }
   }
@@ -628,8 +630,13 @@ footer {
       }
     }
   }
-  // #timer {
-  // }
+  #timer {
+    right: 1vw;
+    top: 8.5vw;
+    p {
+      font-size: 1rem;
+    }
+  }
   //multipages
   #infoTimedOut,
   #buyBought {

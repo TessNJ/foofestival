@@ -93,7 +93,7 @@ export default function InfoForm(props) {
             <p className="textItalic">* Crew setup starts at 299 for 2-person tent and increases by 100,- per additional guest</p>
           </div>
           <fieldset>
-            <legend>Extras</legend>
+            <legend>Optionals:</legend>
             <label>
               <input type="checkbox" name="ticket_op_parking" id="ticket_op_parking" value="parking" />
               Assign Parking Space +199,-

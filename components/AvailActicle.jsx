@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function AvailActicle(props) {
   const inputRef = useRef(null);
   const pRef = useRef(null);
-  let buttonClass = props.availSpots === 0 ? "disabled" : "";
+  let buttonClass = props.availSpots < 1 ? "disabled" : "";
   const info = (event) => {
     event.preventDefault();
     if ((inputRef.current.value >= 1 || "") && inputRef.current.value <= props.availSpots) {
@@ -25,7 +25,7 @@ export default function AvailActicle(props) {
           <Image src={`/${props.title}.svg`} width={"25"} height={"25"} alt=""></Image>
           <h3>{props.title}</h3>
         </div>
-        <h5>Available Spots: {props.availSpots}</h5>
+        <h5>Available Spots: {props.availSpots > 0 ? props.availSpots : 0}</h5>
 
         <p>All Spots: {props.allSpots}</p>
       </div>

@@ -106,6 +106,8 @@ export default function Tickets({ data, recieveData, allData, recieveTime, recie
         </section>
         <section id="infoAvail" className="hidden">
           <h1>Availability</h1>
+          <p>Here you can see the camping spots available in each camp, as well as the total amount of people allowed in each camp.</p>
+          <p>Tent rental can be added to the order, along with other optionals, after area and amount has been selected.</p>
           <div className="availDiv">
             {data.map((e) => {
               return <AvailActicle key={`avail-${e.area}`} title={e.area} allSpots={e.spots} availSpots={e.available} getAramInfo={getAramInfo} getCurrentSection={getCurrentSection} />;

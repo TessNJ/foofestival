@@ -44,9 +44,7 @@ export default function CardDisplay({ data }) {
         <li className="parking hidden">Parking - +199,-</li>
         <li className="backstage hidden">Backstage - +299,-</li>
         <li className="green hidden">Green - +249,-</li>
-        <li className="tent hidden">
-          {data[0].amount}-Person Tent Setup - {99 + data[0].amount * 100},-
-        </li>
+        <li className="tent hidden">Tent Rental and Setup - {99 + data[0].amount * 100},-</li>
       </ul>
       <p>Price: {99 + data[0].amount * data[1].type.typePrice + parking + backStage + green + tent},- DKK</p>
     </div>

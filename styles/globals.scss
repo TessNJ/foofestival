@@ -139,6 +139,7 @@ header {
     align-items: center;
   }
   nav {
+    margin: 2vw;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -146,12 +147,15 @@ header {
     ul {
       display: flex;
       justify-content: space-between;
-      column-gap: 1vw;
+      column-gap: 7vw;
       margin: 0;
       padding: 0;
       li {
         list-style: none;
       }
+    }
+    .buttonLook {
+      width: 16%;
     }
   }
 }
@@ -177,7 +181,7 @@ footer {
     flex-direction: column;
     row-gap: 0.5vw;
     li {
-      padding: 1vw;
+      padding: 0.1vw;
       list-style: none;
       color: $secondary-colour-lighter;
       font-size: 1rem;
@@ -393,8 +397,8 @@ footer {
   right: 2vw;
   top: 7.5vw;
   // border: yellow 1px solid;
-  width: 21vw;
   .timerHere {
+    width: 100%;
     padding: 1vw 2vw;
     background-color: $secondary-colour;
     background-color: $base-colour;
@@ -495,6 +499,15 @@ footer {
   //header and footer
   header {
     flex-direction: row;
+    nav {
+      margin: 0;
+      ul {
+        column-gap: 2vw;
+      }
+      .buttonLook {
+        width: 32%;
+      }
+    }
   }
   //Contact
   // index and schedule

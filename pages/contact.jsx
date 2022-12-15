@@ -15,7 +15,7 @@ export default function Contact(props) {
           <p>lorem@ipsum.dol</p>
         </article>
         <article>
-          <Image src={"/RuneStone-FooFestival.svg"} width={"500"} height={"500"} alt=""></Image>
+          <Image id="contactIMG" src={"/RuneStone-FooFestival.svg"} width={"500"} height={"300"} alt="Runic for Foofestival writen on a boulder"></Image>
         </article>
       </main>
     </>

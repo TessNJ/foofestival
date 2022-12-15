@@ -191,12 +191,17 @@ footer {
 //Contact
 .contactMain {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   margin: 5vw;
   column-gap: 3vw;
   justify-items: center;
   align-items: center;
   height: 100%;
+
+  #contactIMG {
+    max-width: 90%;
+    margin: 0 5%;
+  }
 }
 
 // index and schedule
@@ -513,6 +518,12 @@ footer {
     }
   }
   //Contact
+  .contactMain {
+    grid-template-columns: 1fr 1fr;
+    #contactIMG {
+      max-width: 50%;
+    }
+  }
   // index and schedule
   //Ticket General
   .ticketMain {

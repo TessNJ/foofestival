@@ -3,7 +3,6 @@ $base-colour-darker: #141313;
 $secondary-colour: #ffead6;
 $secondary-colour-lighter: #fff3e8;
 $accent-colour: #b81b0a;
-$border-radius: 100%;
 $space-small: 1vw;
 $space-main: 2vw;
 $space-medium: 3vw;
@@ -89,7 +88,7 @@ a {
 }
 
 .logo {
-  border-radius: $border-radius;
+  border-radius: 100%;
 }
 .buttonLook,
 button {

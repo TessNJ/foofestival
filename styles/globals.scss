@@ -3,7 +3,10 @@ $base-colour-darker: #141313;
 $secondary-colour: #ffead6;
 $secondary-colour-lighter: #fff3e8;
 $accent-colour: #b81b0a;
-$accent-colour-darker: #b81b0a;
+$border-radius: 100%;
+$space-small: 1vw;
+$space-main: 2vw;
+$space-medium: 3vw;
 
 //default reset
 *,
@@ -11,7 +14,6 @@ $accent-colour-darker: #b81b0a;
 *::after {
   box-sizing: border-box;
   margin: 0;
-  // padding: 0;
 }
 html,
 body {
@@ -86,27 +88,20 @@ a {
   color: $secondary-colour-lighter;
 }
 
-hr {
-  border: 0;
-  border-top: 1px solid $accent-colour-darker;
-  width: 40%;
-  align-self: center;
-}
-
 .logo {
-  border-radius: 100%;
+  border-radius: $border-radius;
 }
 .buttonLook,
 button {
   align-self: flex-end;
   width: 100%;
   border: none;
-  padding: 2vw 0vw;
+  padding: $space-main;
   background-color: $accent-colour;
   color: $secondary-colour-lighter;
 }
 .buttonLook {
-  padding: 0.7vw 2vw;
+  padding: 0.7vw $space-main;
   align-self: center;
 }
 .form-group {
@@ -131,7 +126,7 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 1vw 6vw;
+  padding: $space-small 6vw;
   .logoDiv {
     display: flex;
     justify-content: space-between;
@@ -139,7 +134,7 @@ header {
     align-items: center;
   }
   nav {
-    margin: 2vw;
+    margin: $space-main;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -165,7 +160,7 @@ footer {
   margin-top: auto;
   display: flex;
   justify-content: space-between;
-  padding: 1vw 6vw;
+  padding: $space-small 6vw;
   .footerLogo {
     display: flex;
     flex-direction: column;
@@ -173,7 +168,7 @@ footer {
     align-items: center;
   }
   .links {
-    padding: 2vw;
+    padding: $space-main;
   }
   ul {
     padding: 0;
@@ -181,10 +176,10 @@ footer {
     flex-direction: column;
     row-gap: 0.5vw;
     li {
-      padding: 0.1vw;
-      list-style: none;
-      color: $secondary-colour-lighter;
-      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      min-width: 48px;
+      min-height: 48px;
     }
   }
 }
@@ -193,7 +188,7 @@ footer {
   display: grid;
   grid-template-columns: 1fr;
   margin: 5vw;
-  column-gap: 3vw;
+  column-gap: $space-medium;
   justify-items: center;
   align-items: center;
   height: 100%;
@@ -222,7 +217,7 @@ footer {
   margin: 5vw;
   display: grid;
   grid-template-columns: 1fr;
-  row-gap: 3vw;
+  row-gap: $space-medium;
   section {
     padding: 4vw;
     h1 {
@@ -237,7 +232,7 @@ footer {
   div {
     display: flex;
     flex-direction: column;
-    row-gap: 2vw;
+    row-gap: $space-main;
   }
   button {
     width: 100%;
@@ -249,14 +244,13 @@ footer {
   .availDiv {
     display: grid;
     grid-template-columns: 1fr;
-    row-gap: 3vw;
+    row-gap: $space-medium;
     article {
       background-color: $base-colour;
-      // border: 1px blue solid;
-      padding: 2vw;
+      padding: $space-main;
       display: flex;
       flex-direction: column;
-      row-gap: 2vw;
+      row-gap: $space-main;
       .areaImage {
         display: flex;
         align-items: center;
@@ -283,11 +277,11 @@ footer {
   article {
     display: flex;
     flex-direction: column;
-    row-gap: 1vw;
+    row-gap: $space-small;
     div {
       display: flex;
       flex-direction: column;
-      row-gap: 2vw;
+      row-gap: $space-main;
     }
   }
 }
@@ -298,24 +292,24 @@ footer {
     margin: 4vw 0;
     display: grid;
     grid-template-columns: 1fr;
-    row-gap: 3vw;
+    row-gap: $space-medium;
     .formType {
       background-color: $base-colour-darker;
-      padding: 3vw;
+      padding: $space-medium;
     }
     .form-group-small {
       background-color: $base-colour;
       display: flex;
       flex-direction: column;
-      padding: 3vw;
-      row-gap: 3vw;
+      padding: $space-medium;
+      row-gap: $space-medium;
     }
     .form-group-big {
       background-color: $base-colour;
       display: flex;
       flex-direction: column;
-      padding: 3vw;
-      row-gap: 3vw;
+      padding: $space-medium;
+      row-gap: $space-medium;
     }
     .form-group {
       background-color: $base-colour-darker;
@@ -324,13 +318,13 @@ footer {
       justify-content: space-between;
       flex-wrap: wrap;
       row-gap: 0;
-      padding: 3vw;
+      padding: $space-medium;
       input {
         width: 45%;
       }
     }
     .formTent {
-      padding: 3vw;
+      padding: $space-medium;
       background-color: $base-colour-darker;
       label {
         justify-content: flex-start;
@@ -361,29 +355,29 @@ footer {
   .guestCopy {
     display: flex;
     flex-direction: column;
-    row-gap: 2vw;
-    margin: 2vw 0;
+    row-gap: $space-main;
+    margin: $space-main 0;
   }
   article {
     display: flex;
     flex-direction: column;
-    row-gap: 3vw;
+    row-gap: $space-medium;
     form {
-      padding: 3vw 0;
+      padding: $space-medium 0;
       display: flex;
       flex-direction: column;
-      row-gap: 3vw;
+      row-gap: $space-medium;
       fieldset {
         border: none;
         background-color: $base-colour;
         display: flex;
         flex-direction: column;
-        row-gap: 3vw;
+        row-gap: $space-medium;
       }
     }
     div {
       display: flex;
-      row-gap: 2vw;
+      row-gap: $space-main;
       flex-direction: column;
       justify-content: space-between;
     }
@@ -395,8 +389,8 @@ footer {
   div {
     display: flex;
     flex-direction: column;
-    row-gap: 3vw;
-    margin: 2vw 0 0 0;
+    row-gap: $space-medium;
+    margin: $space-main 0 0 0;
   }
 }
 
@@ -410,7 +404,7 @@ footer {
   }
   .timerHere {
     width: 100%;
-    padding: 0.5vw 1vw;
+    padding: 0.5vw $space-small;
     background-color: $secondary-colour;
     background-color: $base-colour;
     border: 2px $accent-colour solid;
@@ -437,7 +431,7 @@ footer {
     padding: 5vw 10vw;
     display: flex;
     flex-direction: column;
-    row-gap: 1vw;
+    row-gap: $space-small;
   }
 }
 
@@ -450,7 +444,7 @@ footer {
   height: 100%;
   column-gap: 7vw;
   position: relative;
-  row-gap: 3vw;
+  row-gap: $space-medium;
   section {
     height: 100%;
     padding: 4vw;
@@ -459,15 +453,15 @@ footer {
 .buyMethod {
   display: flex;
   flex-direction: column;
-  row-gap: 3vw;
-  padding: 2vw;
+  row-gap: $space-medium;
+  padding: $space-main;
   background-color: $base-colour-darker;
   form {
     background-color: $base-colour;
-    padding: 2vw;
+    padding: $space-main;
     display: flex;
     flex-direction: column;
-    row-gap: 3vw;
+    row-gap: $space-medium;
     input {
       width: 55%;
     }
@@ -484,11 +478,10 @@ footer {
 .buyDetails {
   display: flex;
   flex-direction: column;
-  row-gap: 2vw;
-  padding: 2vw;
+  row-gap: $space-main;
+  padding: $space-main;
   background-color: $base-colour-darker;
   .buyDetailsSmall {
-    // display: flex;
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 5vw;
@@ -514,7 +507,15 @@ footer {
     nav {
       margin: 0;
       ul {
-        column-gap: 2vw;
+        column-gap: $space-main;
+      }
+    }
+  }
+  footer {
+    ul {
+      li {
+        min-width: 21px;
+        min-height: 21px;
       }
     }
   }
@@ -525,18 +526,16 @@ footer {
       max-width: 50%;
     }
   }
-  // index and schedule
   //Ticket General
   .ticketMain {
-    margin: 3vw 10vw;
+    margin: $space-medium 10vw;
     section {
-      padding: 3vw;
+      padding: $space-medium;
     }
   }
   //ticket - sections
   #infoGreet {
     div {
-      // display: flex;
       flex-direction: row;
       justify-content: space-between;
       button {
@@ -547,11 +546,10 @@ footer {
   }
   #infoAvail {
     .availDiv {
-      // grid-template-columns: 1fr 1fr;
-      column-gap: 3vw;
-      row-gap: 3vw;
+      column-gap: $space-medium;
+      row-gap: $space-medium;
       article {
-        row-gap: 1vw;
+        row-gap: $space-small;
         div {
           p {
             width: 100%;
@@ -559,7 +557,6 @@ footer {
         }
       }
       form {
-        // flex-wrap: nowrap;
         input {
           width: 10%;
         }
@@ -570,7 +567,7 @@ footer {
     article {
       .reserveDiv {
         flex-direction: row;
-        column-gap: 2vw;
+        column-gap: $space-main;
       }
       button {
         align-self: center;
@@ -587,20 +584,20 @@ footer {
     }
     form {
       .form-group {
-        padding: 1vw;
+        padding: $space-small;
         input {
           width: 60%;
         }
       }
       fieldset {
-        padding: 1vw;
+        padding: $space-small;
         flex-direction: row;
       }
     }
   }
   #infoGuest {
     .guestCopy {
-      row-gap: 1vw;
+      row-gap: $space-small;
       h2 {
         width: 100%;
       }
@@ -610,13 +607,13 @@ footer {
     article {
       form {
         padding: 0;
-        row-gap: 1vw;
+        row-gap: $space-small;
         fieldset {
           display: flex;
           flex-direction: row;
           justify-content: space-between;
-          column-gap: 3vw;
-          padding: 1vw;
+          column-gap: $space-medium;
+          padding: $space-small;
           .form-group {
             width: 50%;
             input {
@@ -654,45 +651,39 @@ footer {
   #infoTimedOut,
   #buyBought {
     div {
-      padding: 3vw 7vw;
+      padding: $space-medium 7vw;
     }
   }
   //* Buy section *//
   .purchaseMain {
-    margin: 3vw 10vw;
-    // grid-template-columns: 1fr 30vw;
+    margin: $space-medium 10vw;
     section {
-      padding: 3vw;
+      padding: $space-medium;
     }
   }
   .buyMethod {
     justify-content: center;
-    row-gap: 1vw;
+    row-gap: $space-small;
     form {
-      row-gap: 1vw;
+      row-gap: $space-small;
     }
   }
   .buyDetails {
-    row-gap: 1vw;
+    row-gap: $space-small;
     .buyDetailsSmall {
       column-gap: 1vw;
     }
   }
 
   @media screen and (min-width: 1101px) {
-    //General Use
-    //header and footer
-    //Contact
-    // index and schedule
-    //Ticket General
     //ticket - sections
     #infoAvail {
       .availDiv {
         grid-template-columns: 1fr 1fr;
-        column-gap: 3vw;
-        row-gap: 3vw;
+        column-gap: $space-medium;
+        row-gap: $space-medium;
         article {
-          row-gap: 1vw;
+          row-gap: $space-small;
           div {
             p {
               width: 100%;
@@ -700,7 +691,6 @@ footer {
           }
         }
         form {
-          // flex-wrap: nowrap;
           input {
             width: 10%;
           }
@@ -717,22 +707,21 @@ footer {
           width: 49%;
         }
         .form-group-small {
-          padding: 2vw;
-          row-gap: 1vw;
+          padding: $space-main;
+          row-gap: $space-small;
           flex-direction: row;
           flex-wrap: wrap;
           justify-content: space-between;
         }
         .form-group-big {
-          padding: 2vw;
-          row-gap: 1vw;
+          padding: $space-main;
+          row-gap: $space-small;
           flex-direction: row;
           flex-wrap: wrap;
           justify-content: space-between;
         }
       }
     }
-    //multipages
     //* Buy section *//
     .purchaseMain {
       grid-template-columns: 1fr 30vw;

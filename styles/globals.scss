@@ -199,9 +199,8 @@ footer {
   }
 }
 
-// index and schedule
-.indexMain,
-.scheduleMain {
+// index
+.indexMain {
   display: grid;
   grid-template-columns: 1fr;
   margin: 5vw;

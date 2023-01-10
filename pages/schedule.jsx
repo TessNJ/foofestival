@@ -4,21 +4,17 @@ import DaySchedule from "../components/DaySchedule";
 import StageSchedule from "../components/StageSchedule";
 
 export default function Schedule({ data }) {
-  console.log(data);
-  // console.log(data.Midgard.name);
   return (
     <>
       <HeadInfo title="Schedule">This is currently unavailable</HeadInfo>
       <main className="scheduleMain">
         <h1>Schedules</h1>
         <section>
-          <StageSchedule title={data} data={data.Midgard} />
-          {/* <StageSchedule />
-          <StageSchedule /> */}
+          <StageSchedule title="Midgard" data={data.Midgard} />
+          <StageSchedule title="Vanaheim" data={data.Vanaheim} />
+          <StageSchedule title="Jotunheim" data={data.Jotunheim} />
         </section>
-        <div>
-          <DaySchedule />
-        </div>
+        <DaySchedule data={data} />
       </main>
     </>
   );

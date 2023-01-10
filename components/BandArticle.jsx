@@ -1,11 +1,11 @@
 import React from "react";
 
-export default function BandArticle() {
+export default function BandArticle({ start, end, act }) {
   return (
     <article>
-      <h4>Name</h4>
-      <p>Start</p>
-      <p>End</p>
+      <h4>{act}</h4>
+      <p>{start}</p>
+      <p>{end}</p>
     </article>
   );
 }

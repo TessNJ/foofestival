@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import DayInvidual from "./DayInvidual";
 
-export default function DaySchedule() {
+export default function DaySchedule({ data }) {
   return (
-    <>
-      <h2>Day</h2>
-      <article></article>
-    </>
+    <section>
+      <h2>Currently</h2>
+      <DayInvidual title="Midgard" data={data.Midgard} />
+      <DayInvidual title="Vanaheim" data={data.Vanaheim} />
+      <DayInvidual title="Jotunheim" data={data.Jotunheim} />
+    </section>
   );
 }

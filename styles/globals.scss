@@ -496,7 +496,7 @@ footer {
 .scheduleMain {
   display: grid;
   grid-template-columns: 1fr;
-  margin: 3vw 10vw;
+  margin: 3vw 7vw;
   height: 100%;
   row-gap: $space-main;
 }
@@ -576,7 +576,7 @@ footer {
 }
 .secCurrent {
   background-color: $base-colour-darker;
-  padding: $space-small;
+  padding: $space-medium;
   .actDiv {
     display: flex;
     justify-content: space-between;

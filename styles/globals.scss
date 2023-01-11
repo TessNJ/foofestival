@@ -492,6 +492,88 @@ footer {
 .buyBought {
   position: absolute;
 }
+//Schedule
+.scheduleMain {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: 3vw 10vw;
+  height: 100%;
+  row-gap: $space-main;
+}
+.secBands {
+  background-color: $base-colour-darker;
+  padding: $space-medium;
+  .bandsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20%, 1fr));
+    column-gap: $space-small;
+    row-gap: $space-small;
+  }
+  .bandIndiv {
+    // position: relative;
+    background-color: $base-colour;
+    padding: $space-small;
+    display: flex;
+    flex-direction: column;
+    button {
+      cursor: pointer;
+    }
+  }
+  .moreInfo {
+    position: fixed;
+    z-index: 100;
+    width: 100vw;
+    height: 100vw;
+    left: 0;
+    top: 0;
+    background-color: #1f1f1f79;
+
+    .bandsInfoDiv {
+      position: relative;
+      display: flex;
+      column-gap: $space-small;
+      row-gap: $space-small;
+      margin: 20% auto;
+      padding: $space-medium;
+      background-color: $base-colour-darker;
+      width: 60%;
+      img {
+        align-self: center;
+      }
+      .closeButton {
+        position: absolute;
+        width: 4%;
+        top: 0;
+        right: 0;
+        margin: 2%;
+      }
+    }
+  }
+}
+.secSchedules {
+  background-color: $base-colour-darker;
+  padding: $space-medium;
+}
+.horizDiv {
+  background-color: $base-colour;
+  overflow: auto;
+  white-space: nowrap;
+  display: flex;
+  flex-direction: row;
+  column-gap: $space-small;
+  padding: $space-small;
+}
+.bandArticle {
+  background-color: $base-colour-darker;
+  padding: $space-small;
+  h4 {
+    width: 20vw;
+    white-space: normal;
+  }
+}
+.bigDiv {
+  width: 80vw;
+}
 
 @media screen and (min-width: 768px) {
   //General Use

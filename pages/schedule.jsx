@@ -10,21 +10,21 @@ export default function Schedule({ data, bands }) {
     <>
       <HeadInfo title="Schedule">This is currently unavailable</HeadInfo>
       <main className="scheduleMain">
-        <section>
-          <h1>Bands</h1>
-          <section>
-            {bands.map((element, index) => {
-              return <BandInfo key={index} data={element} />;
-            })}
-          </section>
-        </section>
-        <section>
+        <section className="secSchedules">
           <h1>Schedules</h1>
           <DaySchedule data={data} />
           <section>
             <StageSchedule title="Midgard" data={data.Midgard} />
             <StageSchedule title="Vanaheim" data={data.Vanaheim} />
             <StageSchedule title="Jotunheim" data={data.Jotunheim} />
+          </section>
+        </section>
+        <section className="secBands">
+          <h1>Bands</h1>
+          <section className="bandsGrid">
+            {bands.map((element, index) => {
+              return <BandInfo key={index} data={element} />;
+            })}
           </section>
         </section>
       </main>

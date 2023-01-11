@@ -11,7 +11,6 @@ export default function BandInfo({ data }) {
   } else if (!data.logo.includes("https://")) {
     // src = `localhost:8080/logos/${data.logo}`;
     src = `https://fooapi.fly.dev/logos/${data.logo}`;
-    // console.log(`https://fooapi.fly.dev/logos/${data.logo}`);
   }
 
   function displayInfo(e) {

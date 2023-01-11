@@ -505,7 +505,7 @@ footer {
   padding: $space-medium;
   .bandsGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(20%, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(50%, 1fr));
     column-gap: $space-small;
     row-gap: $space-small;
   }
@@ -560,14 +560,14 @@ footer {
   white-space: nowrap;
   display: flex;
   flex-direction: row;
-  column-gap: $space-small;
+  column-gap: $space-medium;
   padding: $space-small;
 }
 .bandArticle {
   background-color: $base-colour-darker;
   padding: $space-small;
   h4 {
-    width: 20vw;
+    width: 40vw;
     white-space: normal;
   }
 }
@@ -579,6 +579,7 @@ footer {
   padding: $space-medium;
   .actDiv {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
   }
   .currentActDiv {
@@ -769,6 +770,25 @@ footer {
       column-gap: 1vw;
     }
   }
+  //schedule
+  .secCurrent {
+    .actDiv {
+      flex-direction: row;
+    }
+  }
+  .bandArticle {
+    h4 {
+      width: 20vw;
+    }
+  }
+  .horizDiv {
+    column-gap: $space-small;
+  }
+  .secBands {
+    .bandsGrid {
+      grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
+    }
+  }
 
   @media screen and (min-width: 1101px) {
     //ticket - sections
@@ -820,6 +840,12 @@ footer {
     //* Buy section *//
     .purchaseMain {
       grid-template-columns: 1fr 30vw;
+    }
+    //schedule
+    .secBands {
+      .bandsGrid {
+        grid-template-columns: repeat(auto-fit, minmax(20%, 1fr));
+      }
     }
   }
 }

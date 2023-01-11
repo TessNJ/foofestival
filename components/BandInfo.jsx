@@ -5,6 +5,7 @@ export default function BandInfo({ data }) {
   console.log(data.logo);
 
   let src;
+
   /*   let src = "https://placeimg.com/720/480/animals?85800"; */
   if (data.logo.includes("https://")) {
     src = data.logo;

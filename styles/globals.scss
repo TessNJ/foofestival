@@ -519,6 +519,14 @@ footer {
       cursor: pointer;
     }
   }
+  .imgNameDiv {
+    column-gap: $space-medium;
+    display: flex;
+    flex-direction: row;
+    div {
+      align-self: center;
+    }
+  }
   .moreInfo {
     position: fixed;
     z-index: 100;
@@ -531,18 +539,19 @@ footer {
     .bandsInfoDiv {
       position: relative;
       display: flex;
+      flex-direction: column;
       column-gap: $space-small;
       row-gap: $space-small;
       margin: 20% auto;
       padding: $space-medium;
       background-color: $base-colour-darker;
-      width: 60%;
       img {
         align-self: center;
       }
       .closeButton {
         position: absolute;
-        width: 4%;
+        width: 8%;
+        aspect-ratio: 1/1;
         top: 0;
         right: 0;
         margin: 2%;
@@ -788,6 +797,15 @@ footer {
     .bandsGrid {
       grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
     }
+    .moreInfo {
+      .bandsInfoDiv {
+        // flex-direction: row;
+        width: 60%;
+        .closeButton {
+          width: 6%;
+        }
+      }
+    }
   }
 
   @media screen and (min-width: 1101px) {
@@ -845,6 +863,27 @@ footer {
     .secBands {
       .bandsGrid {
         grid-template-columns: repeat(auto-fit, minmax(20%, 1fr));
+      }
+    }
+    .secBands {
+      .bandsGrid {
+        grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
+      }
+      .imgNameDiv {
+        flex-direction: column;
+        align-self: center;
+        div {
+          align-self: flex-start;
+        }
+      }
+      .moreInfo {
+        .bandsInfoDiv {
+          flex-direction: row;
+          width: 60%;
+          .closeButton {
+            width: 4%;
+          }
+        }
       }
     }
   }

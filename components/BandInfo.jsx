@@ -4,14 +4,15 @@ import Image from "next/image";
 export default function BandInfo({ data }) {
   console.log(data.logo);
 
-  let src = "https://placeimg.com/720/480/animals?85800";
-  /*   if (data.logo.includes("https://")) {
+  // let src = "https://placeimg.com/720/480/animals?85800";
+  let src;
+  if (data.logo.includes("https://")) {
     src = data.logo;
   } else if (!data.logo.includes("https://")) {
     // src = `localhost:8080/logos/${data.logo}`;
-    // src = `https://fooapi.fly.dev/logos/${data.logo}`;
+    src = `https://fooapi.fly.dev/logos/${data.logo}`;
     // console.log(`https://fooapi.fly.dev/logos/${data.logo}`);
-  } */
+  }
 
   function displayInfo(e) {
     e.currentTarget.nextElementSibling.classList.remove("hidden");
@@ -34,10 +35,12 @@ export default function BandInfo({ data }) {
       </button>
       <div className="moreInfo hidden">
         <div className="bandsInfoDiv">
-          <div>
+          <div className="imgNameDiv">
             <Image alt="" src={src} width="200" height="200" />
-            <h4>{data.name}</h4>
-            <p>{data.genre}</p>
+            <div>
+              <h4>{data.name}</h4>
+              <p>{data.genre}</p>
+            </div>
           </div>
           <div className="mainInfo">
             <p>

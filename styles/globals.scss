@@ -574,6 +574,21 @@ footer {
 .bigDiv {
   width: 80vw;
 }
+.secCurrent {
+  background-color: $base-colour-darker;
+  padding: $space-small;
+  .actDiv {
+    display: flex;
+    justify-content: space-between;
+  }
+  .currentActDiv {
+    background-color: $base-colour;
+    padding: $space-main;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
 
 @media screen and (min-width: 768px) {
   //General Use

@@ -26,7 +26,7 @@ export default function DayInvidual({ title, data }) {
   }, [dataArray, time]);
   if (currentAct) {
     return (
-      <article>
+      <article className="currentActDiv">
         <h2>{title}</h2>
         <section>
           <h4>Now</h4>

@@ -10,9 +10,12 @@ export default function Schedule({ data, bands }) {
     <>
       <HeadInfo title="Schedule">This is currently unavailable</HeadInfo>
       <main className="scheduleMain">
+        <section className="secCurrent">
+          <h1>Currently</h1>
+          <DaySchedule data={data} />
+        </section>
         <section className="secSchedules">
           <h1>Schedules</h1>
-          <DaySchedule data={data} />
           <section>
             <StageSchedule title="Midgard" data={data.Midgard} />
             <StageSchedule title="Vanaheim" data={data.Vanaheim} />

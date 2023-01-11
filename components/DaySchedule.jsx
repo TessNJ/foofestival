@@ -3,11 +3,10 @@ import DayInvidual from "./DayInvidual";
 
 export default function DaySchedule({ data }) {
   return (
-    <section>
-      <h2>Currently</h2>
+    <div className="actDiv">
       <DayInvidual title="Midgard" data={data.Midgard} />
       <DayInvidual title="Vanaheim" data={data.Vanaheim} />
       <DayInvidual title="Jotunheim" data={data.Jotunheim} />
-    </section>
+    </div>
   );
 }

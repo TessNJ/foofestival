@@ -4,15 +4,15 @@ import Image from "next/image";
 export default function BandInfo({ data }) {
   console.log(data.logo);
 
-  /*   let src; */
-  let src = "https://placeimg.com/720/480/animals?85800";
-  /*   if (data.logo.includes("https://")) {
+  let src;
+  /*   let src = "https://placeimg.com/720/480/animals?85800"; */
+  if (data.logo.includes("https://")) {
     src = data.logo;
   } else if (!data.logo.includes("https://")) {
     // src = `localhost:8080/logos/${data.logo}`;
     src = `https://fooapi.fly.dev/logos/${data.logo}`;
     // console.log(`https://fooapi.fly.dev/logos/${data.logo}`);
-  } */
+  }
 
   function displayInfo(e) {
     e.currentTarget.nextElementSibling.classList.remove("hidden");

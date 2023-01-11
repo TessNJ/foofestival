@@ -36,10 +36,10 @@ export default function Schedule({ data, bands }) {
 }
 
 export async function getStaticProps() {
-  const res = await fetch("http://localhost:8080/schedule");
-  // const res = await fetch("https://fooapi.fly.dev/schedule");
-  const res2 = await fetch("http://localhost:8080/bands");
-  // const res2 = await fetch("https://fooapi.fly.dev/bands");
+  /*   const res = await fetch("http://localhost:8080/schedule"); */
+  const res = await fetch("https://fooapi.fly.dev/schedule");
+  /*   const res2 = await fetch("http://localhost:8080/bands"); */
+  const res2 = await fetch("https://fooapi.fly.dev/bands");
 
   const data = await res.json();
   const bands = await res2.json();
